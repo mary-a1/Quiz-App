@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
   db.query(query)
     .then(data => {
       const widgets = data.rows;
-      res.json({ widgets });
+      res.json({ widgets }); 
     })
     .catch(err => {
       res
