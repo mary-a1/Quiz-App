@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Quiz Light | Search</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/search.scss" />
+
+  <!-- External Scripts -->
+  <script src="/vendor/jquery-3.0.0.js"></script>
+
+  <!-- App Scripts -->
+  <script defer src="/scripts/search.js"></script>
+</head>
+
+<body>
+  <!-- Nav Bar -->
+  <%- include('partials/header') %>
+
+    <!-- Header -->
+    <h1>Search for a Quiz</h1>
+
+    <!-- Search form -->
+    <form action="/properties" method="get" id="search-property-form" class="search-property-form">
+      <div class="search-property-form__field-wrapper">
+        <label for="search-property-form__city">City</label>
+        <input type="text" name="city" placeholder="City" id="search-property-form__city">
+      </div>
+
+      <div class="search-property-form__field-wrapper">
+        <label for="search-property-form__minimum-price-per-night">Minimum Cost</label>
+        <input type="number" name="minimum_price_per_night" placeholder="Minimum Cost"
+          id="search-property-form__minimum-price-per-night">
+        <label for="search-property-form__maximum-price-per-night">Maximum Cost</label>
+        <input type="number" name="maximum_price_per_night" placeholder="Maximum Cost"
+          id="search-property-form__maximum-price-per-night">
+      </div>
+
+      <div class="search-property-form__field-wrapper">
+        <label for="search-property-form__minimum-rating">Minimum Rating</label>
+        <input type="number" name="minimum_rating" placeholder="Minimum Rating"
+          id="search-property-form__minimum-rating">
+      </div>
+
+      <div class="search-property-form__field-wrapper">
+        <button>Search</button>
+        <a id="search-property-form__cancel" href="#">Cancel</a>
+      </div>
+    </form>
+</body>
+
+</html>
