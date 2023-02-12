@@ -6,7 +6,7 @@
  */
 
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 const db = require('../db/connection');
 
 router.get('/', (req, res) => {
@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
   db.query(query)
     .then(data => {
       const widgets = data.rows;
-      res.json({ widgets }); 
+      res.json({ widgets });
     })
     .catch(err => {
       res
