@@ -46,8 +46,12 @@ app.use('/search', searchRoutes);
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
+const allQuizzes = require('./db/queries/quizzes');
 app.get('/', (req, res) => {
-  res.render('index');
+  allQuizzes.getAllQuizzes()
+    .then((quizzes) => {
+      res.render('index', { quizzes });
+    });
 });
 
 app.listen(PORT, () => {

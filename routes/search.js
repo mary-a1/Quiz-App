@@ -22,7 +22,7 @@ router.post('/', (req, res) => {
   searchQueries.getAllQuizzes(searchParams)
     .then((quizzes) => {
       /*,{ quizzes }*/
-      res.render('index');
+      res.render('index', { quizzes });
     });
 });
 
