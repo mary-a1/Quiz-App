@@ -1,6 +1,48 @@
 // Redirect to My Quizzes on submit
 $(document).ready(() => {
+  let questionNumber = 4;
+
   $('form').on('submit', submitQuiz);
+
+  $('.add-question').on('click', function() {
+    questionNumber++;
+    const question = `
+    <fieldset class=q${questionNumber}>
+    <div>
+      <label for="q${questionNumber}">Question ${questionNumber}:</label><br>
+      <input type="text" id="q${questionNumber}" name="q${questionNumber}"><br>
+    </div>
+    <div>
+      <label for="q${questionNumber}a">A:</label><br>
+      <input type="text" id="q${questionNumber}a" name="q${questionNumber}a"><br>
+    </div>
+    <div>
+      <label for="q${questionNumber}b">B:</label><br>
+      <input type="text" id="q${questionNumber}b" name="q${questionNumber}b"><br>
+    </div>
+    <div>
+      <label for="q${questionNumber}c">C:</label><br>
+      <input type="text" id="q${questionNumber}c" name="q${questionNumber}c"><br>
+    </div>
+    <div>
+      <label for="q${questionNumber}d">D:</label><br>
+      <input type="text" id="q${questionNumber}d" name="q${questionNumber}d"><br>
+    </div>
+    <div>
+      <label for="q${questionNumber}-corr-ans">Correct Answer:</label><br>
+      <input type="text" id="q${questionNumber}-corr-ans" name="q${questionNumber}-corr-ans"><br>
+    </div>
+  </fieldset>`;
+    $(question).insertBefore(".all-buttons");
+    $('.rem-question').css('display', 'block');
+  });
+
+  $('.rem-question').on('click', function() {
+    const $question = `.q${questionNumber}`;
+    $($question).remove();
+    questionNumber--;
+    $('.rem-question').css('display', (questionNumber > 4) ? 'block' : 'none');
+  });
 });
 
 const submitQuiz = function(event) {

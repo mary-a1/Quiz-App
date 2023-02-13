@@ -14,7 +14,7 @@
   <!-- App CSS -->
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
-  <link rel="stylesheet" href="/styles/create-quiz.scss" />
+  <link rel="stylesheet" href="/styles/create-quiz.css" />
 
   <!-- External Scripts -->
   <script src="/vendor/jquery-3.0.0.js"></script>
@@ -53,7 +53,7 @@
       </fieldset>
 
       <!-- Question 1 -->
-      <fieldset>
+      <fieldset class="q1">
         <div>
           <label for="q1">Question 1:</label><br>
           <input type="text" id="q1" name="q1"><br>
@@ -81,7 +81,7 @@
       </fieldset>
 
       <!-- Question 2 -->
-      <fieldset>
+      <fieldset class="q2">
         <div>
           <label for="q2">Question 2:</label><br>
           <input type="text" id="q2" name="q2"><br>
@@ -109,7 +109,7 @@
       </fieldset>
 
       <!-- Question 3 -->
-      <fieldset>
+      <fieldset class="q3">
         <div>
           <label for="q3">Question 3:</label><br>
           <input type="text" id="q3" name="q3"><br>
@@ -137,7 +137,7 @@
       </fieldset>
 
       <!-- Question 4 -->
-      <fieldset>
+      <fieldset class="q4">
         <div>
           <label for="q4">Question 4:</label><br>
           <input type="text" id="q4" name="q4"><br>
@@ -162,12 +162,15 @@
           <label for="q4-corr-ans">Correct Answer:</label><br>
           <input type="text" id="q4-corr-ans" name="q4-corr-ans"><br>
         </div>
-        <fieldset>
+      </fieldset>
 
-          <!-- Submit/Canel Quiz -->
-          <input type="submit" value="Submit">
-          <button type="button">Add Question</button>
-          <a href="/">Cancel</a>
+      <!-- Submit/Canel Quiz -->
+      <div class="all-buttons">
+        <input type="submit" value="Submit">
+        <button class="add-question">Add Question</button>
+        <button class="rem-question">Remove Question</button>
+        <a href="/">Cancel</a>
+      </div>
     </form>
 </body>
 
