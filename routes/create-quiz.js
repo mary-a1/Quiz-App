@@ -19,7 +19,10 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   // Search parameters
   const quizParams = req.body;
-  quizParams.creator_id = '1';
+  // CREATOR ID HARDCODED
+  quizParams.creatorId = '1';
+  
+  console.log(quizParams);
   createQueries.addQuiz(quizParams)
     .then((myQuizzes) => {
       // NOT RENDERING (FINISH THIS)
