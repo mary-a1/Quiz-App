@@ -18,7 +18,6 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   // console.log(req.body);
-
   getUser.userLogin(req.body)
     .then((rows) => {
       // console.log(rows);
