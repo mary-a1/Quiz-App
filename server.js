@@ -5,6 +5,8 @@ require('dotenv').config();
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
+const cookieSession = require('cookie-session');
+
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -26,6 +28,15 @@ app.use(
 );
 app.use(express.static('public'));
 
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["key1", "key2"],
+    // Cookie Options
+    maxAge: 24 * 60 * 60 * 1000, // 24 hours
+  })
+);
+
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const userApiRoutes = require('./routes/users-api');
@@ -34,6 +45,7 @@ const usersRoutes = require('./routes/users');
 const quizRoutes = require('./routes/quiz');
 const searchRoutes = require('./routes/search');
 const createRoutes = require('./routes/create-quiz');
+const loginRoutes = require('./routes/login');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -44,6 +56,7 @@ app.use('/users', usersRoutes);
 app.use('/quiz', quizRoutes);
 app.use('/search', searchRoutes);
 app.use('/quiz/new', createRoutes);
+app.use('/login', loginRoutes);
 
 
 // Home page
@@ -55,6 +68,7 @@ app.get('/', (req, res) => {
     .then((quizzes) => {
       res.render('index', { quizzes });
     });
+
 });
 
 app.listen(PORT, () => {
