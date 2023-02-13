@@ -1,7 +1,7 @@
 /*
  * All routes for create quiz through quizzes are defined here
- * Since this file is loaded in server.js into /quiz/new,
- *   these routes are mounted onto /quiz/new
+ * Since this file is loaded in server.js into /new,
+ *   these routes are mounted onto /new
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
@@ -19,10 +19,9 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   // Search parameters
   const quizParams = req.body;
+  console.log(JSON.parse(quizParams));
   // CREATOR ID HARDCODED
   quizParams.creatorId = '1';
-  
-  console.log(quizParams);
   createQueries.addQuiz(quizParams)
     .then((myQuizzes) => {
       // NOT RENDERING (FINISH THIS)
