@@ -32,6 +32,8 @@ const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
 const quizRoutes = require('./routes/quiz');
+const searchRoutes = require('./routes/search');
+const createRoutes = require('./routes/create-quiz');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -40,14 +42,19 @@ app.use('/api/users', userApiRoutes);
 app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
 app.use('/quiz', quizRoutes);
-// Note: mount other resources here, using the same pattern above
+app.use('/search', searchRoutes);
+app.use('/quiz/new', createRoutes);
+
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
-
+const allQuizzes = require('./db/queries/get-quizzes');
 app.get('/', (req, res) => {
-  res.render('index');
+  allQuizzes.getAllQuizzes()
+    .then((quizzes) => {
+      res.render('index', { quizzes });
+    });
 });
 
 app.listen(PORT, () => {
