@@ -56,6 +56,7 @@ app.use('/users', usersRoutes);
 app.use('/quiz', quizRoutes);
 app.use('/search', searchRoutes);
 app.use('/new', createRoutes);
+app.use('/new', createRoutes);
 app.use('/login', loginRoutes);
 
 
