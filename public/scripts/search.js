@@ -4,12 +4,10 @@ $(document).ready(() => {
 });
 
 const submitSearch = function(event) {
+  // Initial settings
+  event.preventDefault();
+
   // content
   const data = $(this).serialize();
-  console.log(data);
-  return $.ajax({
-    method: "GET",
-    url: "/",
-    data
-  });
+  $.post("/search", data);
 };

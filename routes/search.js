@@ -8,7 +8,7 @@
 // Set up the middleware
 const express = require('express');
 const router = express.Router();
-const searchQueries = require('../db/queries/search');
+const searchQueries = require('../db/queries/quizzes');
 
 // Get request to search page
 router.get('/', (req, res) => {
@@ -16,10 +16,14 @@ router.get('/', (req, res) => {
 });
 
 // Get request after submitting form
-router.get('/', (req, res) => {
-  console.log('------------------------------------------------------------------------------------------------');
-  console.log(res);
-  res.json({ res });
+router.post('/', (req, res) => {
+  // Search parameters
+  const searchParams = req.body;
+  searchQueries.getAllQuizzes(searchParams)
+    .then((quizzes) => {
+      /*,{ quizzes }*/
+      res.render('index');
+    });
 });
 
 module.exports = router;
