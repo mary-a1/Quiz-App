@@ -1,0 +1,38 @@
+$fontColor : #2C74B3;
+$roboto: 'Roboto', sans-serif;
+$openSans: 'Open Sans', sans-serif;
+
+header {
+  background-color: white;
+  height: 120px;
+  width: 100%;
+  color: $fontColor;
+  display:inline-block;
+  padding: 1.5em;
+  position: fixed;
+  top: 0;
+}
+.logo {
+  width: 137px;
+  margin-top: -11px;
+}
+
+.navbar-brand{
+  font-family: $openSans;
+  font-size: xx-large;
+}
+
+.navbar-nav{
+  font-family: $roboto;
+  padding: 0 2.5em 0 0;
+}
+
+.collapse.navbar-collapse{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-item.nav-link{
+  padding: 1em;
+}
+
