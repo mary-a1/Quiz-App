@@ -43,7 +43,7 @@ app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
 app.use('/quiz', quizRoutes);
 app.use('/search', searchRoutes);
-app.use('/quiz/new', createRoutes);
+app.use('/new', createRoutes);
 
 
 // Home page

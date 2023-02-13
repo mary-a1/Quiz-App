@@ -2,7 +2,20 @@
 $(document).ready(() => {
   let questionNumber = 4;
 
-  $('form').on('submit', submitQuiz);
+  $('form').on('submit', function(event) {
+    // Initial settings
+    event.preventDefault();
+
+    // content
+    let data = [$(".init-vals").serialize()];
+    for (let i = 1; i <= questionNumber; i++) {
+      const $field = `.q${i}`;
+      data.push($($field).serialize());
+    }
+    const stringData = JSON.stringify({ data });
+
+    $.post("/new", stringData);
+  });
 
   $('.add-question').on('click', function() {
     questionNumber++;
@@ -38,18 +51,9 @@ $(document).ready(() => {
   });
 
   $('.rem-question').on('click', function() {
-    const $question = `.q${questionNumber}`;
+    const $question = `#q${questionNumber}`;
     $($question).remove();
     questionNumber--;
     $('.rem-question').css('display', (questionNumber > 4) ? 'block' : 'none');
   });
 });
-
-const submitQuiz = function(event) {
-  // Initial settings
-  event.preventDefault();
-
-  // content
-  const data = $(this).serialize();
-  $.post("/quiz/new", data);
-};
