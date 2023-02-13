@@ -26,8 +26,9 @@
 <body>
   <% for (let id in quizzes) { %>
     <div class="container">
-      <%= quizzes[id].title %>
-      <%= quizzes[id].thumbnail_url %>
+      <%= quizzes[id].title %><br/>
+      <%= quizzes[id].thumbnail_url %><br/>
+      <%= quizzes[id].average_rating %><br/>
     </div>
     <% } %>
 </body>
