@@ -27,7 +27,7 @@ router.post('/', (req, res) => {
       // console.log(rows);
       if (req.body.password === rows[0].password) {
         // console.log("password matches");
-        req.session.user_id = rows[0].id;
+        req.session.user = rows[0].id;
         return res.redirect('/');
       } else {
         return res.status(403).send("ERROR: please enter a correct password.");
