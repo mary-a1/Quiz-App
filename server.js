@@ -50,6 +50,7 @@ const registerRoutes = require('./routes/register');
 const takeQuizRoutes = require('./routes/quiz-id');
 const quizzesRoutes = require('./routes/quizzes');
 const homePageRoutes = require('./routes/index');
+const logoutRoutes = require('./routes/logout');
 
 
 // Mount all resource routes
@@ -66,6 +67,7 @@ app.use('/register', registerRoutes);
 app.use('/quiz', takeQuizRoutes);
 app.use('/quizzes', quizzesRoutes);
 app.use('/', homePageRoutes);
+app.use('/logout', logoutRoutes);
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

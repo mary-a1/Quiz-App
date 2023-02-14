@@ -14,7 +14,7 @@ const createQueries = require('../db/queries/add-quiz');
 router.get('/', (req, res) => {
   // Check if logged in for header
   const user = req.session.user;
-  res.render('create-quiz', { user });
+  (user) ? res.render('create-quiz', { user }) : res.redirect('/login');
 });
 
 // Post request after submitting form
