@@ -14,13 +14,11 @@
   <!-- App CSS -->
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
-  <link rel="stylesheet" href="/styles/search.scss" />
+  <link rel="stylesheet" href="/styles/search.css" />
+  <link rel="stylesheet" href="/styles/header.css" />
 
   <!-- External Scripts -->
   <script src="/vendor/jquery-3.0.0.js"></script>
-
-  <!-- App Scripts -->
-  <script defer src="/scripts/search.js"></script>
 </head>
 
 <body>
@@ -31,7 +29,7 @@
     <h1>Search for a Quiz</h1>
 
     <!-- Search form -->
-    <form>
+    <form method="GET" action="/">
       <div>
         <label for="title">Title:</label><br>
         <input type="text" id="title" name="title"><br>
@@ -41,8 +39,8 @@
         <input type="text" id="subject" name="subject"><br>
       </div>
       <div>
-        <label for="min-rating">Minimum Rating:</label><br>
-        <input type="text" id="min-rating" name="min-rating"><br>
+        <label for="min_rating">Minimum Rating:</label><br>
+        <input type="text" id="min_rating" name="min_rating"><br>
       </div>
       <input type="submit" value="Submit">
       <a href="/">Cancel</a>

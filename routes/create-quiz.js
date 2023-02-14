@@ -1,7 +1,7 @@
 /*
  * All routes for create quiz through quizzes are defined here
- * Since this file is loaded in server.js into /quiz/new,
- *   these routes are mounted onto /quiz/new
+ * Since this file is loaded in server.js into /new,
+ *   these routes are mounted onto /new
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
@@ -17,14 +17,17 @@ router.get('/', (req, res) => {
 
 // Post request after submitting form
 router.post('/', (req, res) => {
-  // Search parameters
+  // Query info
   const quizParams = req.body;
-  quizParams.creator_id = '1';
+  quizParams.creatorId = req.session.user;
+
   createQueries.addQuiz(quizParams)
-    .then((myQuizzes) => {
-      // NOT RENDERING (FINISH THIS)
-      // res.render('index', { quizzes });
-      res.render('search');
+    .then(() => {
+      // Just need to redirect to my quizzes. The my quizzes page will gather the quiz data itself
+      res.redirect('/myquizzes' /* UPDATE THIS ONCE MY QUIZZES PAGE IS ADDED*/);
+    })
+    .catch((err) => {
+      console.error(err);
     });
 });
 

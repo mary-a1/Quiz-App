@@ -14,7 +14,9 @@
   <!-- App CSS -->
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
-  <link rel="stylesheet" href="/styles/create-quiz.scss" />
+  <link rel="stylesheet" href="/styles/create-quiz.css" />
+  <link rel="stylesheet" href="/styles/header.css" />
+
 
   <!-- External Scripts -->
   <script src="/vendor/jquery-3.0.0.js"></script>
@@ -31,113 +33,146 @@
     <h1>Create Quiz</h1>
 
     <!-- Create Quiz Form -->
-    <form>
-      <div>
-        <label for="title">Title:</label><br>
-        <input type="text" id="title" name="title"><br>
-      </div>
-      <div>
-        <label for="subject">Subject:</label><br>
-        <input type="text" id="subject" name="subject"><br>
-      </div>
-      <div>
-        <label for="thumbnail_url">Cover Photo URL:</label><br>
-        <input type="text" id="thumbnail_url" name="thumbnail_url"><br>
-      </div>
-      <div>
-        <label for="public">Public? Y/N:</label><br>
-        <input type="text" id="public" name="public"><br>
-      </div>
+    <form method="POST" action="/new">
+      <!-- Initial Info -->
+      <fieldset class="init-vals">
+        <div>
+          <label for="title">Title:</label><br>
+          <input type="text" id="title" name="title" required><br>
+        </div>
+        <div>
+          <label for="subject">Subject:</label><br>
+          <input type="text" id="subject" name="subject" required><br>
+        </div>
+        <div>
+          <label for="thumbnail_url">Cover Photo URL:</label><br>
+          <input type="text" id="thumbnail_url" name="thumbnail_url" required><br>
+        </div>
+        <div>
+          <label for="public">Public? Y/N:</label><br>
+          <input type="text" id="public" name="public" required><br>
+        </div>
+      </fieldset>
+
       <!-- Question 1 -->
-      <div>
-        <label for="q1">Question 1:</label><br>
-        <input type="text" id="q1" name="q1"><br>
-      </div>
-      <div>
-        <label for="q1a">A:</label><br>
-        <input type="text" id="q1a" name="q1a"><br>
-      </div>
-      <div>
-        <label for="q1b">B:</label><br>
-        <input type="text" id="q1b" name="q1b"><br>
-      </div>
-      <div>
-        <label for="q1c">C:</label><br>
-        <input type="text" id="q1c" name="q1c"><br>
-      </div>
-      <div>
-        <label for="q1d">D:</label><br>
-        <input type="text" id="q1d" name="q1d"><br>
-      </div>
+      <fieldset class=q1>
+        <div>
+          <label for="q1">Question 1:</label><br>
+          <input type="text" id="q1" name="q1" required><br>
+        </div>
+        <div>
+          <label for="q1a">A:</label><br>
+          <input type="text" id="q1a" name="q1a" required><br>
+        </div>
+        <div>
+          <label for="q1b">B:</label><br>
+          <input type="text" id="q1b" name="q1b" required><br>
+        </div>
+        <div>
+          <label for="q1c">C:</label><br>
+          <input type="text" id="q1c" name="q1c" required><br>
+        </div>
+        <div>
+          <label for="q1d">D:</label><br>
+          <input type="text" id="q1d" name="q1d" required><br>
+        </div>
+        <div>
+          <label for="q1-corr-ans">Correct Answer:</label><br>
+          <input type="text" id="q1-corr-ans" name="q1-corr-ans" required><br>
+        </div>
+      </fieldset>
 
       <!-- Question 2 -->
-      <div>
-        <label for="q2">Question 2:</label><br>
-        <input type="text" id="q2" name="q2"><br>
-      </div>
-      <div>
-        <label for="q2a">A:</label><br>
-        <input type="text" id="q2a" name="q2a"><br>
-      </div>
-      <div>
-        <label for="q2b">B:</label><br>
-        <input type="text" id="q2b" name="q2b"><br>
-      </div>
-      <div>
-        <label for="q2c">C:</label><br>
-        <input type="text" id="q2c" name="q2c"><br>
-      </div>
-      <div>
-        <label for="q2d">D:</label><br>
-        <input type="text" id="q2d" name="q2d"><br>
-      </div>
+      <fieldset class=q2>
+        <div>
+          <label for="q2">Question 2:</label><br>
+          <input type="text" id="q2" name="q2" required><br>
+        </div>
+        <div>
+          <label for="q2a">A:</label><br>
+          <input type="text" id="q2a" name="q2a" required><br>
+        </div>
+        <div>
+          <label for="q2b">B:</label><br>
+          <input type="text" id="q2b" name="q2b" required><br>
+        </div>
+        <div>
+          <label for="q2c">C:</label><br>
+          <input type="text" id="q2c" name="q2c" required><br>
+        </div>
+        <div>
+          <label for="q2d">D:</label><br>
+          <input type="text" id="q2d" name="q2d" required><br>
+        </div>
+        <div>
+          <label for="q2-corr-ans">Correct Answer:</label><br>
+          <input type="text" id="q2-corr-ans" name="q2-corr-ans" required><br>
+        </div>
+      </fieldset>
 
       <!-- Question 3 -->
-      <div>
-        <label for="q3">Question 3:</label><br>
-        <input type="text" id="q3" name="q3"><br>
-      </div>
-      <div>
-        <label for="q3a">A:</label><br>
-        <input type="text" id="q3a" name="q3a"><br>
-      </div>
-      <div>
-        <label for="q3b">B:</label><br>
-        <input type="text" id="q3b" name="q3b"><br>
-      </div>
-      <div>
-        <label for="q3c">C:</label><br>
-        <input type="text" id="q3c" name="q3c"><br>
-      </div>
-      <div>
-        <label for="q3d">D:</label><br>
-        <input type="text" id="q3d" name="q3d"><br>
-      </div>
+      <fieldset class=q3>
+        <div>
+          <label for="q3">Question 3:</label><br>
+          <input type="text" id="q3" name="q3" required><br>
+        </div>
+        <div>
+          <label for="q3a">A:</label><br>
+          <input type="text" id="q3a" name="q3a" required><br>
+        </div>
+        <div>
+          <label for="q3b">B:</label><br>
+          <input type="text" id="q3b" name="q3b" required><br>
+        </div>
+        <div>
+          <label for="q3c">C:</label><br>
+          <input type="text" id="q3c" name="q3c" required><br>
+        </div>
+        <div>
+          <label for="q3d">D:</label><br>
+          <input type="text" id="q3d" name="q3d" required><br>
+        </div>
+        <div>
+          <label for="q3-corr-ans">Correct Answer:</label><br>
+          <input type="text" id="q3-corr-ans" name="q3-corr-ans" required><br>
+        </div>
+      </fieldset>
 
       <!-- Question 4 -->
-      <div>
-        <label for="q4">Question 4:</label><br>
-        <input type="text" id="q4" name="q4"><br>
-      </div>
-      <div>
-        <label for="q4a">A:</label><br>
-        <input type="text" id="q4a" name="q4a"><br>
-      </div>
-      <div>
-        <label for="q4b">B:</label><br>
-        <input type="text" id="q4b" name="q4b"><br>
-      </div>
-      <div>
-        <label for="q4c">C:</label><br>
-        <input type="text" id="q4c" name="q4c"><br>
-      </div>
-      <div>
-        <label for="q4d">D:</label><br>
-        <input type="text" id="q4d" name="q4d"><br>
-      </div>
+      <fieldset class=q4>
+        <div>
+          <label for="q4">Question 4:</label><br>
+          <input type="text" id="q4" name="q4" required><br>
+        </div>
+        <div>
+          <label for="q4a">A:</label><br>
+          <input type="text" id="q4a" name="q4a" required><br>
+        </div>
+        <div>
+          <label for="q4b">B:</label><br>
+          <input type="text" id="q4b" name="q4b" required><br>
+        </div>
+        <div>
+          <label for="q4c">C:</label><br>
+          <input type="text" id="q4c" name="q4c" required><br>
+        </div>
+        <div>
+          <label for="q4d">D:</label><br>
+          <input type="text" id="q4d" name="q4d" required><br>
+        </div>
+        <div>
+          <label for="q4-corr-ans">Correct Answer:</label><br>
+          <input type="text" id="q4-corr-ans" name="q4-corr-ans" required><br>
+        </div>
+      </fieldset>
+
       <!-- Submit/Canel Quiz -->
-      <input type="submit" value="Submit">
-      <a href="/">Cancel</a>
+      <div class="all-buttons">
+        <input type="submit" value="Submit">
+        <button class="add-question">Add Question</button>
+        <button class="rem-question">Remove Question</button>
+        <a href="/">Cancel</a>
+      </div>
     </form>
 </body>
 

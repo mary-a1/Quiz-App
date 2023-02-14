@@ -18,14 +18,14 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   // console.log(req.body);
   signUp.addUser(req.body)
-  .then(user => {
-    req.session.user_id = user.id;
-    res.redirect('/quiz');
-  })
-  .catch((err) => {
-    // console.log("error", err);
-    return res.status(400).send(`ERROR : email address already exists`);
-  });
+    .then(user => {
+      req.session.user_id = user.id;
+      res.redirect('/quiz');
+    })
+    .catch((err) => {
+      // console.log("error", err);
+      return res.status(400).send(`ERROR : email address already exists`);
+    });
 });
 
 module.exports = router;
