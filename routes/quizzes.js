@@ -8,18 +8,20 @@
 // Set up the middleware
 const express = require('express');
 const router = express.Router();
-const myQuizzes = require('../db/queries/quizzes')
+const myQuizzes = require('../db/queries/quizzes');
 
 
 router.get('/', (req, res) => {
 
-myQuizzes.listQuizzes()
-.then((quizzes)=>{
-  res.render('quizzes');
-})
-.catch((err) => {
-console.log(err);
-})
+  myQuizzes.listQuizzes()
+    .then((quizzes) => {
+      // Check if logged in for header
+      const user = req.session.user;
+      res.render('quizzes', { user });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 module.exports = router;

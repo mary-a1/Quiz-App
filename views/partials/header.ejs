@@ -4,9 +4,18 @@
     <img class="logo" src ="/images/logo.png">
       <div class="navbar-nav">
         <a class="nav-item nav-link" href="/">Homepage</a>
-        <a class="nav-item nav-link" href="/search">Search Quiz</a>
-        <a class="nav-item nav-link" href="/login">Login</a>
-        <a class="nav-item nav-link" href="/register">Sign Up</a>
+        <!-- Logged in -->
+        <% if (user) { %>
+          <a class="nav-item nav-link" href="/search">Search Quiz</a>
+          <a class="nav-item nav-link" href="/new">Create Quiz</a>
+          <a class="nav-item nav-link" href="/search">My Quizzes</a>
+          <a class="nav-item nav-link" href="/search">My Results</a>
+          <a class="nav-item nav-link" href="/search">Log Out</a>
+          <% } else { %>
+          <!-- Not logged in -->
+          <a class="nav-item nav-link" href="/login">Login</a>
+          <a class="nav-item nav-link" href="/register">Sign Up</a>
+          <% } %>
       </div>
     </div>
   </nav>

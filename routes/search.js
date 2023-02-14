@@ -11,7 +11,9 @@ const router = express.Router();
 
 // Get request to search page
 router.get('/', (req, res) => {
-  res.render('search');
+  // Check if logged in for header
+  const user = req.session.user;
+  res.render('search', { user });
 });
 
 module.exports = router;

@@ -19,8 +19,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-  href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,800&family=Roboto:wght@500;900&display=swap"
-  rel="stylesheet">
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,800&family=Roboto:wght@500;900&display=swap"
+    rel="stylesheet">
 
   <!-- App CSS -->
   <link rel="stylesheet" href="/styles/main.css" />
@@ -37,14 +37,14 @@
 
 <body>
   <header>
-    <%- include('partials/header') %>
+    <%- include('./partials/header', {user}) %>
   </header>
 
   <main>
     <form method="POST" action="/login">
       <div class="form-group">
         <h1> Welcome to Quiz Light </h1>
-        <p> Login to your account  </p>
+        <p> Login to your account </p>
         <label for="exampleInputEmail1">Email address</label>
         <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp"
           placeholder="Enter email">

@@ -13,7 +13,9 @@ const getUser = require('../db/queries/login');
 
 
 router.get('/', (req, res) => {
-  res.render('login');
+  // Check if logged in for header
+  const user = req.session.user;
+  res.render('login', { user });
 });
 
 router.post('/', (req, res) => {

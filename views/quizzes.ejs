@@ -39,14 +39,14 @@
 
 <body>
   <header>
-    <%- include('partials/header')%>
+    <%- include('./partials/header', {user})%>
   </header>
 
   <main>
     <div class="my-item">
       <div class="item-header">
         <h2 id="toggle">Public</h2>
-        <div class ="quizbox">
+        <div class="quizbox">
           <div class="item-body">My Text!
           </div>
           <button class="divButton">Edit</button>

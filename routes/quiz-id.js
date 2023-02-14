@@ -11,7 +11,9 @@ const router = express.Router();
 // check if user is logged in (cookie stuff)
 
 router.get('/:id', (req, res) => {
-  res.render('quiz-id');
+  // Check if logged in for header
+  const user = req.session.user;
+  res.render('quiz-id', { user });
 });
 
 module.exports = router;

@@ -12,7 +12,9 @@ const createQueries = require('../db/queries/add-quiz');
 
 // Get request to create quiz page
 router.get('/', (req, res) => {
-  res.render('create-quiz');
+  // Check if logged in for header
+  const user = req.session.user;
+  res.render('create-quiz', { user });
 });
 
 // Post request after submitting form

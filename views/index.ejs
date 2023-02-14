@@ -24,20 +24,22 @@
 
 <body>
   <!-- Nav Bar -->
-  <%- include('partials/header') %>
+  <%- include('./partials/header', {user}) %>
 
-  <!-- Quizzes -->
-  <% for (let id in quizzes) { %>
-    <div class="container">
-      <p id="quizId"><%= quizzes[id].id %></p><br/>
-      <%= quizzes[id].title %><br/>
-      <%= quizzes[id].thumbnail_url %><br/>
-      <%= quizzes[id].average_rating %><br/>
-      <form action="/" method="POST">
-      <button>Start Quiz!</button>
-      </form>
-    </div>
-    <% } %>
+    <!-- Quizzes -->
+    <% for (let id in quizzes) { %>
+      <div class="container">
+        <p id="quizId">
+          <%= quizzes[id].id %>
+        </p><br />
+        <%= quizzes[id].title %><br />
+          <%= quizzes[id].thumbnail_url %><br />
+            <%= quizzes[id].average_rating %><br />
+              <form action="/" method="POST">
+                <button>Start Quiz!</button>
+              </form>
+      </div>
+      <% } %>
 </body>
 
 </html>

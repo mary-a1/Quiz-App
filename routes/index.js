@@ -13,14 +13,15 @@ const aQuiz = require('../db/queries/quiz');
 
 router.get('/', (req, res) => {
   // Check if logged in for header
-  const isLoggedIn = req.session.user;
+  const user = req.session.user;
   // Search parameters
   const seralizedSearchParams = req._parsedOriginalUrl.query;
   const searchParams = (seralizedSearchParams) ? JSON.parse('{"' + decodeURI(seralizedSearchParams.replace(/&/g, "\",\"").replace(/=/g, "\":\"")) + '"}') : {};
 
   allQuizzes.getAllQuizzes(searchParams)
     .then((quizzes) => {
-      res.render('index', { quizzes });
+      const templateVar = { quizzes, user };
+      res.render('index', templateVar);
     });
 });
 

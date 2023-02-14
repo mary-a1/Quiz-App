@@ -11,7 +11,9 @@ const router = express.Router();
 const signUp = require('../db/queries/register');
 
 router.get('/', (req, res) => {
-  res.render('register');
+  // Check if logged in for header
+  const user = req.session.user;
+  res.render('register', { user });
 });
 
 
