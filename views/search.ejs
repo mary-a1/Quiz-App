@@ -17,6 +17,14 @@
   <link rel="stylesheet" href="/styles/search.css" />
   <link rel="stylesheet" href="/styles/header.css" />
 
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,800&family=Roboto:wght@500;900&display=swap"
+    rel="stylesheet">
+
+
   <!-- External Scripts -->
   <script src="/vendor/jquery-3.0.0.js"></script>
 </head>
@@ -24,28 +32,44 @@
 <body>
   <!-- Nav Bar -->
   <%- include('./partials/header', {user}) %>
+    <main>
+      <!-- Header -->
+      <section class="container">
+        <div class="heading">
+          <h1>Search for a Quiz</h1>
+        </div>
 
-    <!-- Header -->
-    <h1>Search for a Quiz</h1>
-
-    <!-- Search form -->
-    <form method="GET" action="/">
-      <div>
-        <label for="title">Title:</label><br>
-        <input type="text" id="title" name="title"><br>
-      </div>
-      <div>
-        <label for="subject">Subject:</label><br>
-        <input type="text" id="subject" name="subject"><br>
-      </div>
-      <div>
-        <label for="min_rating">Minimum Rating:</label><br>
-        <input type="text" id="min_rating" name="min_rating"><br>
-      </div>
-      <input type="submit" value="Submit">
-      <a href="/">Cancel</a>
-      </div>
-    </form>
+        <!-- Search form -->
+        <div class="form">
+          <form method="GET" action="/">
+            <div>
+              <label for="title">Title:</label><br>
+              <input type="text" id="title" name="title"><br>
+            </div>
+            <div>
+              <label for="subject">Type:</label><br>
+              <select name="type" id="type">
+                <option value=""></option>
+                <option value="education">Educational</option>
+                <option value="survey">Survey</option>
+                <option value="trivia">Trivia</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label for="min_rating">Minimum Rating:</label><br>
+              <input type="text" id="min_rating" name="min_rating"><br>
+            </div>
+            <div class="submit-button">
+              <input class="button" type="submit" value="Submit">
+            </div>
+            <div>
+              <a href="/">Cancel</a>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
 </body>
 
 </html>
