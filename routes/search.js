@@ -21,8 +21,7 @@ router.post('/', (req, res) => {
   const searchParams = req.body;
   searchQueries.getAllQuizzes(searchParams)
     .then((quizzes) => {
-      // NOT RENDERING (FINISH THIS)
-      return res.render('index', { quizzes });
+      res.render('index', { quizzes });
     })
     .catch((err) => {
       console.error(err);

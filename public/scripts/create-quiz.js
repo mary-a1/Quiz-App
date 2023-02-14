@@ -2,15 +2,15 @@
 $(document).ready(() => {
   let questionNumber = 4;
 
-  $('form').on('submit', function(event) {
-    // Initial settings
-    event.preventDefault();
+  // $('form').on('submit', function(event) {
+  //   // Initial settings
+  //   event.preventDefault();
 
-    // content
-    const data = $("form").serialize();
+  //   // content
+  //   const data = $("form").serialize();
 
-    $.post("/new", data);
-  });
+  //   $.post("/new", data);
+  // });
 
   $('.add-question').on('click', function() {
     questionNumber++;

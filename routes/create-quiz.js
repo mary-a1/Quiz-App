@@ -28,7 +28,12 @@ router.post('/', (req, res) => {
     questions: []
   };
   // Loop through the quiz inputs and order them in the right way
-  for (let i = 0; i < quizInputsKeys.length; i += 6) {
+  for (let i = 4; i < quizInputsKeys.length; i += 6) {
+    const question = quizInputsKeys[i];
+
+    // req.body.question.a[0]
+    // req.body.question === ['1', '3']
+
     quizParams.questions.push({
       [quizInputsKeys[i]]: quizInputs[quizInputsKeys[i]],
       [quizInputsKeys[i + 1]]: quizInputs[quizInputsKeys[i + 1]],
@@ -42,9 +47,7 @@ router.post('/', (req, res) => {
   quizParams.creatorId = '1';
   createQueries.addQuiz(quizParams)
     .then((myQuizzes) => {
-      // NOT RENDERING (FINISH THIS)
-      console.log('------------------------------------------------------------------------------------------------')
-      return res.render('search');
+      res.redirect('/search');
     })
     .catch((err) => {
       console.error(err);

@@ -33,7 +33,7 @@
     <h1>Create Quiz</h1>
 
     <!-- Create Quiz Form -->
-    <form>
+    <form method="POST" action="/new">
       <!-- Initial Info -->
       <fieldset class="init-vals">
         <div>
@@ -53,7 +53,12 @@
           <input type="text" id="public" name="public" required><br>
         </div>
       </fieldset>
+      <!-- option 1 -->
+      <!-- <input name="question[a][0]" value="4" />  -->
 
+      <!-- option 2 -->
+      <!-- <input name="question[]" value="1" />  -->
+      <!-- <input name="question[]" value="3" /> -->
       <!-- Question 1 -->
       <fieldset class=q1>
         <div>
