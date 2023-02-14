@@ -30,7 +30,7 @@ $(document).ready(() => {
     </section>
     <div>
       <label for="q${questionNumber}-corr-ans">Correct Answer:</label><br>
-      <select name="q${questionNumber}-select" id="q${questionNumber}-select">
+      <select class = "question-one" name="q${questionNumber}-select" id="q${questionNumber}-select">
         <option value="option-1">1</option>
         <option value="option-2">2</option>
         <option value="option-3">3</option>
