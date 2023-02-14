@@ -11,7 +11,6 @@ const userLogin = function (user){
   .then ((result) => {
     return result.rows;
   })
-  console.log(user);
 }
 
 module.exports = {userLogin};

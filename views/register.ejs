@@ -19,14 +19,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-  href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,800&family=Roboto:wght@500;900&display=swap"
-  rel="stylesheet">
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,800&family=Roboto:wght@500;900&display=swap"
+    rel="stylesheet">
 
   <!-- App CSS -->
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/quiz.css" />
-  <link rel="stylesheet" href="/styles/login.css" />
+  <link rel="stylesheet" href="/styles/register.css"/>
 
   <!-- External Scripts -->
   <script src="/vendor/jquery-3.0.0.js"></script>
@@ -37,20 +37,25 @@
 
 <body>
   <header>
-    <%- include('partials/header') %>
+    <%- include('partials/header')%>
+
+
   </header>
 
   <main>
-    <form method="POST" action="/login">
+    <form method="POST" action="/register">
       <div class="form-group">
         <h1> Welcome to Quiz Light </h1>
-        <p> Login to your account  </p>
+        <p> Register to create your own quiz and start exploring all the content in Quiz Light </p>
+        <label for="exampleInputName">Name</label>
+        <input type="name" class="form-control" name="name" id="exampleInputName" aria-describedby="nameHelp"
+          placeholder="Enter name" required>
         <label for="exampleInputEmail1">Email address</label>
         <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp"
-          placeholder="Enter email">
+          placeholder="Enter email" required>
         <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
-        <button type="submit" class="btn btn-primary">Login</button>
+        <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password" required>
+        <button type="submit" class="btn btn-primary">Register</button>
       </div>
     </form>
   </main>
