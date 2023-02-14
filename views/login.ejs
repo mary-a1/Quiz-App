@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Quiz</title>
+  <title>Login</title>
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/header.css" />
 
+
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -24,20 +26,34 @@
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/quiz.css" />
+  <link rel="stylesheet" href="/styles/login.css" />
 
   <!-- External Scripts -->
   <script src="/vendor/jquery-3.0.0.js"></script>
 
   <!-- App Scripts -->
   <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/quiz.js"></script>
 </head>
 
 <body>
   <header>
     <%- include('./partials/header', {user}) %>
   </header>
-  <ul id="users"></ul>
+
+  <main>
+    <form method="POST" action="/login">
+      <div class="form-group">
+        <h1> Welcome to Quiz Light </h1>
+        <p> Login to your account </p>
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp"
+          placeholder="Enter email">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
+        <button type="submit" class="btn btn-primary">Login</button>
+      </div>
+    </form>
+  </main>
 </body>
 
 </html>
