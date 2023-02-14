@@ -36,7 +36,7 @@ $(document).ready(() => {
   });
 
   $('.rem-question').on('click', function() {
-    const $question = `#q${questionNumber}`;
+    const $question = `.q${questionNumber}`;
     $($question).remove();
     questionNumber--;
     $('.rem-question').css('display', (questionNumber > 4) ? 'block' : 'none');
