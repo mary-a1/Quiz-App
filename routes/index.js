@@ -11,9 +11,12 @@ const router = express.Router();
 const allQuizzes = require('../db/queries/get-quizzes');
 const aQuiz = require('../db/queries/quiz');
 
-
 router.get('/', (req, res) => {
-  allQuizzes.getAllQuizzes()
+  // Check if logged in for header
+  const isLoggedIn = req.session.user;
+  // Search parameters
+  const searchParams = req.body;
+  allQuizzes.getAllQuizzes(searchParams)
     .then((quizzes) => {
       res.render('index', { quizzes });
     });
@@ -21,16 +24,15 @@ router.get('/', (req, res) => {
 
 // Post request after submitting form
 router.post('/', (req, res) => {
+  // Check if logged in
+  const isLoggedIn = req.session.user;
   const quizId = req.body;
-
-  aQuiz.getQuiz(quizId)
-    .then((quizId) => {
-      // Just need to redirect to my quizzes. The my quizzes page will gather the quiz data itself
-      res.redirect('/quiz/:id' /* UPDATE THIS ONCE MY QUIZZES PAGE IS ADDED*/);
-    })
-    .catch((err) => {
-      console.error(err);
-    });
+  if (!isLoggedIn) {
+    return res.redirect('/login');
+  } else {
+    // Just need to redirect to my quizzes. The my quizzes page will gather the quiz data itself
+    return res.redirect(`/quiz/:${quizId}` /* UPDATE THIS ONCE MY QUIZZES PAGE IS ADDED*/);
+  }
 });
 
 

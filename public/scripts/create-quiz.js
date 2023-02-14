@@ -2,16 +2,6 @@
 $(document).ready(() => {
   let questionNumber = 4;
 
-  // $('form').on('submit', function(event) {
-  //   // Initial settings
-  //   event.preventDefault();
-
-  //   // content
-  //   const data = $("form").serialize();
-
-  //   $.post("/new", data);
-  // });
-
   $('.add-question').on('click', function() {
     questionNumber++;
     const question = `
