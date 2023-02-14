@@ -33,7 +33,7 @@ main {
   div {
     padding: 0 15px;
   }
-  .text, #question-one{
+  .text, .question-one{
   background: #D5E3F0;
   border-radius: 10px;
   }
@@ -57,6 +57,7 @@ main {
     border-radius: 30px;
   }
   .rem-question {
+    display:none;
     color: white;
     background: #2C74B3;
     border: 1px solid #000000;
