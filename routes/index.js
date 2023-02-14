@@ -15,7 +15,9 @@ router.get('/', (req, res) => {
   // Check if logged in for header
   const isLoggedIn = req.session.user;
   // Search parameters
-  const searchParams = req.body;
+  const seralizedSearchParams = req._parsedOriginalUrl.query;
+  const searchParams = JSON.parse('{"' + decodeURI(seralizedSearchParams.replace(/&/g, "\",\"").replace(/=/g, "\":\"")) + '"}');
+  
   allQuizzes.getAllQuizzes(searchParams)
     .then((quizzes) => {
       res.render('index', { quizzes });
