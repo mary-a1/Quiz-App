@@ -48,6 +48,9 @@ const createRoutes = require('./routes/create-quiz');
 const loginRoutes = require('./routes/login');
 const registerRoutes = require('./routes/register');
 const takeQuizRoutes = require('./routes/quiz-id');
+const quizzesRoutes = require('./routes/quizzes');
+const homePageRoutes = require('./routes/index');
+
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -61,6 +64,8 @@ app.use('/new', createRoutes);
 app.use('/login', loginRoutes);
 app.use('/register', registerRoutes);
 app.use('/quiz', takeQuizRoutes);
+app.use('/quizzes', quizzesRoutes);
+
 
 
 
@@ -75,6 +80,7 @@ app.get('/', (req, res) => {
     });
 
 });
+app.use('/', homePageRoutes);
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

@@ -17,12 +17,14 @@ router.get('/', (req, res) => {
 
 // Post request after submitting form
 router.post('/', (req, res) => {
+  // Query info
   const quizParams = req.body;
-  // CREATOR ID HARDCODED
-  quizParams.creatorId = '1';
+  quizParams.creatorId = req.session.user;
+
   createQueries.addQuiz(quizParams)
-    .then((myQuizzes) => {
-      res.redirect('/search');
+    .then(() => {
+      // Just need to redirect to my quizzes. The my quizzes page will gather the quiz data itself
+      res.redirect('/myquizzes' /* UPDATE THIS ONCE MY QUIZZES PAGE IS ADDED*/);
     })
     .catch((err) => {
       console.error(err);
