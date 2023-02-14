@@ -65,21 +65,6 @@ app.use('/login', loginRoutes);
 app.use('/register', registerRoutes);
 app.use('/quiz', takeQuizRoutes);
 app.use('/quizzes', quizzesRoutes);
-
-
-
-
-// Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
-const allQuizzes = require('./db/queries/get-quizzes');
-app.get('/', (req, res) => {
-  allQuizzes.getAllQuizzes()
-    .then((quizzes) => {
-      res.render('index', { quizzes });
-    });
-
-});
 app.use('/', homePageRoutes);
 
 app.listen(PORT, () => {
