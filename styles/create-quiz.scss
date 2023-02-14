@@ -6,3 +6,28 @@ body {
 .rem-question {
   display: none;
 }
+
+.init-vals {
+  display: flex;
+  width:100%;
+  border: none;
+
+  input, #subject, #public {
+    background: #D5E3F0;
+    border-radius: 10px;
+  }
+
+  div {
+    padding: 0 15px;
+  }
+}
+.questions {
+  display: flex;
+  width:100%;
+  border: none;
+
+  .first-question{
+    display:block;
+  }
+}
+
