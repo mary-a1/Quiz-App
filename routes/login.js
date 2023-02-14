@@ -17,11 +17,10 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  console.log(req.body);
-
+  // console.log(req.body);
   getUser.userLogin(req.body)
     .then((rows) => {
-      console.log(rows);
+      // console.log(rows);
       if (req.body.password === rows[0].password) {
         console.log("password matches");
         req.session.user_id = rows[0].id;
