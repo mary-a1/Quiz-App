@@ -11,7 +11,7 @@ const router = express.Router();
 const allResults = require('../db/queries/get-results');
 
 
-router.get('/', (req, res) => {
+router.get('/:id', (req, res) => {
   // Check if logged in for header
   const user = req.session.user;
 

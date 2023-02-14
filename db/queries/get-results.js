@@ -1,16 +1,18 @@
 const db = require('../connection');
 
+// -------------------------------------FIX THIS QUERY----------------------------------------------------------------
+
 const getAllResults = function(ids) {
   // Start the query string
-  const queryParams = ids;
+  const queryParams = [ids];
   let queryString = `
-  SELECT COUNT(results.*) as score, alias
+  SELECT COUNT(results.*) as score
   FROM results JOIN questions ON question_id = questions.id
   WHERE results.chosen_answer = questions.correct_answer AND`;
 
   // Put together the player ids
-  const playerIds = ids.join(',');
-  queryString += `results.player_id IN (${playerIds})`;
+  // const playerIds = ids.join(',');
+  queryString += `results.player_id IN ($1)`;
 
   // End the query string
   queryString += `ORDER BY score;`;

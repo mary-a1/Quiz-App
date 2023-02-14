@@ -48,11 +48,14 @@
         <div class="item-header">
           <h2 id="toggle"><%= (myQuizzes[id].public) ? 'Public' : 'Private' %></h2>
           <!-- Click on quiz to see all results -->
-          <form action="/<%= myQuizzes[id].id %>" method="POST">
-            <div class="quizbox">
-              <div class="item-body">
-                <%= myQuizzes[id].title %>
-              </div>
+          <div class="quizbox">
+            <div class="item-body">
+              <%= myQuizzes[id].title %>
+            </div>
+            <!-- See all results -->
+            <form action="/allresults/<%= myQuizzes[id].id %>" method="GET">
+              <button class="divButton">See All Results</button>
+            </form>
 
               <!-- Edit the quiz -->
               <form action="/" method="POST">
@@ -64,7 +67,6 @@
                 <button class="deleteButton">Delete</button>
               </form>
             </div>
-          </form>
         </div>
       </div>
       <% } %>

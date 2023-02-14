@@ -17,12 +17,6 @@ const addQuestions = function(id, quizQuestions) {
   // End the query
   queryString += `;`;
 
-  console.log('------------------------------------------------------------------------------------------------');
-  console.log("Query String", queryString);
-  console.log('------------------------------------------------------------------------------------------------');
-  console.log("Query Parameters", queryParams);
-  console.log('------------------------------------------------------------------------------------------------');
-
   return db.query(queryString, queryParams);
 };
 
