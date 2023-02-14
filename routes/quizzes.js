@@ -14,10 +14,12 @@ const myQuizzes = require('../db/queries/quizzes');
 router.get('/', (req, res) => {
 
   myQuizzes.listQuizzes()
-    .then((quizzes) => {
+    .then((myQuizzes) => {
       // Check if logged in for header
       const user = req.session.user;
-      res.render('quizzes', { user });
+
+      const templateVar = { myQuizzes, user };
+      res.render('quizzes', templateVar);
     })
     .catch((err) => {
       console.log(err);

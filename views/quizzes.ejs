@@ -43,17 +43,29 @@
   </header>
 
   <main>
-    <div class="my-item">
-      <div class="item-header">
-        <h2 id="toggle">Public</h2>
-        <div class="quizbox">
-          <div class="item-body">My Text!
-          </div>
-          <button class="divButton">Edit</button>
-          <button class="deleteButton">Delete</button>
+    <% for (let id in myQuizzes) { %>
+      <div class="my-item">
+        <div class="item-header">
+          <h2 id="toggle">Public</h2>
+          <!-- Click on quiz to see all results -->
+          <form action="/" method="POST">
+            <div class="quizbox">
+              <div class="item-body">
+                <%= myQuizzes[id].title %>
+              </div>
+              <!-- Edit the quiz -->
+              <form action="/" method="POST">
+                <button class="divButton">Edit</button>
+              </form>
+              <!-- Delete the quiz -->
+              <form action="/" method="POST">
+                <button class="deleteButton">Delete</button>
+              </form>
+            </div>
+          </form>
         </div>
       </div>
-    </div>
+      <% } %>
   </main>
 </body>
 
