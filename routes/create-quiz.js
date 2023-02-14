@@ -17,32 +17,7 @@ router.get('/', (req, res) => {
 
 // Post request after submitting form
 router.post('/', (req, res) => {
-  // Search parameters
-  const quizInputs = req.body;
-  const quizInputsKeys = Object.keys(quizInputs);
-  const quizParams = {
-    title: quizInputs.title,
-    subject: quizInputs.subject,
-    thumbnail_url: quizInputs.thumbnail_url,
-    public: quizInputs.public,
-    questions: []
-  };
-  // Loop through the quiz inputs and order them in the right way
-  for (let i = 4; i < quizInputsKeys.length; i += 6) {
-    const question = quizInputsKeys[i];
-
-    // req.body.question.a[0]
-    // req.body.question === ['1', '3']
-
-    quizParams.questions.push({
-      [quizInputsKeys[i]]: quizInputs[quizInputsKeys[i]],
-      [quizInputsKeys[i + 1]]: quizInputs[quizInputsKeys[i + 1]],
-      [quizInputsKeys[i + 2]]: quizInputs[quizInputsKeys[i + 2]],
-      [quizInputsKeys[i + 3]]: quizInputs[quizInputsKeys[i + 3]],
-      [quizInputsKeys[i + 4]]: quizInputs[quizInputsKeys[i + 4]],
-      [quizInputsKeys[i + 5]]: quizInputs[quizInputsKeys[i + 5]]
-    });
-  }
+  const quizParams = req.body;
   // CREATOR ID HARDCODED
   quizParams.creatorId = '1';
   createQueries.addQuiz(quizParams)
