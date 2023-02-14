@@ -22,7 +22,8 @@ router.post('/', (req, res) => {
   quizParams.creatorId = '1';
   createQueries.addQuiz(quizParams)
     .then((myQuizzes) => {
-      res.redirect('/search');
+      // Just need to redirect to my quizzes. The my quizzes page will gather the quiz data itself
+      res.redirect('/myquizzes' /* UPDATE THIS ONCE MY QUIZZES PAGE IS ADDED*/);
     })
     .catch((err) => {
       console.error(err);

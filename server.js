@@ -71,7 +71,6 @@ app.get('/', (req, res) => {
     .then((quizzes) => {
       res.render('index', { quizzes });
     });
-
 });
 
 app.listen(PORT, () => {
