@@ -30,150 +30,192 @@
   <%- include('./partials/header', {user}) %>
 
     <!-- Header -->
-    <h1>Create Quiz</h1>
+    <main class="container">
+      <h1>Create Quiz</h1>
+      <!-- Create Quiz Form -->
+      <form class="form-inline" method="POST" action="/new">
+        <!-- Initial Info -->
+        <fieldset class="init-vals">
+          <!-- <section class="initial"> -->
+          <div class="title">
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" name="title" required><br>
+          </div>
+          <div class="subject">
+            <label for="subject">Subject:</label><br>
+            <select name="subject" id="subject">
+              <option value="education">Educational</option>
+              <option value="survey">Survey</option>
+              <option value="trivia">Trivia</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="thumbnail">
+            <label for="thumbnail_url">Cover Photo URL:</label><br>
+            <input type="text" id="thumbnail_url" name="thumbnail_url" required><br>
+          </div>
+          <div class="public">
+            <label for="public">Public? Y/N:</label><br>
+            <select name="public" id="public">
+              <option value="public">Yes</option>
+              <option value="private">No</option>
+            </select>
+          </div>
+          <!-- </section> -->
+        </fieldset>
 
-    <!-- Create Quiz Form -->
-    <form method="POST" action="/new">
-      <!-- Initial Info -->
-      <fieldset class="init-vals">
-        <div>
-          <label for="title">Title:</label><br>
-          <input type="text" id="title" name="title" required><br>
-        </div>
-        <div>
-          <label for="subject">Subject:</label><br>
-          <input type="text" id="subject" name="subject" required><br>
-        </div>
-        <div>
-          <label for="thumbnail_url">Cover Photo URL:</label><br>
-          <input type="text" id="thumbnail_url" name="thumbnail_url" required><br>
-        </div>
-        <div>
-          <label for="public">Public? Y/N:</label><br>
-          <input type="text" id="public" name="public" required><br>
-        </div>
-      </fieldset>
+        <!-- Question 1 -->
+        <fieldset class="questions">
+          <div>
+            <label for="q1">Question 1:</label><br>
+            <textarea class="question-box" type="text" id="q1" name="q1" required></textarea>
+          </div>
+          <section class=answers-one>
+            <div>
+              <label for="q1a">1:</label><br>
+              <textarea class="text" type="text" id="q1a" name="q1a" required></textarea>
+            </div>
+            <div>
+              <label for="q1b">2:</label><br>
+              <textarea class="text" type="text" id="q1b" name="q1b" required></textarea>
+            </div>
+            <div>
+              <label for="q1c">3:</label><br>
+              <textarea class="text" type="text" id="q1c" name="q1c" required></textarea>
+            </div>
+            <div>
+              <label for="q1d">4:</label><br>
+              <textarea class="text" type="text" id="q1d" name="q1d" required></textarea>
+            </div>
+          </section>
+          <div>
+            <label for="q1-corr-ans">Correct Answer:</label><br>
+            <select name="question-one" id="question-one">
+              <option value="option-1">1</option>
+              <option value="option-2">2</option>
+              <option value="option-3">3</option>
+              <option value="option-4">4</option>
+            </select>
+          </div>
 
-      <!-- Question 1 -->
-      <fieldset class=q1>
-        <div>
-          <label for="q1">Question 1:</label><br>
-          <input type="text" id="q1" name="q1" required><br>
-        </div>
-        <div>
-          <label for="q1a">A:</label><br>
-          <input type="text" id="q1a" name="q1a" required><br>
-        </div>
-        <div>
-          <label for="q1b">B:</label><br>
-          <input type="text" id="q1b" name="q1b" required><br>
-        </div>
-        <div>
-          <label for="q1c">C:</label><br>
-          <input type="text" id="q1c" name="q1c" required><br>
-        </div>
-        <div>
-          <label for="q1d">D:</label><br>
-          <input type="text" id="q1d" name="q1d" required><br>
-        </div>
-        <div>
-          <label for="q1-corr-ans">Correct Answer:</label><br>
-          <input type="text" id="q1-corr-ans" name="q1-corr-ans" required><br>
-        </div>
-      </fieldset>
+        </fieldset>
 
-      <!-- Question 2 -->
-      <fieldset class=q2>
-        <div>
-          <label for="q2">Question 2:</label><br>
-          <input type="text" id="q2" name="q2" required><br>
-        </div>
-        <div>
-          <label for="q2a">A:</label><br>
-          <input type="text" id="q2a" name="q2a" required><br>
-        </div>
-        <div>
-          <label for="q2b">B:</label><br>
-          <input type="text" id="q2b" name="q2b" required><br>
-        </div>
-        <div>
-          <label for="q2c">C:</label><br>
-          <input type="text" id="q2c" name="q2c" required><br>
-        </div>
-        <div>
-          <label for="q2d">D:</label><br>
-          <input type="text" id="q2d" name="q2d" required><br>
-        </div>
-        <div>
-          <label for="q2-corr-ans">Correct Answer:</label><br>
-          <input type="text" id="q2-corr-ans" name="q2-corr-ans" required><br>
-        </div>
-      </fieldset>
+        <!-- Question 2 -->
+        <fieldset class="questions">
+          <div>
+            <label for="q1">Question 2:</label><br>
+            <textarea class="question-box" type="text" id="q1" name="q1" required></textarea>
+          </div>
+          <section class=answers-one>
+            <div>
+              <label for="q1a">1:</label><br>
+              <textarea class="text" type="text" id="q1a" name="q1a" required></textarea>
+            </div>
+            <div>
+              <label for="q1b">2:</label><br>
+              <textarea class="text" type="text" id="q1b" name="q1b" required></textarea>
+            </div>
+            <div>
+              <label for="q1c">3:</label><br>
+              <textarea class="text" type="text" id="q1c" name="q1c" required></textarea>
+            </div>
+            <div>
+              <label for="q1d">4:</label><br>
+              <textarea class="text" type="text" id="q1d" name="q1d" required></textarea>
+            </div>
+          </section>
+          <div>
+            <label for="q1-corr-ans">Correct Answer:</label><br>
+            <select name="question-one" id="question-one">
+              <option value="option-1">1</option>
+              <option value="option-2">2</option>
+              <option value="option-3">3</option>
+              <option value="option-4">4</option>
+            </select>
+          </div>
+        </fieldset>
 
-      <!-- Question 3 -->
-      <fieldset class=q3>
-        <div>
-          <label for="q3">Question 3:</label><br>
-          <input type="text" id="q3" name="q3" required><br>
-        </div>
-        <div>
-          <label for="q3a">A:</label><br>
-          <input type="text" id="q3a" name="q3a" required><br>
-        </div>
-        <div>
-          <label for="q3b">B:</label><br>
-          <input type="text" id="q3b" name="q3b" required><br>
-        </div>
-        <div>
-          <label for="q3c">C:</label><br>
-          <input type="text" id="q3c" name="q3c" required><br>
-        </div>
-        <div>
-          <label for="q3d">D:</label><br>
-          <input type="text" id="q3d" name="q3d" required><br>
-        </div>
-        <div>
-          <label for="q3-corr-ans">Correct Answer:</label><br>
-          <input type="text" id="q3-corr-ans" name="q3-corr-ans" required><br>
-        </div>
-      </fieldset>
+        <!-- Question 3 -->
+        <fieldset class="questions">
+          <div>
+            <label for="q1">Question 3:</label><br>
+            <textarea class="question-box" type="text" id="q1" name="q1" required></textarea>
+          </div>
+          <section class=answers-one>
+            <div>
+              <label for="q1a">1:</label><br>
+              <textarea class="text" type="text" id="q1a" name="q1a" required></textarea>
+            </div>
+            <div>
+              <label for="q1b">2:</label><br>
+              <textarea class="text" type="text" id="q1b" name="q1b" required></textarea>
+            </div>
+            <div>
+              <label for="q1c">3:</label><br>
+              <textarea class="text" type="text" id="q1c" name="q1c" required></textarea>
+            </div>
+            <div>
+              <label for="q1d">4:</label><br>
+              <textarea class="text" type="text" id="q1d" name="q1d" required></textarea>
+            </div>
+          </section>
+          <div>
+            <label for="q1-corr-ans">Correct Answer:</label><br>
+            <select name="question-one" id="question-one">
+              <option value="option-1">1</option>
+              <option value="option-2">2</option>
+              <option value="option-3">3</option>
+              <option value="option-4">4</option>
+            </select>
+          </div>
 
-      <!-- Question 4 -->
-      <fieldset class=q4>
-        <div>
-          <label for="q4">Question 4:</label><br>
-          <input type="text" id="q4" name="q4" required><br>
-        </div>
-        <div>
-          <label for="q4a">A:</label><br>
-          <input type="text" id="q4a" name="q4a" required><br>
-        </div>
-        <div>
-          <label for="q4b">B:</label><br>
-          <input type="text" id="q4b" name="q4b" required><br>
-        </div>
-        <div>
-          <label for="q4c">C:</label><br>
-          <input type="text" id="q4c" name="q4c" required><br>
-        </div>
-        <div>
-          <label for="q4d">D:</label><br>
-          <input type="text" id="q4d" name="q4d" required><br>
-        </div>
-        <div>
-          <label for="q4-corr-ans">Correct Answer:</label><br>
-          <input type="text" id="q4-corr-ans" name="q4-corr-ans" required><br>
-        </div>
-      </fieldset>
+        </fieldset>
+        <!-- Question 4 -->
+        <fieldset class="questions">
+          <div>
+            <label for="q1">Question 4:</label><br>
+            <textarea class="question-box" type="text" id="q1" name="q1" required></textarea>
+          </div>
+          <section class=answers-one>
+            <div>
+              <label for="q1a">1:</label><br>
+              <textarea class="text" type="text" id="q1a" name="q1a" required></textarea>
+            </div>
+            <div>
+              <label for="q1b">2:</label><br>
+              <textarea class="text" type="text" id="q1b" name="q1b" required></textarea>
+            </div>
+            <div>
+              <label for="q1c">3:</label><br>
+              <textarea class="text" type="text" id="q1c" name="q1c" required></textarea>
+            </div>
+            <div>
+              <label for="q1d">4:</label><br>
+              <textarea class="text" type="text" id="q1d" name="q1d" required></textarea>
+            </div>
+          </section>
+          <div>
+            <label for="q1-corr-ans">Correct Answer:</label><br>
+            <select name="question-one" id="question-one">
+              <option value="option-1">1</option>
+              <option value="option-2">2</option>
+              <option value="option-3">3</option>
+              <option value="option-4">4</option>
+            </select>
+          </div>
+        </fieldset>
 
-      <!-- Submit/Canel Quiz -->
-      <div class="all-buttons">
-        <input type="submit" value="Submit">
-        <button class="add-question">Add Question</button>
-        <button class="rem-question">Remove Question</button>
-        <a href="/">Cancel</a>
-      </div>
-    </form>
+        <!-- Submit/Canel Quiz -->
+        <section class="all-buttons">
+          <div class ="question-options">
+            <button class="add-question">Add Question</button>
+            <button class="rem-question">Remove Question</button>
+          </div>
+          <input class="create-quiz"type="submit" value="Create Quiz">
+          <a href="/">Cancel</a>
+        </div>
+      </form>
+    </main>
 </body>
 
 </html>

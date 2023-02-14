@@ -16,6 +16,7 @@ router.get('/', (req, res) => {
   res.render('register', { user });
 });
 
+//missing encryption for password
 
 router.post('/', (req, res) => {
   // console.log(req.body);

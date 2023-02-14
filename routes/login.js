@@ -18,13 +18,15 @@ router.get('/', (req, res) => {
   res.render('login', { user });
 });
 
+//missing encryption for password
+
 router.post('/', (req, res) => {
   // console.log(req.body);
   getUser.userLogin(req.body)
     .then((rows) => {
       // console.log(rows);
       if (req.body.password === rows[0].password) {
-        console.log("password matches");
+        // console.log("password matches");
         req.session.user_id = rows[0].id;
         return res.redirect('/');
       } else {

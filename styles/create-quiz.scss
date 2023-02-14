@@ -2,7 +2,78 @@ body {
   color: white;
   padding-top: 150px;
 }
-
-.rem-question {
-  display: none;
+main {
+  padding: 0 22px;
+  width: 100%;
 }
+
+.init-vals {
+  display: flex;
+  width:100%;
+  border: none;
+
+  input, #subject, #public {
+    background: #D5E3F0;
+    border-radius: 10px;
+  }
+
+  div {
+    padding: 0 15px;
+  }
+}
+.questions {
+  width:100%;
+  border: none;
+  section {
+    display:flex;
+  }
+  .first-question{
+    display:block;
+  }
+  div {
+    padding: 0 15px;
+  }
+  .text, #question-one{
+  background: #D5E3F0;
+  border-radius: 10px;
+  }
+  .question-box{
+    background: #D5E3F0;
+    border-radius: 10px;
+    width: 817px;
+    height: 46px;
+  }
+}
+
+.all-buttons{
+  display:flex;
+  justify-content: space-between;
+  padding: 0 15px;
+
+  .add-question {
+    color: white;
+    background: #2C74B3;
+    border: 1px solid #000000;
+    border-radius: 30px;
+  }
+  .rem-question {
+    color: white;
+    background: #2C74B3;
+    border: 1px solid #000000;
+    border-radius: 30px;
+  }
+  .create-quiz{
+    color: white;
+    background: #2C74B3;
+    border: 1px solid #000000;
+    border-radius: 30px;
+    font-size: 30px;
+    width: 256px;
+    height: 65px;
+  }
+
+  a{
+    color: white;
+  }
+}
+
