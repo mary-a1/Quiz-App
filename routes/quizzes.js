@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
   // Check if logged in for header
   const user = req.session.user;
   if (user) {
-    myQuizzes.listQuizzes()
+    myQuizzes.listQuizzes(user)
       .then((myQuizzes) => {
         const templateVar = { myQuizzes, user };
         res.render('quizzes', templateVar);

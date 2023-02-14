@@ -46,7 +46,7 @@
     <% for (let id in myQuizzes) { %>
       <div class="my-item">
         <div class="item-header">
-          <h2 id="toggle">Public</h2>
+          <h2 id="toggle"><%= (myQuizzes[id].public) ? 'Public' : 'Private' %></h2>
           <!-- Click on quiz to see all results -->
           <form action="/<%= myQuizzes[id].id %>" method="POST">
             <div class="quizbox">
