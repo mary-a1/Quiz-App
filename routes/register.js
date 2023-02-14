@@ -22,7 +22,7 @@ router.post('/', (req, res) => {
   // console.log(req.body);
   signUp.addUser(req.body)
     .then(user => {
-      req.session.user_id = user.id;
+      req.session.user = user.id;
       res.redirect('/');
     })
     .catch((err) => {
