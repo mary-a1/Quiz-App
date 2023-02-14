@@ -7,14 +7,9 @@ $(document).ready(() => {
     event.preventDefault();
 
     // content
-    let data = [$(".init-vals").serialize()];
-    for (let i = 1; i <= questionNumber; i++) {
-      const $field = `.q${i}`;
-      data.push($($field).serialize());
-    }
-    const stringData = JSON.stringify({ data });
+    const data = $("form").serialize();
 
-    $.post("/new", stringData);
+    $.post("/new", data);
   });
 
   $('.add-question').on('click', function() {

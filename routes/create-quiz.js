@@ -18,15 +18,36 @@ router.get('/', (req, res) => {
 // Post request after submitting form
 router.post('/', (req, res) => {
   // Search parameters
-  const quizParams = req.body;
-  console.log(JSON.parse(quizParams));
+  const quizInputs = req.body;
+  const quizInputsKeys = Object.keys(quizInputs);
+  const quizParams = {
+    title: quizInputs.title,
+    subject: quizInputs.subject,
+    thumbnail_url: quizInputs.thumbnail_url,
+    public: quizInputs.public,
+    questions: []
+  };
+  // Loop through the quiz inputs and order them in the right way
+  for (let i = 0; i < quizInputsKeys.length; i += 6) {
+    quizParams.questions.push({
+      [quizInputsKeys[i]]: quizInputs[quizInputsKeys[i]],
+      [quizInputsKeys[i + 1]]: quizInputs[quizInputsKeys[i + 1]],
+      [quizInputsKeys[i + 2]]: quizInputs[quizInputsKeys[i + 2]],
+      [quizInputsKeys[i + 3]]: quizInputs[quizInputsKeys[i + 3]],
+      [quizInputsKeys[i + 4]]: quizInputs[quizInputsKeys[i + 4]],
+      [quizInputsKeys[i + 5]]: quizInputs[quizInputsKeys[i + 5]]
+    });
+  }
   // CREATOR ID HARDCODED
   quizParams.creatorId = '1';
   createQueries.addQuiz(quizParams)
     .then((myQuizzes) => {
       // NOT RENDERING (FINISH THIS)
-      // res.render('index', { quizzes });
-      res.render('search');
+      console.log('------------------------------------------------------------------------------------------------')
+      return res.render('search');
+    })
+    .catch((err) => {
+      console.error(err);
     });
 });
 

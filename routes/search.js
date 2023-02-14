@@ -22,7 +22,10 @@ router.post('/', (req, res) => {
   searchQueries.getAllQuizzes(searchParams)
     .then((quizzes) => {
       // NOT RENDERING (FINISH THIS)
-      res.render('index', { quizzes });
+      return res.render('index', { quizzes });
+    })
+    .catch((err) => {
+      console.error(err);
     });
 });
 
