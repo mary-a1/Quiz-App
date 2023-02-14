@@ -1,4 +1,5 @@
 $roboto: 'Roboto', sans-serif;
+$questionCardBack: #D5E3F0;
 
 .container {
   display: flex;
@@ -30,6 +31,8 @@ $roboto: 'Roboto', sans-serif;
   width: 100%;
 }
 
+/////////////////////////////////////////////////
+
 .quiz-questions {
   padding: 30px;
   padding-top: 0;
@@ -42,12 +45,50 @@ $roboto: 'Roboto', sans-serif;
 }
 
 .question-cards {
-  background-color: #D5E3F0;
+  background-color: $questionCardBack;
   padding: 15px;
   margin: 15px 0;
   border-radius: 10px;
+}
 
-  li {
-    margin-top: 10px;
+.btn-grid {
+  display: grid;
+  gap: 12px;
+  margin: 15px 0;
+}
+
+.btn {
+  border-radius: 5px;
+  padding: 8px 10px;
+  background-color: $questionCardBack;
+  text-align: left;
+  border: none;
+  &:hover {
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   }
 }
+
+.btn.correct {
+  background-color: #5ae179;
+}
+
+.btn.wrong {
+  background-color: #E05A66;
+}
+
+.next-btn {
+  background-color: #7ecdef;
+  // border: solid gray 2px;
+  padding: 10px 18px;
+  margin-right: 25px;
+  font-size: 18px;
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-end;
+}
+
+// .hide {
+//   display: none;
+// }
