@@ -11,6 +11,7 @@ main {
   display: flex;
   width:100%;
   border: none;
+  justify-content: space-between;
 
   input, #subject, #public {
     background: #D5E3F0;
@@ -19,13 +20,20 @@ main {
 
   div {
     padding: 0 15px;
+    width: 100%;
+    input, select {
+      width: 100%;
+      height: 2em;
+    }
   }
 }
 .q {
   width:100%;
   border: none;
+
   section {
     display:flex;
+    justify-content: space-between;
   }
   .first-question{
     display:block;
@@ -33,14 +41,23 @@ main {
   div {
     padding: 0 15px;
   }
-  .text, .question-one{
-  background: #D5E3F0;
-  border-radius: 10px;
+  .div-section{
+    width:100%;
+  }
+  .question-one{
+    background: #D5E3F0;
+    border-radius: 10px;
+  }
+  .text{
+    background: #D5E3F0;
+    border-radius: 10px;
+    height:5em;
+    width:100%;
   }
   .question-box{
     background: #D5E3F0;
     border-radius: 10px;
-    width: 817px;
+    width: 100%;
     height: 46px;
   }
 }
@@ -78,3 +95,11 @@ main {
   }
 }
 
+@media only screen and (max-width:675px) {
+  .init-vals{
+    flex-direction: column;
+  }
+  section{
+    flex-direction: column;
+  }
+}
