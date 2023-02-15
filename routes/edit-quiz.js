@@ -18,26 +18,15 @@ router.get('/:id', (req, res) => {
   const user = req.session.user;
   const quizId = req.params.id;
   getQuizQueries.getQuiz(quizId)
-    .then((myQuizzes) => {
-      const templateVar = { myQuizzes, user };
+    .then((myQuiz) => {
+      const templateVar = { myQuiz, user };
       (user) ? res.render('edit-quiz', templateVar) : res.redirect('/login');
     });
-
 });
 
 // Post request after submitting form
 router.post('/', (req, res) => {
-  // Query info
-  const quizParams = req.body;
-  quizParams.creatorId = req.session.user;
-
-  editQueries.editQuiz(quizParams)
-    .then(() => {
-      res.redirect('/myquizzes');
-    })
-    .catch((err) => {
-      console.error(err);
-    });
+  // COMPLETE THIS
 });
 
 module.exports = router;

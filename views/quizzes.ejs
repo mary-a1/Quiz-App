@@ -60,7 +60,7 @@
             </form>
 
             <!-- Edit the quiz -->
-            <form action="/edit/:id" method="POST">
+            <form action="/edit/<%= myQuizzes[id].id %>" method="GET">
               <button class="divButton">Edit</button>
             </form>
 
