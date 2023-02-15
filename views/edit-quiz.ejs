@@ -36,70 +36,76 @@
     <h1>Create Quiz</h1>
     <!-- Create Quiz Form -->
     <div class="main-box">
-      <form class="" method="POST" action="/new">
+      <form class="" method="POST" action="/edit">
 
         <!-- Initial Info -->
         <fieldset class="init-vals">
           <div class="title">
             <label for="title">Title:</label><br>
-            <input type="text" id="title" name="title" required><br>
+            <input type="text" id="title" name="title" value="<%= myQuiz[0].title %>" required><br>
           </div>
           <div class="subject">
             <label for="subject">Subject:</label><br>
             <select name="subject" id="subject">
               <option value="education">Educational</option>
-              <option value="survey">Survey</option>
-              <option value="trivia">Trivia</option>
-              <option value="other">Other</option>
+              <option value="survey" <%= (true) ? selected="selected" : true %>>Survey</option>
+              <option value="trivia" <%= (true) ? selected="selected" : true %> : true %>>Trivia</option>
+              <option value="other" <%= (true) ? selected="selected" : true %> : true %>>Other</option>
             </select>
           </div>
           <div class="thumbnail">
             <label for="thumbnail_url">Cover Photo URL:</label><br>
-            <input type="text" id="thumbnail_url" name="thumbnail_url" required><br>
+            <input type="text" id="thumbnail_url" name="thumbnail_url" value="<%= myQuiz[0][thumbnail_url] %>"
+              required><br>
           </div>
           <div class="public">
             <label for="public">Public? Y/N:</label><br>
             <select name="public" id="public">
               <option value="true">Yes</option>
-              <option value="false">No</option>
+              <option value="false" <%= (true) ? selected="selected" : true %>>No</option>
             </select>
           </div>
         </fieldset>
 
         <!-- Questions -->
-        <% for (let i=0; i < 4; i++) { %>
+        <% for (let i=0; i < myQuiz.length; i++) { %>
           <fieldset class="q">
             <div>
               <label for="q<%= i %>">Question <%= i %>:</label><br>
-              <textarea class="question-box" type="text" id="q<%= i %>" name="q<%= i %>" required></textarea>
+              <textarea class="question-box" type="text" id="q<%= i %>" name="q<%= i %>"
+                value="<%= myQuiz[i].description. %>" required></textarea>
             </div>
             <section class="answers">
               <div class="div-section">
                 <label for="q<%= i %>a">
                   <%= i %>:
                 </label><br>
-                <textarea class="text" type="text" id="q<%= i %>a" name="q<%= i %>a" required></textarea>
+                <textarea class="text" type="text" id="q<%= i %>a" name="q<%= i %>a"
+                  value="<%= myQuiz[i]['answer-one'] %>" required></textarea>
               </div>
               <div class="div-section">
                 <label for="q<%= i %>b">2:</label><br>
-                <textarea class="text" type="text" id="q<%= i %>b" name="q<%= i %>b" required></textarea>
+                <textarea class="text" type="text" id="q<%= i %>b" name="q<%= i %>b"
+                  value="<%= myQuiz[i]['answer-two'] %>" required></textarea>
               </div>
               <div class="div-section">
                 <label for="q<%= i %>c">3:</label><br>
-                <textarea class="text" type="text" id="q<%= i %>c" name="q<%= i %>c" required></textarea>
+                <textarea class="text" type="text" id="q<%= i %>c" name="q<%= i %>c"
+                  value="<%= myQuiz[i]['answer-three'] %>" required></textarea>
               </div>
               <div class="div-section">
                 <label for="q<%= i %>d">4:</label><br>
-                <textarea class="text" type="text" id="q<%= i %>d" name="q<%= i %>d" required></textarea>
+                <textarea class="text" type="text" id="q<%= i %>d" name="q<%= i %>d"
+                  value="<%= myQuiz[i]['answer-four'] %>" required></textarea>
               </div>
             </section>
             <div>
               <label for="q<%= i %>-corr-ans">Correct Answer:</label><br>
               <select class="question" name="question-<%= i %>" id="question-<%= i %>">
                 <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
+                <option value="2" <%= (true) ? selected="selected" : true %>>2</option>
+                <option value="3" <%= (true) ? selected="selected" : true %>>3</option>
+                <option value="4" <%= (true) ? selected="selected" : true %>>4</option>
               </select>
             </div>
 
@@ -113,7 +119,7 @@
                 <button class="rem-question">Remove Question</button>
               </div>
               <input class="create-quiz" type="submit" value="Create Quiz">
-              <a href="/">Cancel</a>
+              <a href="/myquizzes">Cancel</a>
     </div>
     </form>
     </div>

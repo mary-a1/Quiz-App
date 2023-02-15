@@ -1,7 +1,7 @@
 const db = require('../connection');
 
 const addQuestions = function(id, quizQuestions) {
-  const queryParams = [id, ...Object.keys(quizQuestions)];
+  const queryParams = [id, ...Object.values(quizQuestions)];
 
   // Start the query
   let queryString = `
@@ -16,12 +16,6 @@ const addQuestions = function(id, quizQuestions) {
 
   // End the query
   queryString += `;`;
-
-  console.log('------------------------------------------------------------------------------------------------');
-  console.log("Query String", queryString);
-  console.log('------------------------------------------------------------------------------------------------');
-  console.log("Query Parameters", queryParams);
-  console.log('------------------------------------------------------------------------------------------------');
 
   return db.query(queryString, queryParams);
 };

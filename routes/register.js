@@ -9,6 +9,7 @@
 const express = require('express');
 const router = express.Router();
 const signUp = require('../db/queries/register');
+const bcrypt = require("bcryptjs");
 
 router.get('/', (req, res) => {
   // Check if logged in for header
@@ -16,17 +17,15 @@ router.get('/', (req, res) => {
   res.render('register', { user });
 });
 
-//missing encryption for password
-
 router.post('/', (req, res) => {
-  // console.log(req.body);
-  signUp.addUser(req.body)
+  const queryParams = { ...req.body };
+  queryParams.password = bcrypt.hashSync(req.body.password, 10);
+  signUp.addUser(queryParams)
     .then(user => {
-      req.session.user_id = user.id;
+      req.session.user = user.id;
       res.redirect('/');
     })
-    .catch((err) => {
-      // console.log("error", err);
+    .catch(() => {
       return res.status(400).send(`ERROR : email address already exists`);
     });
 });

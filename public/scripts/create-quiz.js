@@ -5,30 +5,37 @@ $(document).ready(() => {
   $('.add-question').on('click', function() {
     questionNumber++;
     const question = `
-    <fieldset class=q${questionNumber}>
+    <fieldset class="q" id="q${questionNumber}">
     <div>
       <label for="q${questionNumber}">Question ${questionNumber}:</label><br>
-      <input type="text" id="q${questionNumber}" name="q${questionNumber}" required><br>
+      <textarea class="question-box" type="text" id="q${questionNumber}" name="q${questionNumber}" required></textarea>
     </div>
-    <div>
-      <label for="q${questionNumber}a">A:</label><br>
-      <input type="text" id="q${questionNumber}a" name="q${questionNumber}a" required><br>
+    <section class="answers">
+    <div class = "div-section">
+      <label for="q${questionNumber}a">1:</label><br>
+      <textarea class="text" type="text" id="q${questionNumber}a" name="q${questionNumber}a" required></textarea>
     </div>
-    <div>
-      <label for="q${questionNumber}b">B:</label><br>
-      <input type="text" id="q${questionNumber}b" name="q${questionNumber}b" required><br>
+    <div class = "div-section">
+      <label for="q${questionNumber}b">2:</label><br>
+      <textarea class="text"  type="text" id="q${questionNumber}b" name="q${questionNumber}b" required></textarea>
     </div>
-    <div>
-      <label for="q${questionNumber}c">C:</label><br>
-      <input type="text" id="q${questionNumber}c" name="q${questionNumber}c" required><br>
+    <div class = "div-section">
+      <label for="q${questionNumber}c">3:</label><br>
+      <textarea class="text" type="text" id="q${questionNumber}c" name="q${questionNumber}c" required></textarea>
     </div>
-    <div>
-      <label for="q${questionNumber}d">D:</label><br>
-      <input type="text" id="q${questionNumber}d" name="q${questionNumber}d" required><br>
+    <div class = "div-section">
+      <label for="q${questionNumber}d">4:</label><br>
+      <textarea class="text" type="text" id="q${questionNumber}d" name="q${questionNumber}d" required></textarea>
     </div>
+    </section>
     <div>
       <label for="q${questionNumber}-corr-ans">Correct Answer:</label><br>
-      <input type="text" id="q${questionNumber}-corr-ans" name="q${questionNumber}-corr-ans" required><br>
+      <select class="question" name="question-${questionNumber}" id="question-${questionNumber}">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
     </div>
   </fieldset>`;
     $(question).insertBefore(".all-buttons");
@@ -36,7 +43,7 @@ $(document).ready(() => {
   });
 
   $('.rem-question').on('click', function() {
-    const $question = `.q${questionNumber}`;
+    const $question = `#q${questionNumber}`;
     $($question).remove();
     questionNumber--;
     $('.rem-question').css('display', (questionNumber > 4) ? 'block' : 'none');

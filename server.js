@@ -28,14 +28,10 @@ app.use(
 );
 app.use(express.static('public'));
 
-app.use(
-  cookieSession({
-    name: "session",
-    keys: ["key1", "key2"],
-    // Cookie Options
-    maxAge: 24 * 60 * 60 * 1000, // 24 hours
-  })
-);
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1'],
+}));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
@@ -50,6 +46,10 @@ const registerRoutes = require('./routes/register');
 const takeQuizRoutes = require('./routes/quiz-id');
 const quizzesRoutes = require('./routes/quizzes');
 const homePageRoutes = require('./routes/index');
+const logoutRoutes = require('./routes/logout');
+const allResultsRoutes = require('./routes/allresults');
+const editQuizRoutes = require('./routes/edit-quiz');
+
 
 
 // Mount all resource routes
@@ -64,8 +64,13 @@ app.use('/new', createRoutes);
 app.use('/login', loginRoutes);
 app.use('/register', registerRoutes);
 app.use('/quiz', takeQuizRoutes);
-app.use('/quizzes', quizzesRoutes);
+app.use('/myquizzes', quizzesRoutes);
 app.use('/', homePageRoutes);
+app.use('/logout', logoutRoutes);
+app.use('/allresults', allResultsRoutes);
+app.use('/edit', editQuizRoutes);
+
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

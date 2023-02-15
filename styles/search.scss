@@ -1,4 +1,44 @@
+$openSans: 'Open Sans', sans-serif;
+$roboto: 'Roboto', sans-serif;
+
 body {
   color: white;
   padding-top: 150px;
 }
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.form {
+  display: block;
+  border: solid black;
+  background: #D5E3F0;
+  text-align: center;
+  padding: 15px;
+  border-radius: 15px;
+}
+
+label {
+  font-family: $roboto;
+  color:black;
+}
+
+.submit-button{
+  padding-top: 5px;
+
+  .button{
+    color: white;
+    background: #2C74B3;
+    border: 1px solid #000000;
+    border-radius: 30px;
+    font-size: 20px;
+  }
+
+
+}
+
+

@@ -14,7 +14,7 @@ const createQueries = require('../db/queries/add-quiz');
 router.get('/', (req, res) => {
   // Check if logged in for header
   const user = req.session.user;
-  res.render('create-quiz', { user });
+  (user) ? res.render('create-quiz', { user }) : res.redirect('/login');
 });
 
 // Post request after submitting form
@@ -25,8 +25,7 @@ router.post('/', (req, res) => {
 
   createQueries.addQuiz(quizParams)
     .then(() => {
-      // Just need to redirect to my quizzes. The my quizzes page will gather the quiz data itself
-      res.redirect('/myquizzes' /* UPDATE THIS ONCE MY QUIZZES PAGE IS ADDED*/);
+      res.redirect('/myquizzes');
     })
     .catch((err) => {
       console.error(err);

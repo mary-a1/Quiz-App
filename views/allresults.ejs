@@ -23,39 +23,23 @@
     rel="stylesheet">
 
   <!-- App CSS -->
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
-  <link rel="stylesheet" href="/styles/quiz.css" />
-  <link rel="stylesheet" href="/styles/login.css" />
+  <link rel="stylesheet" href="/styles/header.css" />
 
   <!-- External Scripts -->
   <script src="/vendor/jquery-3.0.0.js"></script>
 
   <!-- App Scripts -->
-  <script src="/vendor/jquery-3.0.0.js"></script>
+
 </head>
 
 <body>
   <header>
     <%- include('./partials/header', {user}) %>
   </header>
-
-  <main>
-    <form method="POST" action="/login">
-      <div class="form-group">
-        <h1> Welcome to Quiz Light </h1>
-        <p> Login to your account </p>
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp"
-          placeholder="Enter email">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
-        <button type="submit" class="btn btn-primary">Login</button>
-       <p> If you do not have an account, <a href="/register">Register here</a></p>
-
-      </div>
-    </form>
-  </main>
 </body>
 
 </html>

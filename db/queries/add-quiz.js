@@ -8,6 +8,7 @@ const addQuiz = function(quiz) {
   VALUES
   ($1, $2, $3, $4, $5) RETURNING id;`;
   const quizQuestions = (({ creatorId, title, subject, public, thumbnail_url, ...o }) => o)(quiz);
+
   return db.query(queryString, queryParams)
     .then((result) => {
       const quizId = result.rows[0].id;
