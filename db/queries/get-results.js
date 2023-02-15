@@ -3,7 +3,7 @@ const db = require('../connection');
 const getAllResults = function(quizId) {
   const queryParams = [quizId];
   let queryString = `
-  SELECT COUNT(*) as score, users.name
+  SELECT COUNT(*) AS score, users.name AS user
   FROM questions AS questions
   JOIN results AS results
   ON question_id = questions.id

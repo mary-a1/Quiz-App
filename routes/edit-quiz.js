@@ -20,6 +20,11 @@ router.get('/:id', (req, res) => {
   getQuizQueries.getQuiz(quizId)
     .then((myQuiz) => {
       const templateVar = { myQuiz, user };
+
+      console.log('------------------------------------------------------------------------------------------------');
+      console.log(templateVar);
+      console.log('------------------------------------------------------------------------------------------------');
+
       (user) ? res.render('edit-quiz', templateVar) : res.redirect('/login');
     });
 });
