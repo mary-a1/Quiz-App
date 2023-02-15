@@ -46,7 +46,9 @@
     <% for (let id in myQuizzes) { %>
       <div class="my-item">
         <div class="item-header">
-          <h2 id="toggle"><%= (myQuizzes[id].public) ? 'Public' : 'Private' %></h2>
+          <h2 id="toggle">
+            <%= (myQuizzes[id].public) ? 'Public' : 'Private' %>
+          </h2>
           <!-- Click on quiz to see all results -->
           <div class="quizbox">
             <div class="item-body">
@@ -57,16 +59,17 @@
               <button class="divButton">See All Results</button>
             </form>
 
-              <!-- Edit the quiz -->
-              <form action="/" method="POST">
-                <button class="divButton">Edit</button>
-              </form>
+            <!-- Edit the quiz -->
+            <form action="/" method="POST">
+              <button class="divButton">Edit</button>
+            </form>
 
-              <!-- Delete the quiz -->
-              <form action="/quizzes" method="POST" id="<%= myQuizzes[id].id %>">
-                <button class="deleteButton">Delete</button>
-              </form>
-            </div>
+            <!-- Delete the quiz -->
+            <form action="/quizzes" method="POST">
+              <input type="text" id="quiz_id" name="id" value="<%= myQuizzes[id].id %>">
+              <button class="deleteButton" type="submit">Delete</button>
+            </form>
+          </div>
         </div>
       </div>
       <% } %>
