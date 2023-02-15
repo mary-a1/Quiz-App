@@ -10,7 +10,7 @@ $(document).ready(() => {
       <label for="q${questionNumber}">Question ${questionNumber}:</label><br>
       <textarea class="question-box" type="text" id="q${questionNumber}" name="q${questionNumber}" required></textarea>
     </div>
-    <section class=answers>
+    <section class="answers">
     <div>
       <label for="q${questionNumber}a">1:</label><br>
       <textarea class="text" type="text" id="q${questionNumber}a" name="q${questionNumber}a" required></textarea>
