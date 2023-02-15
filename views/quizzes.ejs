@@ -8,19 +8,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Google Font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,800&family=Roboto:wght@500;900&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/header.css" />
-
-
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,800&family=Roboto:wght@500;900&display=swap"
-    rel="stylesheet">
 
   <!-- App CSS -->
   <link rel="stylesheet" href="/styles/main.css" />
@@ -42,36 +41,86 @@
     <%- include('./partials/header', {user})%>
   </header>
 
-  <main>
-    <% for (let id in myQuizzes) { %>
-      <div class="my-item">
-        <div class="item-header">
-          <h2 id="toggle">
-            <%= (myQuizzes[id].public) ? 'Public' : 'Private' %>
-          </h2>
-          <!-- Click on quiz to see all results -->
-          <div class=<%=(myQuizzes[id].public) ? "quizbox-1" : "quizbox-2" %>>
-            <div class="item-body">
-              <%= myQuizzes[id].title %>
-            </div>
-            <!-- See all results -->
-            <form action="/allresults/<%= myQuizzes[id].id %>" method="GET">
-              <button class="divButton">See All Results</button>
-            </form>
+  <main class="container">
+    <h1>My Quizzes</h1>
+    <section class="section-container">
 
-            <!-- Edit the quiz -->
-            <form action="/edit/<%= myQuizzes[id].id %>" method="GET">
-              <button class="divButton">Edit</button>
-            </form>
-
-            <!-- Delete the quiz -->
-            <form action="/myquizzes/<%= myQuizzes[id].id %>" method="POST">
-              <button class="deleteButton" type="submit">Delete</button>
-            </form>
-          </div>
-        </div>
+      <div class="item-header">
+        <h2 id="toggle">
+          Public
+        </h2>
       </div>
-      <% } %>
+      <div class="quizbox-public">
+        <% for (let id in publicQuizzes) { %>
+
+          <div class="my-item">
+            <!-- Click on quiz to see all results -->
+            <div class="quizbox-1">
+              <div class="item-body">
+                <%= publicQuizzes[id].title %>
+              </div>
+
+              <div class="buttons">
+                <!-- See all results -->
+                <form action="/allresults/<%= publicQuizzes[id].id %>" method="GET">
+                  <button class="divButton">See All Results</button>
+                </form>
+
+                <!-- Edit the quiz -->
+                <form action="/edit/<%= publicQuizzes[id].id %>" method="GET">
+                  <button class="divButton">Edit</button>
+                </form>
+
+                <!-- Delete the quiz -->
+                <form action="/myQuizzes/<%= publicQuizzes[id].id %>" method="POST">
+                  <button class="divButton" type="submit">Delete</button>
+                </form>
+              </div>
+            </div>
+
+          </div>
+          <% } %>
+      </div>
+    </section>
+    <section>
+
+      <div class="item-header">
+        <h2 id="toggle">
+          Private
+        </h2>
+      </div>
+      <div class="quizbox-public">
+        <% for (let id in privateQuizzes) { %>
+
+          <div class="my-item">
+            <!-- Click on quiz to see all results -->
+            <div class="quizbox-1">
+              <div class="item-body">
+                <%= privateQuizzes[id].title %>
+              </div>
+
+              <div class="buttons">
+                <!-- See all results -->
+                <form action="/allresults/<%= privateQuizzes[id].id %>" method="GET">
+                  <button class="divButton">See All Results</button>
+                </form>
+
+                <!-- Edit the quiz -->
+                <form action="/edit/<%= privateQuizzes[id].id %>" method="GET">
+                  <button class="divButton">Edit</button>
+                </form>
+
+                <!-- Delete the quiz -->
+                <form action="/myquizzes/<%= privateQuizzes[id].id %>" method="POST">
+                  <button class="divButton" type="submit">Delete</button>
+                </form>
+              </div>
+            </div>
+
+          </div>
+          <% } %>
+      </div>
+    </section>
   </main>
 </body>
 

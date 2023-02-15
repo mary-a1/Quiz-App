@@ -2,18 +2,55 @@ main {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  width: 100%;
   margin: 121px 20px;
+  flex-direction: column;
+  color: white;
+  flex-wrap:wrap;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+}
+
+.quizbox-public {
+  display: flex;
+  gap: 30px;
+}
+
+.item-body {
+  font-size: 30px;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  padding-bottom: 20px;
+
+}
+
+.divButton {
+  min-width: 130px;
+  color: white;
+  background: #2C74B3;
+  border: 1px solid #000000;
+  border-radius: 30px;
+  padding: 10px;
+  font-size: medium;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+
 }
 
 .quizbox-1 {
-  background-color: white;
-  height: 200px;
-  width: 200px;
+  background-color: #D5E3F0;
+  padding: 10px;
+  color: black;
 }
 
-.quizbox-2 {
-  background-color: blue;
-  height: 200px;
-  width: 200px;
+@media only screen and (max-width:1380px) {
+  .quizbox-public  {
+    flex-wrap:wrap;
+    width:100%;
+  }
 }
