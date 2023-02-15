@@ -5,17 +5,17 @@ const getAllQuizzes = function(options = {}, limit = 10) {
   const queryParams = [];
   let queryString = `
   SELECT quizzes.id, title, thumbnail_url, avg(quiz_reviews.rating) as average_rating
-  FROM quizzes LEFT JOIN quiz_reviews ON quizzes.id = quiz_id`;
+  FROM quizzes LEFT JOIN quiz_reviews ON quizzes.id = quiz_id
+  WHERE quizzes.public = true`;
 
   // Optional parameters
   if (options.title) {
     queryParams.push(`%${options.title}%`);
-    queryString += ` WHERE title LIKE $${queryParams.length}`;
+    queryString += ` AND title LIKE $${queryParams.length}`;
   }
   if (options.subject) {
     queryParams.push(`%${options.subject}%`);
-    queryString += (options.title) ? " AND" : " WHERE";
-    queryString += ` subject LIKE $${queryParams.length}`;
+    queryString += ` AND subject LIKE $${queryParams.length}`;
   }
   // End off the query string by ordering it based on rating
   queryString += ` GROUP BY quizzes.id`;
