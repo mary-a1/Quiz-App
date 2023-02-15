@@ -17,12 +17,13 @@ router.get('/:id', (req, res) => {
   const user = req.session.user;
 
   allResults.getAllResults(quizId)
-    .then((quizzes) => {
-      const templateVar = { quizzes, user };
+    .then((results) => {
+      const templateVar = { results, user };
       res.render('allresults', templateVar);
     });
 });
 
+// Look at each result in detail
 router.post('/', (req, res) => {
 });
 

@@ -40,6 +40,13 @@
   <header>
     <%- include('./partials/header', {user}) %>
   </header>
+
+  <% for (const result of results) { %>
+    <p>User: result.user</p>
+    <p>Result: result.score</p>
+  <% } %>
+
+
 </body>
 
 </html>
