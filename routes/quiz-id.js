@@ -14,8 +14,10 @@ const quizQueries = require('../db/queries/get-quiz-by-id')
 router.get('/:id', (req, res) => {
   // Check if logged in for header
   const user = req.session.user;
+  // console.log(req.session);
   quizQueries.getQuizById()
     .then((quiz) => {
+      // console.log(quiz);
       const templateVar = { quiz, user };
       res.render('quiz-id', templateVar);
       // res.json(quiz);
