@@ -11,19 +11,19 @@ $(document).ready(() => {
       <textarea class="question-box" type="text" id="q${questionNumber}" name="q${questionNumber}" required></textarea>
     </div>
     <section class="answers">
-    <div>
+    <div class = "div-section">
       <label for="q${questionNumber}a">1:</label><br>
       <textarea class="text" type="text" id="q${questionNumber}a" name="q${questionNumber}a" required></textarea>
     </div>
-    <div>
+    <div class = "div-section">
       <label for="q${questionNumber}b">2:</label><br>
       <textarea class="text"  type="text" id="q${questionNumber}b" name="q${questionNumber}b" required></textarea>
     </div>
-    <div>
+    <div class = "div-section">
       <label for="q${questionNumber}c">3:</label><br>
       <textarea class="text" type="text" id="q${questionNumber}c" name="q${questionNumber}c" required></textarea>
     </div>
-    <div>
+    <div class = "div-section">
       <label for="q${questionNumber}d">4:</label><br>
       <textarea class="text" type="text" id="q${questionNumber}d" name="q${questionNumber}d" required></textarea>
     </div>
