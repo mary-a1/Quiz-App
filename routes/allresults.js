@@ -13,9 +13,10 @@ const allResults = require('../db/queries/get-results');
 
 router.get('/:id', (req, res) => {
   // Check if logged in for header
+  const quizId = req._parsedOriginalUrl.pathname.split('/')[2];
   const user = req.session.user;
 
-  allResults.getAllResults(user)
+  allResults.getAllResults(quizId)
     .then((quizzes) => {
       const templateVar = { quizzes, user };
       res.render('allresults', templateVar);
