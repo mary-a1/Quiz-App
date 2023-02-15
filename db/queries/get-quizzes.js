@@ -5,7 +5,7 @@ const getAllQuizzes = function(options = {}, limit = 10) {
   const queryParams = [];
   let queryString = `
   SELECT quizzes.id, title, thumbnail_url, avg(quiz_reviews.rating) as average_rating
-  FROM quizzes JOIN quiz_reviews ON quizzes.id = quiz_id`;
+  FROM quizzes LEFT JOIN quiz_reviews ON quizzes.id = quiz_id`;
 
   // Optional parameters
   if (options.title) {
