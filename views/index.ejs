@@ -37,6 +37,15 @@
       <%= quizzes[id].title %><br />
         <%= quizzes[id].thumbnail_url %><br />
           <%= quizzes[id].average_rating %><br />
+            <a href="https://facebook.com/sharer/sharer.php?u=http://localhost:8080/quiz/<%= quizzes[id].id %>
+          ">Facebook</a>
+            <a
+              href="https://twitter.com/share?url=http://localhost:8080/quiz/<%= quizzes[id].id %>&text=Check out this quiz&hashtags=quiz">Twitter</a>
+            <a
+              href="mailto:{to}?subject=Quiz&body=http://localhost:8080/quiz/<%= quizzes[id].id %>">Email</a>
+            <a
+              href="whatsapp://send?text=http://localhost:8080/quiz/<%= quizzes[id].id %>%20{text}">Whatsapp</a>
+
             <form action="/<%= quizzes[id].id %>" method="POST">
 
               <button>Start Quiz!</button>
