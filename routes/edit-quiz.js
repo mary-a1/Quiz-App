@@ -28,7 +28,6 @@ router.get('/:id', (req, res) => {
 router.post('/:id', (req, res) => {
   const updatedQuiz = req.body;
   updatedQuiz.quizId = req.params.id;
-
   editQueries.editQuiz(updatedQuiz)
     .then(() => {
       res.redirect('/myquizzes');

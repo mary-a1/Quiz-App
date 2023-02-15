@@ -72,6 +72,7 @@
         <!-- Questions -->
         <% for (let i=0; i < myQuiz.length; i++) { %>
           <fieldset class="q" id="<%= myQuiz[i].id %>">
+            <input type="text" id="id" name="qId<%= i+1 %>" value="<%= myQuiz[i].id %>">
             <div>
               <label for="q<%= i+1 %>">Question <%= i+1 %>:</label><br>
               <textarea class="question-box" type="text" id="q<%= i+1 %>" name="q<%= i+1 %>"
