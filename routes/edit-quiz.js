@@ -25,10 +25,14 @@ router.get('/:id', (req, res) => {
 });
 
 // Post request after submitting form
-router.post('/', (req, res) => {
-  console.log('HELLOHELLOHELLOHELLOHELLOHELLOHELLOHELLOHELLOHELLOHELLOHELLOHELLOHELLOHELLOHELLO');
-  console.log(req.body);
-  console.log('HELLOHELLOHELLOHELLOHELLOHELLOHELLOHELLOHELLOHELLOHELLOHELLOHELLOHELLOHELLOHELLO');
+router.post('/:id', (req, res) => {
+  const updatedQuiz = req.body;
+  updatedQuiz.quizId = req.params.id;
+
+  editQueries.editQuiz(updatedQuiz)
+    .then(() => {
+      res.redirect('/myquizzes');
+    });
 
 });
 
