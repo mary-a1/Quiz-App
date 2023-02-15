@@ -12,15 +12,19 @@ const quizQueries = require('../db/queries/get-quiz-by-id')
 // check if user is logged in (cookie stuff)
 
 router.get('/:id', (req, res) => {
-  // Check if logged in for header
   const user = req.session.user;
   // console.log(req.session);
-  quizQueries.getQuizById()
+  // if (!user) {   // Check if logged in for header
+  //   res.send("Pleas log in or register first.");
+  //   return;
+  // }
+
+  const quizId = req._parsedOriginalUrl.pathname.split('/')[2];
+
+  quizQueries.getQuizById(quizId)
     .then((quiz) => {
-      // console.log(quiz);
       const templateVar = { quiz, user };
       res.render('quiz-id', templateVar);
-      // res.json(quiz);
     })
     .catch(error => {
       console.error(error);

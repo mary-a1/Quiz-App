@@ -1,7 +1,8 @@
 const db = require('../connection');
 
 
-const getQuizById = () => {
+const getQuizById = (quizId) => {
+  const queryParams = [quizId];
   const queryString =`
   SELECT
   quizzes.title,
@@ -16,9 +17,9 @@ const getQuizById = () => {
   questions.correct_answer
   FROM quizzes
   JOIN questions ON quiz_id = quizzes.id
-  WHERE quizzes.id = 1`;
+  WHERE quizzes.id = $1`;
 
-  return db.query(queryString)
+  return db.query(queryString, queryParams)
     .then((result)=> {
       console.log(result.rows);
       return result.rows;
