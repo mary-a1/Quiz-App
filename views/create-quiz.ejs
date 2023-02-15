@@ -31,15 +31,14 @@
     <%- include('./partials/header', {user}) %>
   </header>
 
-    <!-- Header -->
-    <main class="container">
-      <h1>Create Quiz</h1>
-      <!-- Create Quiz Form -->
-      <div class="main-box">
+  <!-- Header -->
+  <main class="container">
+    <h1>Create Quiz</h1>
+    <!-- Create Quiz Form -->
+    <div class="main-box">
       <form class="" method="POST" action="/new">
         <!-- Initial Info -->
         <fieldset class="init-vals">
-          <!-- <section class="initial"> -->
           <div class="title">
             <label for="title">Title:</label><br>
             <input type="text" id="title" name="title" required><br>
@@ -60,11 +59,10 @@
           <div class="public">
             <label for="public">Public? Y/N:</label><br>
             <select name="public" id="public">
-              <option value="public">Yes</option>
-              <option value="private">No</option>
+              <option value="true">Yes</option>
+              <option value="false">No</option>
             </select>
           </div>
-          <!-- </section> -->
         </fieldset>
 
         <!-- Question 1 -->
@@ -73,7 +71,7 @@
             <label for="q1">Question 1:</label><br>
             <textarea class="question-box" type="text" id="q1" name="q1" required></textarea>
           </div>
-          <section class="answers-one">
+          <section class="answers">
             <div class="div-section">
               <label for="q1a">1:</label><br>
               <textarea class="text" type="text" id="q1a" name="q1a" required></textarea>
@@ -93,11 +91,11 @@
           </section>
           <div>
             <label for="q1-corr-ans">Correct Answer:</label><br>
-            <select class="question-one" name="question-one" id="question-one">
-              <option value="option-1">1</option>
-              <option value="option-2">2</option>
-              <option value="option-3">3</option>
-              <option value="option-4">4</option>
+            <select class="question" name="question-1" id="question-1">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
             </select>
           </div>
 
@@ -106,34 +104,34 @@
         <!-- Question 2 -->
         <fieldset class="q">
           <div>
-            <label for="q1">Question 2:</label><br>
+            <label for="q2">Question 2:</label><br>
             <textarea class="question-box" type="text" id="q2" name="q2" required></textarea>
           </div>
-          <section class="answers-one">
+          <section class="answers">
             <div class="div-section">
-              <label for="q1a">1:</label><br>
+              <label for="q2a">1:</label><br>
               <textarea class="text" type="text" id="q2a" name="q2a" required></textarea>
             </div>
             <div class="div-section">
-              <label for="q1b">2:</label><br>
+              <label for="q2b">2:</label><br>
               <textarea class="text" type="text" id="q2b" name="q2b" required></textarea>
             </div>
             <div class="div-section">
-              <label for="q1c">3:</label><br>
+              <label for="q2c">3:</label><br>
               <textarea class="text" type="text" id="q2c" name="q2c" required></textarea>
             </div>
             <div class="div-section">
-              <label for="q1d">4:</label><br>
+              <label for="q2d">4:</label><br>
               <textarea class="text" type="text" id="q2d" name="q2d" required></textarea>
             </div>
           </section>
           <div>
-            <label for="q1-corr-ans">Correct Answer:</label><br>
-            <select class="question-one" name="question-one" id="question-one">
-              <option value="option-1">1</option>
-              <option value="option-2">2</option>
-              <option value="option-3">3</option>
-              <option value="option-4">4</option>
+            <label for="q2-corr-ans">Correct Answer:</label><br>
+            <select class="question" name="question-2" id="question-2">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
             </select>
           </div>
         </fieldset>
@@ -141,34 +139,34 @@
         <!-- Question 3 -->
         <fieldset class="q">
           <div>
-            <label for="q1">Question 3:</label><br>
+            <label for="q3">Question 3:</label><br>
             <textarea class="question-box" type="text" id="q3" name="q3" required></textarea>
           </div>
-          <section class="answers-one">
+          <section class="answers">
             <div class="div-section">
-              <label for="q1a">1:</label><br>
+              <label for="q3a">1:</label><br>
               <textarea class="text" type="text" id="q3a" name="q3a" required></textarea>
             </div>
             <div class="div-section">
-              <label for="q1b">2:</label><br>
+              <label for="q3b">2:</label><br>
               <textarea class="text" type="text" id="q3b" name="q3b" required></textarea>
             </div>
             <div class="div-section">
-              <label for="q1c">3:</label><br>
+              <label for="q3c">3:</label><br>
               <textarea class="text" type="text" id="q3c" name="q3c" required></textarea>
             </div>
             <div class="div-section">
-              <label for="q1d">4:</label><br>
+              <label for="q3d">4:</label><br>
               <textarea class="text" type="text" id="q3d" name="q3d" required></textarea>
             </div>
           </section>
           <div>
-            <label for="q1-corr-ans">Correct Answer:</label><br>
-            <select class="question-one" name="question-one" id="question-one">
-              <option value="option-1">1</option>
-              <option value="option-2">2</option>
-              <option value="option-3">3</option>
-              <option value="option-4">4</option>
+            <label for="q3-corr-ans">Correct Answer:</label><br>
+            <select class="question" name="question-3" id="question-3">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
             </select>
           </div>
 
@@ -176,50 +174,50 @@
         <!-- Question 4 -->
         <fieldset class="q">
           <div>
-            <label for="q1">Question 4:</label><br>
+            <label for="q4">Question 4:</label><br>
             <textarea class="question-box" type="text" id="q4" name="q4" required></textarea>
-          </div >
-          <section class="answers-one">
+          </div>
+          <section class="answers">
             <div class="div-section">
-              <label for="q1a">1:</label><br>
+              <label for="q4a">1:</label><br>
               <textarea class="text" type="text" id="q4a" name="q4a" required></textarea>
             </div>
             <div class="div-section">
-              <label for="q1b">2:</label><br>
+              <label for="q4b">2:</label><br>
               <textarea class="text" type="text" id="q4b" name="q4b" required></textarea>
             </div>
             <div class="div-section">
-              <label for="q1c">3:</label><br>
+              <label for="q4c">3:</label><br>
               <textarea class="text" type="text" id="q4c" name="q4c" required></textarea>
             </div>
             <div class="div-section">
-              <label for="q1d">4:</label><br>
+              <label for="q4d">4:</label><br>
               <textarea class="text" type="text" id="q4d" name="q4d" required></textarea>
             </div>
           </section>
           <div>
-            <label for="q1-corr-ans">Correct Answer:</label><br>
-            <select class="question-one" name="question-one" id="question-one">
-              <option value="option-1">1</option>
-              <option value="option-2">2</option>
-              <option value="option-3">3</option>
-              <option value="option-4">4</option>
+            <label for="q4-corr-ans">Correct Answer:</label><br>
+            <select class="question" name="question-4" id="question-4">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
             </select>
           </div>
         </fieldset>
 
         <!-- Submit/Canel Quiz -->
         <section class="all-buttons">
-          <div class ="question-options">
+          <div class="question-options">
             <button class="add-question">Add Question</button>
             <button class="rem-question">Remove Question</button>
           </div>
-          <input class="create-quiz"type="submit" value="Create Quiz">
+          <input class="create-quiz" type="submit" value="Create Quiz">
           <a href="/">Cancel</a>
-        </div>
-      </form>
     </div>
-    </main>
+    </form>
+    </div>
+  </main>
 </body>
 
 </html>

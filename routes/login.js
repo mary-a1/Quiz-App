@@ -19,7 +19,6 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // console.log(req.body);
   getUser.userLogin(req.body)
     .then((rows) => {
       if (bcrypt.compareSync(req.body.password, rows[0].password)) {

@@ -62,7 +62,7 @@ app.use('/new', createRoutes);
 app.use('/login', loginRoutes);
 app.use('/register', registerRoutes);
 app.use('/quiz', takeQuizRoutes);
-app.use('/quizzes', quizzesRoutes);
+app.use('/myquizzes', quizzesRoutes);
 app.use('/', homePageRoutes);
 app.use('/logout', logoutRoutes);
 app.use('/allresults', allResultsRoutes);

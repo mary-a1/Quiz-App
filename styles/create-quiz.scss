@@ -2,6 +2,7 @@ body {
   color: white;
   padding-top: 150px;
 }
+
 main {
   padding: 0 22px;
   width: 100%;
@@ -9,11 +10,13 @@ main {
 
 .init-vals {
   display: flex;
-  width:100%;
+  width: 100%;
   border: none;
   justify-content: space-between;
 
-  input, #subject, #public {
+  input,
+  #subject,
+  #public {
     background: #D5E3F0;
     border-radius: 10px;
   }
@@ -21,40 +24,49 @@ main {
   div {
     padding: 0 15px;
     width: 100%;
-    input, select {
+
+    input,
+    select {
       width: 100%;
       height: 2em;
     }
   }
 }
+
 .q {
-  width:100%;
+  width: 100%;
   border: none;
 
   section {
-    display:flex;
+    display: flex;
     justify-content: space-between;
   }
-  .first-question{
-    display:block;
+
+  .first-question {
+    display: block;
   }
+
   div {
     padding: 0 15px;
   }
-  .div-section{
-    width:100%;
+
+  .div-section {
+    width: 100%;
   }
-  .question-one{
+
+  .question {
     background: #D5E3F0;
     border-radius: 10px;
   }
-  .text{
+
+  .text {
     background: #D5E3F0;
     border-radius: 10px;
-    height:5em;
-    width:100%;
+    height: 5em;
+    width: 100%;
   }
-  .question-box{
+
+  .question-box {
     background: #D5E3F0;
     border-radius: 10px;
     width: 100%;
@@ -62,8 +74,8 @@ main {
   }
 }
 
-.all-buttons{
-  display:flex;
+.all-buttons {
+  display: flex;
   justify-content: space-between;
   padding: 0 15px;
 
@@ -73,14 +85,16 @@ main {
     border: 1px solid #000000;
     border-radius: 30px;
   }
+
   .rem-question {
-    display:none;
+    display: none;
     color: white;
     background: #2C74B3;
     border: 1px solid #000000;
     border-radius: 30px;
   }
-  .create-quiz{
+
+  .create-quiz {
     color: white;
     background: #2C74B3;
     border: 1px solid #000000;
@@ -90,16 +104,17 @@ main {
     height: 65px;
   }
 
-  a{
+  a {
     color: white;
   }
 }
 
 @media only screen and (max-width:675px) {
-  .init-vals{
+  .init-vals {
     flex-direction: column;
   }
-  section{
+
+  section {
     flex-direction: column;
   }
 }

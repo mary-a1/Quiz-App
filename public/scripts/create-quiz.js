@@ -10,7 +10,7 @@ $(document).ready(() => {
       <label for="q${questionNumber}">Question ${questionNumber}:</label><br>
       <textarea class="question-box" type="text" id="q${questionNumber}" name="q${questionNumber}" required></textarea>
     </div>
-    <section class=answers-one>
+    <section class=answers>
     <div>
       <label for="q${questionNumber}a">1:</label><br>
       <textarea class="text" type="text" id="q${questionNumber}a" name="q${questionNumber}a" required></textarea>
@@ -30,11 +30,11 @@ $(document).ready(() => {
     </section>
     <div>
       <label for="q${questionNumber}-corr-ans">Correct Answer:</label><br>
-      <select class = "question-one" name="q${questionNumber}-select" id="q${questionNumber}-select">
-        <option value="option-1">1</option>
-        <option value="option-2">2</option>
-        <option value="option-3">3</option>
-        <option value="option-4">4</option>
+      <select class="question" name="question-${questionNumber}" id="question-${questionNumber}">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
       </select>
     </div>
   </fieldset>`;

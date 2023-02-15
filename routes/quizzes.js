@@ -36,7 +36,7 @@ router.post('/', (req, res) => {
   // Make query to remove quiz
   removeQuiz.removeQuiz(id)
     .then(() => {
-      res.redirect("/quizzes");
+      res.redirect("/myquizzes");
     });
 });
 

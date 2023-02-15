@@ -1,7 +1,7 @@
 const db = require('../connection');
 
 const addQuestions = function(id, quizQuestions) {
-  const queryParams = [id, ...Object.keys(quizQuestions)];
+  const queryParams = [id, ...Object.values(quizQuestions)];
 
   // Start the query
   let queryString = `
