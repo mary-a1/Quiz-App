@@ -50,7 +50,7 @@
             <%= (myQuizzes[id].public) ? 'Public' : 'Private' %>
           </h2>
           <!-- Click on quiz to see all results -->
-          <div class="quizbox">
+          <div class=<%=(myQuizzes[id].public) ? "quizbox-1" : "quizbox-2" %>>
             <div class="item-body">
               <%= myQuizzes[id].title %>
             </div>
