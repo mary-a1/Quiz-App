@@ -1,0 +1,28 @@
+{
+  "questions": [
+    {
+      "title": "Test your Covid Knowledge",
+      "type": "Educational",
+      "public": true,
+      "thumbnail_url": "https://img.freepik.com/free-psd/coronavirus-structural-morphology_220664-2613.jpg?w=2000",
+      "description": "What does the “19” in “COVID-19” refer to?",
+      "answer_one": "It's the 19th variant",
+      "answer_two": "It's the 19th pandemic",
+      "answer_three": "The name of a gene",
+      "answer_four": "The year it was discovered",
+      "correct_answer": 4
+    },
+    {
+      "title": "Test your Covid Knowledge",
+      "type": "Educational",
+      "public": true,
+      "thumbnail_url": "https://img.freepik.com/free-psd/coronavirus-structural-morphology_220664-2613.jpg?w=2000",
+      "description": "Which viruses belong to the coronavirus family?",
+      "answer_one": "SARS and influenza",
+      "answer_two": "SARS and MERS",
+      "answer_three": "SARS and HIV",
+      "answer_four": "Other",
+      "correct_answer": 2
+    }
+  ]
+}

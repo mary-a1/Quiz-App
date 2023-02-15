@@ -36,18 +36,11 @@ $questionCardBack: #D5E3F0;
 .quiz-questions {
   padding: 30px;
   padding-top: 0;
-
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    color: #ffffff;
-  }
 }
 
 .question-cards {
   background-color: $questionCardBack;
-  padding: 15px;
-  margin: 15px 0;
+  padding: 20px;
   border-radius: 10px;
 }
 
@@ -68,14 +61,6 @@ $questionCardBack: #D5E3F0;
   }
 }
 
-.btn.correct {
-  background-color: #5ae179;
-}
-
-.btn.wrong {
-  background-color: #E05A66;
-}
-
 .next-btn {
   background-color: #7ecdef;
   // border: solid gray 2px;
@@ -89,6 +74,6 @@ $questionCardBack: #D5E3F0;
   justify-content: flex-end;
 }
 
-// .hide {
-//   display: none;
-// }
+#result {
+  color: #ffffff;
+}

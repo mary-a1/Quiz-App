@@ -18,7 +18,12 @@ router.get('/:id', (req, res) => {
     .then((quiz) => {
       const templateVar = { quiz, user };
       res.render('quiz-id', templateVar);
+      // res.json(quiz);
     })
+    .catch(error => {
+      console.error(error);
+      res.send(error)
+    });
 
 });
 

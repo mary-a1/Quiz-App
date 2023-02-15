@@ -21,7 +21,7 @@ const getQuizById = () => {
   return db.query(queryString)
     .then((result)=> {
       console.log(result.rows);
-      return result.rows[0];
+      return result.rows;
     })
     .catch(err => {
       console.error(err);

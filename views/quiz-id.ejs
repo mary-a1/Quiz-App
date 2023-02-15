@@ -30,7 +30,7 @@
   <script src="/vendor/jquery-3.0.0.js"></script>
 
   <!-- App Scripts -->
-  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/quiz-id.js"></script>
 </head>
 
 <body>
@@ -47,20 +47,25 @@
     </section>
 
     <section class="quiz-questions">
-      <h3>Questions</h3>
 
-      <div class="question-cards"> <!-- class="container" -->
-        <div id="question">Questions 1: Lorem ipsum dolor sit amet. Qui minima natus aut minus commodi sed dolores accusamus et dolorem repellendus id quas explicabo.</div>
+      <div class="question-cards" id="cards">
+        <div id="question">Placeholder, should be populated with data queried from database. Placeholder, should be populated with data queried from database. Placeholder, should be populated with data queried from database.</div>
         <div id="answer-buttons" class="btn-grid">
-          <button class="btn">Qui quia doloribus non velit totam 33 facere omnis.</button>
-          <button class="btn">Et perferendis accusantium et inventore aspernatur.</button>
-          <button class="btn">Ut recusandae quibusdam qui Quis.</button>
-          <button class="btn">Id deleniti quae qui praesentium culpa est distinctio.</button>
+          <button class="btn" id="answer1">Placeholder, should be populated with data queried from database</button>
+          <button class="btn" id="answer2">Placeholder, should be populated with data queried from database</button>
+          <button class="btn" id="answer3">Placeholder, should be populated with data queried from database</button>
+          <button class="btn" id="answer4">Placeholder, should be populated with data queried from database</button>
         </div>
 
-        <div class="controls">
+        <div class="controls" id="controls">
           <button id="next-btn" class="next-btn btn">Next</button>
+          <button id="finish-btn" class="next-btn btn">Finish</button>
         </div>
+      </div>
+
+      <div id="result"> <!-- Placeholder Code -->
+        <h3>Score: <span id="score"></span>/25</h3>
+        <h3><span id="correct-answer">3</span> Correct Out of 5</h3>
       </div>
 
     </section>
