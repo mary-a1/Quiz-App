@@ -10,12 +10,12 @@ const getAllQuizzes = function(options = {}, limit = 10) {
 
   // Optional parameters
   if (options.title) {
-    queryParams.push(`%${options.title}%`);
-    queryString += ` AND title LIKE $${queryParams.length}`;
+    queryParams.push(`%${options.title.toLowerCase()}%`);
+    queryString += ` AND LOWER(title) LIKE $${queryParams.length}`;
   }
-  if (options.subject) {
-    queryParams.push(`%${options.subject}%`);
-    queryString += ` AND subject LIKE $${queryParams.length}`;
+  if (options.type) {
+    queryParams.push(`%${options.type.toLowerCase()}%`);
+    queryString += ` AND LOWER(type) LIKE $${queryParams.length}`;
   }
   // End off the query string by ordering it based on rating
   queryString += ` GROUP BY quizzes.id`;
@@ -30,6 +30,9 @@ const getAllQuizzes = function(options = {}, limit = 10) {
   queryString += `
   ORDER BY average_rating
   LIMIT $${queryParams.length};`;
+
+  console.log(queryString);
+  console.log(queryParams);
 
   return db.query(queryString, queryParams)
     .then((data) => {
