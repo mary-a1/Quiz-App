@@ -1,33 +1,33 @@
 const db = require('../connection');
 
 const editQuestions = function(quizQuestions) {
-  const queryParams = [...Object.values(quizQuestions)];
-  const quizIdindex = queryParams.length;
+  const numberOfQuestions = Object.values(quizQuestions) / 7;
 
-  // Start the query
-  let queryString = `
-  INSERT INTO questions (id, quiz_id, description, answer_one, answer_two, answer_three, answer_four, correct_answer)
-  VALUES`;
+  console.log(quizQuestions);
 
-  // Middle of the query: Add the questions
-  for (let i = 1; i <= queryParams.length; i += 7) {
-    queryString += (i > 2) ? ', ' : ' ';
-    queryString += `($${quizIdindex}, $${i}, $${i + 1}, $${i + 2}, $${i + 3}, $${i + 4}, $${i + 5}, , $${i + 6})`;
+  for (let i = 1; i < numberOfQuestions; i++) {
+    const queryString = `
+    UPDATE questions
+    SET
+    description = $1,
+    answer_one = $2,
+    answer_two = $3,
+    answer_three = $4,
+    answer_four = $5,
+    correct_answer = $6
+    WHERE id = $7`;
+
+    const queryParams = [
+      quizQuestions[`qId${i}`],
+      quizQuestions[`q${i}`],
+      quizQuestions[`q${i}a`],
+      quizQuestions[`q${i}b`],
+      quizQuestions[`q${i}c`],
+      quizQuestions[`q${i}d`],
+      quizQuestions[`question-${i}`]];
+
+    db.query(queryString, queryParams);
   }
-
-  // End the query
-  queryString += `ON DUPLICATE KEY UPDATE
-  id=VALUES(id);`;
-
-  console.log('------------------------------------------------------------------------------------------------');
-  console.log(queryString);
-  console.log('------------------------------------------------------------------------------------------------');
-  console.log(queryParams);
-  console.log('------------------------------------------------------------------------------------------------');
-
-
-
-  return db.query(queryString, queryParams);
 };
 
 module.exports = { editQuestions };

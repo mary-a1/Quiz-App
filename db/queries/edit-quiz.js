@@ -7,7 +7,7 @@ const editQuiz = function(updatedQuiz) {
   UPDATE quizzes
   SET title = $1, type = $2, public = $3, thumbnail_url = $4
   WHERE id = $5;`;
-  const quizQuestions = (({ title, subject, public, thumbnail_url, ...o }) => o)(updatedQuiz);
+  const quizQuestions = (({ title, subject, public, thumbnail_url, quizId, ...o }) => o)(updatedQuiz);
 
   return db.query(queryString, queryParams)
     .then(() => {
