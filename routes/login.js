@@ -9,7 +9,7 @@
 const express = require('express');
 const router = express.Router();
 const getUser = require('../db/queries/login');
-// const bcrypt = require("bcryptjs");
+const bcrypt = require("bcryptjs");
 
 
 router.get('/', (req, res) => {
@@ -18,15 +18,11 @@ router.get('/', (req, res) => {
   res.render('login', { user });
 });
 
-//missing encryption for password
-
 router.post('/', (req, res) => {
   // console.log(req.body);
   getUser.userLogin(req.body)
     .then((rows) => {
-      // console.log(rows);
-      if (req.body.password === rows[0].password) {
-        // console.log("password matches");
+      if (bcrypt.compareSync(req.body.password, rows[0].password)) {
         req.session.user = rows[0].id;
         return res.redirect('/');
       } else {
