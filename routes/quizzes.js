@@ -34,7 +34,10 @@ router.post('/', (req, res) => {
   // Get id of the quiz
   const id = req.body.id;
   // Make query to remove quiz
-  removeQuiz.removeQuiz(id);
+  removeQuiz.removeQuiz(id)
+    .then(() => {
+      res.redirect("/quizzes");
+    });
 });
 
 module.exports = router;
