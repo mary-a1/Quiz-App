@@ -28,30 +28,28 @@
     <%- include('./partials/header', {user}) %>
   </header>
 
+  <main>
   <!-- Quizzes -->
   <% for (let id in quizzes) { %>
     <div class="container">
-      <p id="quizId">
+      <!-- <p id="quizId">
         <%= quizzes[id].id %>
-      </p><br />
-      <%= quizzes[id].title %><br />
-        <%= quizzes[id].thumbnail_url %><br />
-          <%= quizzes[id].average_rating %><br />
-            <a href="https://facebook.com/sharer/sharer.php?u=http://localhost:8080/quiz/<%= quizzes[id].id %>
-          ">Facebook</a>
-            <a
-              href="https://twitter.com/share?url=http://localhost:8080/quiz/<%= quizzes[id].id %>&text=Check out this quiz&hashtags=quiz">Twitter</a>
-            <a
-              href="mailto:{to}?subject=Quiz&body=http://localhost:8080/quiz/<%= quizzes[id].id %>">Email</a>
-            <a
-              href="whatsapp://send?text=http://localhost:8080/quiz/<%= quizzes[id].id %>%20{text}">Whatsapp</a>
-
-            <form action="/<%= quizzes[id].id %>" method="POST">
-
-              <button>Start Quiz!</button>
-            </form>
+      </p><br /> -->
+      <img class="thumbnail-image" src= <%= quizzes[id].thumbnail_url %>><br />
+      <h1><%= quizzes[id].title %></h1><br />
+        <h3><%= quizzes[id].average_rating %></h3><br />
+          <div class="share-link">
+          <button class="social-media" onclick="window.location.href = 'https://facebook.com/sharer/sharer.php?u=http://localhost:8080/quiz/<%= quizzes[id].id %>';"> Facebook</button>
+          <button class="social-media" onclick="window.location.href = 'mailto:{to}?subject=Quiz&body=http://localhost:8080/quiz/<%= quizzes[id].id %>';"> Email</button>
+          <button class="social-media" onclick="window.location.href = 'whatsapp://send?text=http://localhost:8080/quiz/<%= quizzes[id].id %>%20{Check out this quiz on Quiz Light}';"> Whatsapp</button>
+          <button class="social-media" onclick="window.location.href = 'https://twitter.com/share?url=http://localhost:8080/quiz/<%= quizzes[id].id %>&text=Check out this quiz&hashtags=QuizLight';"> Twitter</button>
+          </div>
+          <form class="start-quiz" action="/<%= quizzes[id].id %>" method="POST">
+              <button class="start-quiz">Start Quiz!</button>
+          </form>
     </div>
     <% } %>
+  </main>
 </body>
 
 </html>
