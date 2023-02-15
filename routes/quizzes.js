@@ -30,9 +30,9 @@ router.get('/', (req, res) => {
 });
 
 
-router.post('/', (req, res) => {
+router.post('/:id', (req, res) => {
   // Get id of the quiz
-  const id = req.body.id;
+  const id = req.params.id;
   // Make query to remove quiz
   removeQuiz.removeQuiz(id)
     .then(() => {

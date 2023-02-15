@@ -26,15 +26,15 @@ router.get('/', (req, res) => {
 });
 
 // Post request after submitting form
-router.post('/', (req, res) => {
+router.post('/:id', (req, res) => {
   // Check if logged in
   const isLoggedIn = req.session.user;
-  const quizId = req.body;
+  const quizId = req.params.id;
   if (!isLoggedIn) {
     return res.redirect('/login');
   } else {
     // Just need to redirect to my quizzes. The my quizzes page will gather the quiz data itself
-    return res.redirect(`/quiz/:${quizId}` /* UPDATE THIS ONCE MY QUIZZES PAGE IS ADDED*/);
+    return res.redirect(`/quiz/${quizId}` /* UPDATE THIS ONCE MY QUIZZES PAGE IS ADDED*/);
   }
 });
 

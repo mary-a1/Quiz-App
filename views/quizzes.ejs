@@ -65,8 +65,7 @@
             </form>
 
             <!-- Delete the quiz -->
-            <form action="/myquizzes" method="POST">
-              <input type="text" id="quiz_id" name="id" value="<%= myQuizzes[id].id %>">
+            <form action="/myquizzes/<%= myQuizzes[id].id %>" method="POST">
               <button class="deleteButton" type="submit">Delete</button>
             </form>
           </div>
