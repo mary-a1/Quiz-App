@@ -7,13 +7,19 @@
 
 const express = require('express');
 const router = express.Router();
+const quizQueries = require('../db/queries/get-quiz-by-id')
 
 // check if user is logged in (cookie stuff)
 
 router.get('/:id', (req, res) => {
   // Check if logged in for header
   const user = req.session.user;
-  res.render('quiz-id', { user });
+  quizQueries.getQuizById()
+    .then((quiz) => {
+      const templateVar = { quiz, user };
+      res.render('quiz-id', templateVar);
+    })
+
 });
 
 module.exports = router;
