@@ -2,8 +2,6 @@ const db = require('../connection');
 
 const editQuestions = function(quizQuestions) {
   const numberOfQuestions = Object.values(quizQuestions).length / 7;
-  console.log(numberOfQuestions);
-  console.log(quizQuestions);
 
   for (let i = 1; i <= numberOfQuestions; i++) {
     const queryString = `
@@ -24,10 +22,9 @@ const editQuestions = function(quizQuestions) {
       quizQuestions[`q${i}c`],
       quizQuestions[`q${i}d`],
       quizQuestions[`question-${i}`],
-      quizQuestions[`qId${i}`],];
+      quizQuestions[`qId${i}`]];
 
-      console.log(queryParams);
-      db.query(queryString, queryParams);
+    db.query(queryString, queryParams);
   }
 };
 
