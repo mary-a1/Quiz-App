@@ -37,7 +37,6 @@
     <%- include('./partials/header', {user}) %>
   </header>
   <section class="section">
-
     <% if (results.length !== 0 ){ %>
       <h1><%= (results[0].user) ? results[0].title : 'My Results '%></h1>
       <div class="result-container">
@@ -48,6 +47,22 @@
               <% } else { %>
                 <img class="thumbnail-image-result"src=<%= result.thumbnail_url %>>
                 <p> Title: <%=result.title %> </p>
+                <div class="share-link">
+                  <i class="fa-solid fa-share-from-square"></i>
+                  <button class="social-media"
+                    onclick="window.open('https://facebook.com/sharer/sharer.php?href={www.google.com}&p[Quiz Light App]={Check out my score <%= result.score %> on this quiz <%= result.title %>}')"> Facebook</button>
+                  <button class="social-media"
+                    onclick="window.open('mailto:?subject=Quiz Light | <%= result.title %> &body=Check out my score <%= result.score %> on this quiz on Quiz Light App!%>')">
+                    Email</button>
+                  <button class="social-media"
+                    onclick="window.open('whatsapp://send?text=Check out my score <%= result.score %> on this quiz <%= result.title %> on Quiz Light')">
+                    Whatsapp</button>
+                  <button class="social-media"
+                    onclick="window.open('https://twitter.com/share?url=&text=Check out my score <%= result.score %> on this quiz <%= result.title %> &hashtags=QuizLight')">
+                    Twitter</button>
+                  <button class="social-media"
+                  onclick="window.open('sms:?&body=Check out my score <%= result.score %> on this quiz <%= result.title %> on Quiz Light%>')">Text</button>
+                </div>
                 <% } %>
                 <p class="result">Result: <%=result.score%></p>
               </div>
