@@ -34,7 +34,7 @@
   <header>
     <%- include('./partials/header', {user}) %>
   </header>
-  
+
     <main>
       <!-- Header -->
       <section class="container">
@@ -61,7 +61,13 @@
             </div>
             <div>
               <label for="min_rating">Minimum Rating:</label><br>
-              <input type="text" id="min_rating" name="min_rating"><br>
+              <select name="min_rating" id="min_rating">
+                <option value=""></option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
             </div>
             <div class="submit-button">
               <input class="button" type="submit" value="Submit">

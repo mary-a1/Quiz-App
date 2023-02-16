@@ -1,7 +1,12 @@
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
 <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <img class="logo" src ="/images/logo.png">
+      <img class="logo" src="/images/logo.png">
       <div class="navbar-nav">
         <a class="nav-item nav-link" href="/">Homepage</a>
         <!-- Logged in -->
@@ -11,12 +16,17 @@
           <a class="nav-item nav-link" href="/myquizzes">My Quizzes</a>
           <a class="nav-item nav-link" href="/myresults">My Results</a>
           <form action="/" method="GET"><a class="nav-item nav-link" href="/logout">Log Out</a></form>
+          <i class="fa-solid fa-user"></i>
           <% } else { %>
-          <!-- Not logged in -->
-          <a class="nav-item nav-link" href="/login">Login</a>
-          <a class="nav-item nav-link" href="/register">Sign Up</a>
-          <% } %>
+            <!-- Not logged in -->
+            <a class="nav-item nav-link" href="/search">Search Quiz</a>
+            <a class="nav-item nav-link" href="/login">Login</a>
+            <a class="nav-item nav-link" href="/register">Sign Up</a>
+            <% } %>
       </div>
     </div>
   </nav>
+
+
 </header>
+
