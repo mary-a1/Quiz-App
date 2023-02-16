@@ -35,7 +35,10 @@
 
   <% for (const result of results) { %>
     <p>
-      Title: <%= (result.user) ? 'Player: ' + result.user : 'Title: ' + result.title %>
+      <%= (result.user) ? 'Player: ' + result.user : 'Title: ' + result.title %>
+    </p>
+    <p>
+      <%= (result.thumbnail_url) ? 'thumbnail_url: ' + result.thumbnail_url : '' %>
     </p>
     <p>
       Result: <%=result.score%>

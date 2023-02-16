@@ -54,6 +54,7 @@
         <% for (let id in publicQuizzes) { %>
 
           <div class="my-item">
+            <img class="thumbnail-image" src=<%=publicQuizzes[id].thumbnail_url %>><br />
             <!-- Click on quiz to see all results -->
             <div class="quizbox-1">
               <div class="item-body">
@@ -94,7 +95,7 @@
 
           <div class="my-item">
             <!-- Click on quiz to see all results -->
-            <div class="quizbox-1">
+            <div class="quizbox-1" style="background-image: <%= privateQuizzes[id].thumbnail_url %>;">
               <div class="item-body">
                 <%= privateQuizzes[id].title %>
               </div>

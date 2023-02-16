@@ -67,35 +67,35 @@
         </fieldset>
 
         <!-- Questions -->
-        <% for (let i=0; i < 4; i++) { %>
+        <% for (let i=1; i <= 4; i++) { %>
           <fieldset class="q">
             <div>
-              <label for="q<%= i + 1 %>">Question <%= i + 1 %>:</label><br>
-              <textarea class="question-box" type="text" id="q<%= i + 1 %>" name="q<%= i + 1 %>" required></textarea>
+              <label for="q<%= i %>">Question <%= i %>:</label><br>
+              <textarea class="question-box" type="text" id="q<%= i %>" name="q<%= i %>" required></textarea>
             </div>
             <section class="answers">
               <div class="div-section">
-                <label for="q<%= i + 1 %>a">
-                  <%= i + 1 %>:
+                <label for="q<%= i %>a">
+                  <%= i %>:
                 </label><br>
-                <textarea class="text" type="text" id="q<%= i + 1 %>a" name="q<%= i + 1 %>a" required></textarea>
+                <textarea class="text" type="text" id="q<%= i %>a" name="q<%= i %>a" required></textarea>
               </div>
               <div class="div-section">
-                <label for="q<%= i + 1 %>b">2:</label><br>
-                <textarea class="text" type="text" id="q<%= i + 1 %>b" name="q<%= i + 1 %>b" required></textarea>
+                <label for="q<%= i %>b">2:</label><br>
+                <textarea class="text" type="text" id="q<%= i %>b" name="q<%= i %>b" required></textarea>
               </div>
               <div class="div-section">
-                <label for="q<%= i + 1 %>c">3:</label><br>
-                <textarea class="text" type="text" id="q<%= i + 1 %>c" name="q<%= i + 1 %>c" required></textarea>
+                <label for="q<%= i %>c">3:</label><br>
+                <textarea class="text" type="text" id="q<%= i %>c" name="q<%= i %>c" required></textarea>
               </div>
               <div class="div-section">
-                <label for="q<%= i + 1 %>d">4:</label><br>
-                <textarea class="text" type="text" id="q<%= i + 1 %>d" name="q<%= i + 1 %>d" required></textarea>
+                <label for="q<%= i %>d">4:</label><br>
+                <textarea class="text" type="text" id="q<%= i %>d" name="q<%= i %>d" required></textarea>
               </div>
             </section>
             <div>
-              <label for="q<%= i + 1 %>-corr-ans">Correct Answer:</label><br>
-              <select class="question" name="question-<%= i + 1 %>" id="question-<%= i + 1 %>">
+              <label for="q<%= i %>-corr-ans">Correct Answer:</label><br>
+              <select class="question" name="question-<%= i %>" id="question-<%= i %>">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -113,9 +113,10 @@
                 <button class="rem-question">Remove Question</button>
               </div>
               <input class="create-quiz" type="submit" value="Create Quiz">
-              <a href="/">Cancel</a>
+              <a href="/myquizzes">Cancel</a>
+            </section>
+      </form>
     </div>
-    </form>
     </div>
   </main>
 </body>

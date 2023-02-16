@@ -18,8 +18,8 @@ router.get('/', (req, res) => {
   if (user) {
     myQuizzes.listQuizzes(user)
       .then((myQuizzes) => {
-        const publicQuizzes= myQuizzes.filter(myQuiz => myQuiz.public);
-        const privateQuizzes= myQuizzes.filter(myQuiz => !myQuiz.public);
+        const publicQuizzes = myQuizzes.filter(myQuiz => myQuiz.public);
+        const privateQuizzes = myQuizzes.filter(myQuiz => !myQuiz.public);
         const templateVar = { myQuizzes, user, publicQuizzes, privateQuizzes };
         res.render('quizzes', templateVar);
       })
