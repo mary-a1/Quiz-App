@@ -62,8 +62,9 @@ const submitQuiz = function(event) {
   event.preventDefault();
 
   const data = $('#quiz_info').val();
-  console.log(data);
-  $.post('/quiz', data);
+  $.post('/quiz', data, function(res) {
+    window.location.href = 'http://localhost:8080/quiz/myresults';
+  });
 };
 
 const shareButton = function(buttonId) {

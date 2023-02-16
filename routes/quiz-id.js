@@ -36,7 +36,7 @@ router.post('/', (req, res) => {
 
   addResult.addResult(playerId, review, answersSelected)
     .then(() => {
-      return res.redirect('/');
+      return res.redirect('/myresults');
     })
     .catch(error => {
       console.error(error);
