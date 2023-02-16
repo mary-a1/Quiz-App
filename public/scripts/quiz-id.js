@@ -32,9 +32,18 @@ $(document).ready(() => {
 
 });
 
-const answersSelected = function(event) {
-  event.preventDefault();
-  const data = {};
+const answersSelected = function() {
+  $('form').addClass('show-button');
+
+  // Color in the stars
+  $('.star').addClass('selected');
+  let count = $(this).attr('name');
+  for (let i = 0; i < count - 1; i++) {
+    $('.star').eq(i).removeClass('selected');
+  }
+  // Add the data to the submit button to transport
+  const review = 6 - count;
+  const data = { review };
 
   $('.questions').each(function() {
 
@@ -49,11 +58,5 @@ const answersSelected = function(event) {
     }
   });
 
-  console.log(data);
-
-  $.ajax({
-    method: "POST",
-    url: "/quiz",
-    data
-  });
+  $('#quiz_info').attr('value', JSON.stringify(data));
 };

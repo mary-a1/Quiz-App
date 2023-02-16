@@ -16,7 +16,6 @@ router.get('/', (req, res) => {
   // Check if logged in for header
   const user = req.session.user;
   const loginFail = req.query.error === 'loginfailed';
-  // console.log(req.query.error === 'loginfailed');
   res.render('login', { user, loginFail });
 });
 
