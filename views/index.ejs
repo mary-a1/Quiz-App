@@ -47,10 +47,10 @@
         <h3>Rating: <%= Number(quizzes[id].average_rating).toFixed(0) %>/4</h3><br />
           <div class="share-link">
           <i class="fa-solid fa-share-from-square"></i>
-          <button class="social-media" onclick="window.location.href = 'https://facebook.com/sharer/sharer.php?u=http://localhost:8080/quiz/<%= quizzes[id].id %>';"> Facebook</button>
-          <button class="social-media" onclick="window.location.href = 'mailto:{to}?subject=Quiz&body=http://localhost:8080/quiz/<%= quizzes[id].id %>';"> Email</button>
-          <button class="social-media" onclick="window.location.href = 'whatsapp://send?text=http://localhost:8080/quiz/<%= quizzes[id].id %>%20{Check out this quiz on Quiz Light}';"> Whatsapp</button>
-          <button class="social-media" onclick="window.location.href = 'https://twitter.com/share?url=http://localhost:8080/quiz/<%= quizzes[id].id %>&text=Check out this quiz&hashtags=QuizLight';"> Twitter</button>
+          <button class="social-media" onclick="window.open('https://facebook.com/sharer/sharer.php?u=http://localhost:8080/quiz/<%=quizzes[id].id %>')"> Facebook</button>
+          <button class="social-media" onclick="window.open('mailto:{to}?subject=Quiz&body=http://localhost:8080/quiz/<%= quizzes[id].id %>')"> Email</button>
+          <button class="social-media" onclick="window.open('whatsapp://send?text=http://localhost:8080/quiz/<%= quizzes[id].id %>%20{Check out this quiz on Quiz Light}')"> Whatsapp</button>
+          <button class="social-media" onclick="window.open('https://twitter.com/share?url=http://localhost:8080/quiz/<%= quizzes[id].id %>&text=Check out this quiz&hashtags=QuizLight')"> Twitter</button>
           </div>
           <form class="start-quiz" action="/<%= quizzes[id].id %>" method="POST">
               <button class="start-quiz">Start Quiz!</button>
