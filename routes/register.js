@@ -14,7 +14,8 @@ const bcrypt = require("bcryptjs");
 router.get('/', (req, res) => {
   // Check if logged in for header
   const user = req.session.user;
-  res.render('register', { user });
+  const registerFail = req.query.error === 'registerfailed';
+  res.render('register', { user, registerFail });
 });
 
 router.post('/', (req, res) => {
@@ -26,7 +27,7 @@ router.post('/', (req, res) => {
       res.redirect('/');
     })
     .catch(() => {
-      return res.status(400).send(`ERROR : email address already exists`);
+      return res.redirect('/register?error=registerfailed');
     });
 });
 
