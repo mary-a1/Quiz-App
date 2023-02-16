@@ -10,13 +10,15 @@
 
   <!-- Google Fonts -->
   <link
-  href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,800&family=Roboto:wght@500;900&display=swap"
-  rel="stylesheet">
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,800&family=Roboto:wght@500;900&display=swap"
+    rel="stylesheet">
 
   <!-- External CSS -->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- App CSS -->
   <link rel="stylesheet" href="/styles/main.css" />
@@ -36,27 +38,39 @@
   </header>
 
   <main>
-  <!-- Quizzes -->
-  <% for (let id in quizzes) { %>
-    <div class="container">
-      <!-- <p id="quizId">
+    <!-- Quizzes -->
+    <% for (let id in quizzes) { %>
+      <div class="container">
+        <!-- <p id="quizId">
         <%= quizzes[id].id %>
       </p><br /> -->
-      <img class="thumbnail-image" src= <%= quizzes[id].thumbnail_url %>><br />
-      <h1><%= quizzes[id].title %></h1><br />
+        <img class="thumbnail-image" src=<%=quizzes[id].thumbnail_url %>><br />
+        <h1>
+          <%= quizzes[id].title %>
+        </h1><br />
         <h3>Rating: <%= Number(quizzes[id].average_rating).toFixed(0) %>/4</h3><br />
-          <div class="share-link">
+        <div class="share-link">
           <i class="fa-solid fa-share-from-square"></i>
-          <button class="social-media" onclick="window.open('https://facebook.com/sharer/sharer.php?u=http://localhost:8080/quiz/<%=quizzes[id].id %>')"> Facebook</button>
-          <button class="social-media" onclick="window.open('mailto:{to}?subject=Quiz&body=http://localhost:8080/quiz/<%= quizzes[id].id %>')"> Email</button>
-          <button class="social-media" onclick="window.open('whatsapp://send?text=http://localhost:8080/quiz/<%= quizzes[id].id %>%20{Check out this quiz on Quiz Light}')"> Whatsapp</button>
-          <button class="social-media" onclick="window.open('https://twitter.com/share?url=http://localhost:8080/quiz/<%= quizzes[id].id %>&text=Check out this quiz&hashtags=QuizLight')"> Twitter</button>
-          </div>
-          <form class="start-quiz" action="/<%= quizzes[id].id %>" method="POST">
-              <button class="start-quiz">Start Quiz!</button>
-          </form>
-    </div>
-    <% } %>
+          <button class="social-media"
+            onclick="window.open('https://facebook.com/sharer/sharer.php?u=http://localhost:8080/quiz/<%=quizzes[id].id %>')">
+            Facebook</button>
+          <button class="social-media"
+            onclick="window.open('mailto:?subject=Quiz Light | <%= quizzes[id].title %> &body=Check out this quiz http://localhost:8080/quiz/<%= quizzes[id].id %>')">
+            Email</button>
+          <button class="social-media"
+            onclick="window.open('whatsapp://send?text=Check out this <%= quizzes[id].title %> on Quiz Light http://localhost:8080/quiz/<%= quizzes[id].id %>')">
+            Whatsapp</button>
+          <button class="social-media"
+            onclick="window.open('https://twitter.com/share?url=http://localhost:8080/quiz/<%= quizzes[id].id %>&text=Check out this quiz&hashtags=QuizLight')">
+            Twitter</button>
+          <button class="social-media"
+          onclick="window.open('sms:?&body=Check out this <%= quizzes[id].title %> on Quiz Light http://localhost:8080/quiz/<%= quizzes[id].id %>')">Text</button>
+        </div>
+        <form class=" start-quiz" action="/<%= quizzes[id].id %>" method="POST">
+            <button class="start-quiz">Start Quiz!</button>
+            </form>
+        </div>
+        <% } %>
   </main>
 </body>
 
