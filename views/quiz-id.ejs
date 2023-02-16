@@ -87,8 +87,15 @@
     <div id="popup-container">
       <button id="close-btn">&times;</button>
       <h1>Your Score: <span id="score"></span>/5</h3>
+      <div>Please give the quiz a rating!</div>
       <div id="rateYo"></div>
-      <div>share button placeholder</div>
+      <div class="share-link">
+        <i class="fa-solid fa-share-from-square"></i>
+        <button class="social-media" onclick="window.open('https://facebook.com/sharer/sharer.php?u=http://localhost:8080/quiz/<%=        %>')"> Facebook</button>
+        <button class="social-media" onclick="window.open('mailto:{to}?subject=Quiz&body=http://localhost:8080/quiz/<%=        %>')"> Email</button>
+        <button class="social-media" onclick="window.open('whatsapp://send?text=http://localhost:8080/quiz/<%=      %>%20{Check out this quiz on Quiz Light}')"> Whatsapp</button>
+        <button class="social-media" onclick="window.open('https://twitter.com/share?url=http://localhost:8080/quiz/<%=       %>&text=Check out this quiz&hashtags=QuizLight')"> Twitter</button>
+      </div>
     </div>
 
     <div id="overlay"></div>
