@@ -49,6 +49,7 @@ const homePageRoutes = require('./routes/index');
 const logoutRoutes = require('./routes/logout');
 const allResultsRoutes = require('./routes/allresults');
 const editQuizRoutes = require('./routes/edit-quiz');
+const myResultsRoutes = require('./routes/myresults');
 
 
 
@@ -69,6 +70,8 @@ app.use('/', homePageRoutes);
 app.use('/logout', logoutRoutes);
 app.use('/allresults', allResultsRoutes);
 app.use('/edit', editQuizRoutes);
+app.use('/myresults', myResultsRoutes);
+
 
 
 

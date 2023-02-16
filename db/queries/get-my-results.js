@@ -1,17 +1,17 @@
 const db = require('../connection');
 
-const getAllResults = function(quizId) {
-  const queryParams = [quizId];
+const getAllMyResults = function(userId) {
+  const queryParams = [userId];
   let queryString = `
-  SELECT COUNT(*) AS score, users.name AS user
+  SELECT COUNT(*) AS score, quizzes.title
   FROM questions AS questions
   JOIN results AS results
   ON question_id = questions.id
-  JOIN users AS users
-  ON player_id = users.id
+  JOIN quizzes AS quizzes
+  ON quiz_id = quizzes.id
   WHERE results.chosen_answer = questions.correct_answer AND
-  questions.quiz_id = $1
-  GROUP BY users.id
+  results.player_id = $1
+  GROUP BY quizzes.id
   ORDER BY score;`;
 
   return db.query(queryString, queryParams)
@@ -23,4 +23,4 @@ const getAllResults = function(quizId) {
     });
 };
 
-module.exports = { getAllResults };
+module.exports = { getAllMyResults };
