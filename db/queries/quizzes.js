@@ -7,7 +7,6 @@ const listQuizzes = (id) => {
 
   return db.query(queryString, queryParams)
     .then((data) => {
-      console.log("data", data.rows);
       return data.rows;
     })
     .catch(err => {

@@ -31,9 +31,6 @@ const getAllQuizzes = function(options = {}, limit = 10) {
   ORDER BY average_rating
   LIMIT $${queryParams.length};`;
 
-  console.log(queryString);
-  console.log(queryParams);
-
   return db.query(queryString, queryParams)
     .then((data) => {
       return data.rows;

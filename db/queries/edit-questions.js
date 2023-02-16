@@ -1,11 +1,11 @@
 const db = require('../connection');
 
 const editQuestions = function(quizQuestions) {
-  const numberOfQuestions = Object.values(quizQuestions) / 7;
-
-  console.log(quizQuestions);
+  const numberOfQuestions = Object.values(quizQuestions).length / 7;
+  console.log(numberOfQuestions);
 
   for (let i = 1; i < numberOfQuestions; i++) {
+
     const queryString = `
     UPDATE questions
     SET
@@ -18,13 +18,13 @@ const editQuestions = function(quizQuestions) {
     WHERE id = $7`;
 
     const queryParams = [
-      quizQuestions[`qId${i}`],
       quizQuestions[`q${i}`],
       quizQuestions[`q${i}a`],
       quizQuestions[`q${i}b`],
       quizQuestions[`q${i}c`],
       quizQuestions[`q${i}d`],
-      quizQuestions[`question-${i}`]];
+      quizQuestions[`question-${i}`],
+      quizQuestions[`qId${i}`],];
 
     db.query(queryString, queryParams);
   }
