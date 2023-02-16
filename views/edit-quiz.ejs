@@ -33,7 +33,7 @@
 
   <!-- Header -->
   <main class="container">
-    <h1>Create Quiz</h1>
+    <h1>Edit Quiz</h1>
     <!-- Create Quiz Form -->
     <div class="main-box">
       <form class="" method="POST" action="/edit/<%= myQuiz[0].quiz_id %>">
@@ -72,7 +72,7 @@
         <!-- Questions -->
         <% for (let i=0; i < myQuiz.length; i++) { %>
           <fieldset class="q" id="<%= myQuiz[i].id %>">
-            <input type="text" id="id" name="qId<%= i+1 %>" value="<%= myQuiz[i].id %>">
+            <input class="questionId" type="text" name="qId<%= i+1 %>" value="<%= myQuiz[i].id %>">
             <div>
               <label for="q<%= i+1 %>">Question <%= i+1 %>:</label><br>
               <textarea class="question-box" type="text" id="q<%= i+1 %>" name="q<%= i+1 %>"
