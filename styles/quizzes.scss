@@ -8,6 +8,10 @@ main {
   flex-wrap: wrap;
 }
 
+h2 {
+  color: white;
+}
+
 section {
   display: flex;
   flex-direction: column;
@@ -16,8 +20,20 @@ section {
 .quizbox-public {
   display: flex;
   gap: 30px;
-}
 
+}
+.my-item{
+  transition: box-shadow 0.3s;
+  -webkit-filter: brightness(80%);
+  -webkit-transition: all 1s ease;
+  -webkit-overflow-scrolling: auto; /* Stops scrolling immediately */
+
+}
+.my-item:hover {
+  box-shadow: 5px 5px #D5E3F0;
+  -webkit-filter: brightness(100%);
+
+}
 .item-body {
   font-size: 30px;
   font-family: 'Roboto', sans-serif;
@@ -25,7 +41,18 @@ section {
   padding-bottom: 20px;
 
 }
+.thumbnail-image {
+  -webkit-filter: brightness(100%);
+}
 
+// .thumbnail-image:hover {
+//   -webkit-filter: brightness(70%);
+//   -webkit-transition: all 1s ease;
+//   -moz-transition: all 1s ease;
+//   -o-transition: all 1s ease;
+//   -ms-transition: all 1s ease;
+//   transition: all 1s ease;
+// }
 .divButton {
   min-width: 130px;
   color: white;
