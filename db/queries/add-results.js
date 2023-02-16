@@ -30,7 +30,7 @@ const addResult = (playerId, review, answersSelected) => {
     .then((result) => {
       const quizId = result.rows[0].quiz_id;
       const queryParams = [quizId, playerId, review];
-      addReview(queryParams);
+      return addReview(queryParams);
     })
     .catch(err => {
       console.error(err);
