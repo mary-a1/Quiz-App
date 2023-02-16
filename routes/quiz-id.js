@@ -29,7 +29,7 @@ router.get('/:id', (req, res) => {
 
 // Post request after submitting quiz
 router.post('/', (req, res) => {
-  const results = req.body;
+  const results = JSON.parse(req.body.quiz_info);
   addResult.addResult(results)
     .then(() => {
       return res.redirect('myresults');

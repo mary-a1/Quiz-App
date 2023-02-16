@@ -5,5 +5,4 @@ CREATE TABLE results (
   player_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   question_id INTEGER REFERENCES questions(id) ON DELETE CASCADE,
   chosen_answer SMALLINT NOT NULL,
-  alias VARCHAR(255)
 );

@@ -59,6 +59,7 @@ $questionCardBack: #D5E3F0;
   gap: 3px;
   margin-top: 15px;
   margin-bottom: 5px;
+
   div {
     display: flex;
   }
@@ -72,6 +73,7 @@ $questionCardBack: #D5E3F0;
   border: none;
   width: 97%;
   margin-left: 10px;
+
   &:hover {
     box-shadow: 0 3px 8px rgb(0 0 0 / 0.2);
   }
@@ -84,4 +86,40 @@ $questionCardBack: #D5E3F0;
   border-radius: 30px;
   padding: 8px 18px;
   font-size: 18px;
+}
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: center;
+}
+
+.rating>span {
+  display: inline-block;
+  position: relative;
+  /*width: 1.1em;*/
+}
+
+.rating>span:hover,
+.rating>span:hover~span {
+  color: transparent;
+}
+
+.rating>span:hover:before,
+.rating>span:hover~span:before {
+  content: "\2605";
+  position: absolute;
+  left: 0;
+  color: gold;
+  cursor: pointer;
+}
+
+span {
+  font-size: 120px;
+  color: #f5f5f5;
+  text-shadow: 0px 5px 5px #000;
+}
+
+.selected {
+  color: gold;
 }
