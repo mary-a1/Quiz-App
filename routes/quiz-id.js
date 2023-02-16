@@ -7,17 +7,11 @@
 
 const express = require('express');
 const router = express.Router();
-const quizQueries = require('../db/queries/get-quiz-by-id')
-
-// check if user is logged in (cookie stuff)
+const quizQueries = require('../db/queries/get-quiz-by-id');
+const addResult = require('../db/queries/add-results');
 
 router.get('/:id', (req, res) => {
   const user = req.session.user;
-  // console.log(req.session);
-  // if (!user) {   // Check if logged in for header
-  //   res.send("Pleas log in or register first.");
-  //   return;
-  // }
 
   const quizId = req._parsedOriginalUrl.pathname.split('/')[2];
 
@@ -28,9 +22,18 @@ router.get('/:id', (req, res) => {
     })
     .catch(error => {
       console.error(error);
-      res.send(error)
+      res.send(error);
     });
 
+});
+
+// Post request after submitting quiz
+router.post('/', (req, res) => {
+  const results = req.body;
+  addResult.addResult(results)
+    .then(() => {
+      return res.redirect('myresults');
+    });
 });
 
 module.exports = router;
