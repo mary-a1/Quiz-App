@@ -24,10 +24,9 @@ const editQuestions = function(quizQuestions) {
       quizQuestions[`q${i}c`],
       quizQuestions[`q${i}d`],
       quizQuestions[`question-${i}`],
-      quizQuestions[`qId${i}`],];
+      quizQuestions[`qId${i}`]];
 
-      console.log(queryParams);
-      db.query(queryString, queryParams);
+    db.query(queryString, queryParams);
   }
 };
 
