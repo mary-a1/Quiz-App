@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
   // Check if logged in for header
   const user = req.session.user;
   const registerFail = req.query.error === 'registerfailed';
-  res.render('register', { user, registerFail });
+  (user) ? res.redirect('/') : res.render('register', { user, registerFail });
 });
 
 router.post('/', (req, res) => {

@@ -1,40 +1,42 @@
 $(document).ready(() => {
-  // $('#popup-container').hide();
-  // $('#overlay').hide();
-
-  $('#submit-btn').on('click', function() {
-    let score = 0;
-    $("input[type='radio']:checked").each(function() {
-      if ($("input[type='radio']:checked") === $("#correct-answers")) {
-        score++;
-      } else {
-        score+=0;
-      }
-    });
-
-    $('#score').text(score);
-
-    $('#popup-container').show();
-    $('#overlay').show();
-  });
-
-  $('#close-btn').on('click', function() {
-    $('#popup-container').hide();
-    $('#overlay').hide();
-  });
-
-  $("#rateYo").rateYo({
-    numStars: 4,
-    spacing: "10px"
-  });
-
-  $('form').on('submit', answersSelected);
-
+  $('.submit-btn').on('click', answersSelected);
+  $('.star').on('click', starSelected);
+  $('#close-btn').on('click', submitQuiz);
 });
 
 const answersSelected = function() {
-  $('form').addClass('show-button');
+  // Get initial data set up
+  const data = { answersSelected: {} };
+  let score = 0;
+  let totalQuestions = 0;
 
+  // Loop through the questions
+  $('.q-card').each(function() {
+
+    const questionId = $(this).attr('id');
+    const correctAnswerId = $(this).children(".questions").attr("id");
+    const correctAnswer = correctAnswerId.slice(-1);
+
+    // Loop through the answers to see which one is selected
+    for (let i = 1; i <= 4; i++) {
+      const $answerId = `#answer_${i}_${questionId}`;
+      if ($($answerId).is(':checked')) {
+        data.answersSelected[`${questionId}`] = i;
+        score += (correctAnswer == i) ? 1 : 0;
+        break;
+      }
+    }
+    totalQuestions++;
+  });
+
+  // Add the data collected
+  $('#score').text(`${score}/${totalQuestions}`);
+  $('#quiz_info').attr('value', JSON.stringify(data));
+  $('#popup').removeClass('hide');
+  $('#popup').addClass('show');
+};
+
+const starSelected = function() {
   // Color in the stars
   $('.star').addClass('selected');
   let count = $(this).attr('name');
@@ -43,20 +45,17 @@ const answersSelected = function() {
   }
   // Add the data to the submit button to transport
   const review = 6 - count;
-  const data = { review };
-
-  $('.questions').each(function() {
-
-    const questionId = $(this).attr('id');
-
-    for (let i = 1; i <= 4; i++) {
-      const $answerId = `#answer_${i}_${questionId}`;
-      if ($($answerId).is(':checked')) {
-        data[`${questionId}`] = i;
-        break;
-      }
-    }
-  });
+  const data = JSON.parse($('#quiz_info').val());
+  data.review = review;
 
   $('#quiz_info').attr('value', JSON.stringify(data));
+};
+
+const submitQuiz = function(event) {
+  $('#popup').removeClass('show');
+  $('#popup').addClass('hide');
+  event.preventDefault();
+
+  const data = $('#quiz_info').val();
+  $.post('/quiz', data);
 };
