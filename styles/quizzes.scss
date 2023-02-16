@@ -5,7 +5,7 @@ main {
   margin: 121px 20px;
   flex-direction: column;
   color: white;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
 }
 
 section {
@@ -48,9 +48,14 @@ section {
   color: black;
 }
 
+.thumbnail-image {
+  width: 478px;
+  height: 390px;
+}
+
 @media only screen and (max-width:1380px) {
-  .quizbox-public  {
-    flex-wrap:wrap;
-    width:100%;
+  .quizbox-public {
+    flex-wrap: wrap;
+    width: 100%;
   }
 }

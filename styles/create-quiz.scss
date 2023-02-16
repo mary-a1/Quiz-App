@@ -109,6 +109,10 @@ main {
   }
 }
 
+.questionId {
+  display: none;
+}
+
 @media only screen and (max-width:675px) {
   .init-vals {
     flex-direction: column;
