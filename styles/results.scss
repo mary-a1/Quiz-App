@@ -1,3 +1,38 @@
 body {
   margin-top: 200px
 }
+.result-container {
+  margin: 20px;
+  padding: 18px;
+  background-color:#D5E3F0;
+}
+.text-box1{
+  display: flex;
+  flex-direction: column;
+  border-style: solid #D5E3F0;
+  p {
+    text-align: center;
+    font-family:'Roboto', sans-serif;
+    font-size: 19px;
+    color:black;
+  }
+  .thumbnail-image-result{
+    height: 300px;
+    width: 300px;
+  }
+
+}
+.text-box1:hover{
+box-shadow: 5px 5px #D5E3F0;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  h1, h3 {
+    color: white;
+    margin: 10px;
+  }
+}
+
+
