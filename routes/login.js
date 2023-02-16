@@ -15,7 +15,9 @@ const bcrypt = require("bcryptjs");
 router.get('/', (req, res) => {
   // Check if logged in for header
   const user = req.session.user;
-  res.render('login', { user });
+  const loginFail = req.query.error === 'loginfailed';
+  // console.log(req.query.error === 'loginfailed');
+  res.render('login', { user, loginFail });
 });
 
 router.post('/', (req, res) => {
@@ -25,7 +27,7 @@ router.post('/', (req, res) => {
         req.session.user = rows[0].id;
         return res.redirect('/');
       } else {
-        return res.status(403).send("ERROR: please enter a correct password.");
+        return res.redirect('/login?error=loginfailed');
       }
     });
 });
