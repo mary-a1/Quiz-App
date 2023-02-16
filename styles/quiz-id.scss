@@ -9,17 +9,13 @@ $questionCardBack: #D5E3F0;
 }
 
 .quiz-info {
-  width: 50%;
+  width: 30vw;
   background-color: #ffffff;
   height: fit-content;
 
   h3 {
     padding: 0 15px;
     font-size: 21px;
-  }
-
-  div {
-    padding: 0 15px;
   }
 
   p {
@@ -37,6 +33,7 @@ $questionCardBack: #D5E3F0;
 .quiz-questions {
   padding: 30px;
   padding-top: 0;
+  width: 70vw;
 
   h3 {
     margin-top: 0;
@@ -45,7 +42,7 @@ $questionCardBack: #D5E3F0;
   }
 }
 
-.question-cards {
+.q-card {
   background-color: $questionCardBack;
   padding: 15px;
   margin: 15px 0;
@@ -61,6 +58,10 @@ $questionCardBack: #D5E3F0;
   display: grid;
   gap: 3px;
   margin-top: 15px;
+  margin-bottom: 5px;
+  div {
+    display: flex;
+  }
 }
 
 .btn {
@@ -69,7 +70,18 @@ $questionCardBack: #D5E3F0;
   background-color: #c4d9ec;
   text-align: left;
   border: none;
+  width: 97%;
+  margin-left: 10px;
   &:hover {
     box-shadow: 0 3px 8px rgb(0 0 0 / 0.2);
   }
+}
+
+.submit-btn {
+  color: white;
+  background: #2C74B3;
+  border: 1px solid #000000;
+  border-radius: 30px;
+  padding: 8px 18px;
+  font-size: 18px;
 }

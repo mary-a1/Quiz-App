@@ -9,6 +9,7 @@ const getQuizById = (quizId) => {
   quizzes.type,
   quizzes.public,
   quizzes.thumbnail_url,
+  questions.id AS question_id,
   questions.description,
   questions.answer_one,
   questions.answer_two,

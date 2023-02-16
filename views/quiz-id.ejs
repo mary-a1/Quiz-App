@@ -41,59 +41,35 @@
   <main class="container">
     <section class="quiz-info">
       <img src="<%= quiz[0].thumbnail_url %>">
-      <h3><%= quiz[0].title %></h3>
-      <div><%= quiz[0].type %></div>
-      <p>Rating Placeholder</p>
+      <h3>
+        <%= quiz[0].title %>
+      </h3>
+      <p>
+        <%= quiz[0].type %>
+      </p>
     </section>
 
     <section class="quiz-questions">
       <h3>Questions</h3>
-      <div>
-        <div class="question-cards">
-          <div class="questions"><%= quiz[0].description %></div>
-          <div id="answer-buttons" class="btn-grid">
-            <button class="btn" id="answer1">1. <%= quiz[0].answer_one %></button>
-            <button class="btn" id="answer2">2. <%= quiz[0].answer_two %></button>
-            <button class="btn" id="answer3">3. <%= quiz[0].answer_three %></button>
-            <button class="btn" id="answer4">4. <%= quiz[0].answer_four %></button>
-          </div>
-        </div>
-
-        <div class="question-cards">
-          <div class="questions"><%= quiz[1].description %></div>
-          <div id="answer-buttons" class="btn-grid">
-            <button class="btn" id="answer1">1. <%= quiz[1].answer_one %></button>
-            <button class="btn" id="answer2">2. <%= quiz[1].answer_two %></button>
-            <button class="btn" id="answer3">3. <%= quiz[1].answer_three %></button>
-            <button class="btn" id="answer4">4. <%= quiz[1].answer_four %></button>
-          </div>
-        </div>
-
-        <div class="question-cards">
-          <div class="questions">Questions 3: Lorem ipsum dolor sit amet. Qui minima natus aut minus commodi sed dolores accusamus et
-            dolorem repellendus id quas explicabo.</div>
-            <div id="answer-buttons" class="btn-grid">
-              <button class="btn" id="answer1">Placeholder, should be populated with data queried from database</button>
-              <button class="btn" id="answer2">Placeholder, should be populated with data queried from database</button>
-              <button class="btn" id="answer3">Placeholder, should be populated with data queried from database</button>
-              <button class="btn" id="answer4">Placeholder, should be populated with data queried from database</button>
+      <div class="question-card">
+        <% for (const exam of quiz) { %>
+          <div class="q-card">
+            <div class="questions">
+              <%= exam.description %>
             </div>
-        </div>
-
-        <div class="question-cards">
-          <div class="questions">Questions 4: Lorem ipsum dolor sit amet. Qui minima natus aut minus commodi sed dolores accusamus et
-            dolorem repellendus id quas explicabo.</div>
             <div id="answer-buttons" class="btn-grid">
-              <button class="btn" id="answer1">Placeholder, should be populated with data queried from database</button>
-              <button class="btn" id="answer2">Placeholder, should be populated with data queried from database</button>
-              <button class="btn" id="answer3">Placeholder, should be populated with data queried from database</button>
-              <button class="btn" id="answer4">Placeholder, should be populated with data queried from database</button>
+              <div><input type="radio" name="question_<%= exam.question_id %>" id="answer_1_<%= exam.question_id %>" value="1" /><label for="answer_1_<%= exam.question_id %>" class="btn">1. <%= exam.answer_one %></label></div>
+              <div><input type="radio" name="question_<%= exam.question_id %>" id="answer_2_<%= exam.question_id %>" value="2" /><label for="answer_2_<%= exam.question_id %>" class="btn">2. <%= exam.answer_two %></label></div>
+              <div><input type="radio" name="question_<%= exam.question_id %>" id="answer_3_<%= exam.question_id %>" value="3" /><label for="answer_3_<%= exam.question_id %>" class="btn">3. <%= exam.answer_three %></label></div>
+              <div><input type="radio" name="question_<%= exam.question_id %>" id="answer_4_<%= exam.question_id %>" value="4" /><label for="answer_4_<%= exam.question_id %>" class="btn">4. <%= exam.answer_four %></label></div>
             </div>
-        </div>
+          </div>
+        <% } %>
       </div>
+      <button id="submit-btn" class="submit-btn">Submit</button>
     </section>
+
   </main>
-<!-- <button id="finish-btn" class="next-btn btn">Finish</button> -->
 </body>
 
 </html>
