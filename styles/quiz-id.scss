@@ -54,11 +54,20 @@ $questionCardBack: #D5E3F0;
   }
 }
 
+form {
+  display: none;
+}
+
+.show-button {
+  display: block;
+}
+
 .btn-grid {
   display: grid;
   gap: 3px;
   margin-top: 15px;
   margin-bottom: 5px;
+
   div {
     display: flex;
   }
@@ -72,6 +81,7 @@ $questionCardBack: #D5E3F0;
   border: none;
   width: 97%;
   margin-left: 10px;
+
   &:hover {
     box-shadow: 0 3px 8px rgb(0 0 0 / 0.2);
   }

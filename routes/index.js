@@ -9,7 +9,6 @@
 const express = require('express');
 const router = express.Router();
 const allQuizzes = require('../db/queries/get-quizzes');
-const aQuiz = require('../db/queries/quiz');
 
 router.get('/', (req, res) => {
   // Check if logged in for header

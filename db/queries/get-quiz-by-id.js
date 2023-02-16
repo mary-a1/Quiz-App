@@ -22,7 +22,6 @@ const getQuizById = (quizId) => {
 
   return db.query(queryString, queryParams)
     .then((result)=> {
-      console.log(result.rows);
       return result.rows;
     })
     .catch(err => {

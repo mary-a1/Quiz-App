@@ -16,14 +16,13 @@ router.get('/', (req, res) => {
   // Check if logged in for header
   const user = req.session.user;
   const loginFail = req.query.error === 'loginfailed';
-  // console.log(req.query.error === 'loginfailed');
   res.render('login', { user, loginFail });
 });
 
 router.post('/', (req, res) => {
   getUser.userLogin(req.body)
     .then((rows) => {
-      if (bcrypt.compareSync(req.body.password, rows[0].password)) {
+      if ((rows[0] !== undefined) && bcrypt.compareSync(req.body.password, rows[0].password)) {
         req.session.user = rows[0].id;
         return res.redirect('/');
       } else {
