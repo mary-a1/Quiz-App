@@ -53,8 +53,8 @@
       <h3>Questions</h3>
       <div class="question-card">
         <% for (const exam of quiz) { %>
-          <div class="q-card">
-            <div class="questions" id="<%= exam.question_id %>">
+          <div class="q-card" id="<%= exam.question_id %>">
+            <div class="questions" id="<%= exam.question_id %>_<%= exam.correct_answer %>">
               <%= exam.description %>
             </div>
             <div id="answer-buttons" class="btn-grid">
@@ -83,21 +83,44 @@
           </div>
           <% } %>
       </div>
-      <div class="wrapper">
-        <div class="rating">
-          <span class="star" name="1">&#9733;</span>
-          <span class="star" name="2">&#9733;</span>
-          <span class="star" name="3">&#9733;</span>
-          <span class="star" name="4">&#9733;</span>
-          <span class="star" name="5">&#9733;</span>
+
+      <!-- Submit quiz -->
+      <input type="text" name="quiz_info" class="hide" id="quiz_info">
+      <button id="submit-btn" class="submit-btn" type="button">Submit</button>
+
+      <!-- Add rating -->
+      <div id="popup" class="hide">
+        <div id="popup-container">
+          <button id="close-btn" type="button">&times;</button>
+          <h1>Your Score: <span id="score"></span></h1>
+          <div>Please give the quiz a rating!</div>
+          <div class="wrapper">
+            <div class="rating">
+              <span class="star" name="1">&#9733;</span>
+              <span class="star" name="2">&#9733;</span>
+              <span class="star" name="3">&#9733;</span>
+              <span class="star" name="4">&#9733;</span>
+              <span class="star" name="5">&#9733;</span>
+            </div>
+          </div>
+          <div class="share-link">
+            <i class="fa-solid fa-share-from-square"></i>
+            <button class="social-media" type="button"
+              onclick="window.open('https://facebook.com/sharer/sharer.php?u=http://localhost:8080/quiz/<%=        %>')">
+              Facebook</button>
+            <button class="social-media" type="button"
+              onclick="window.open('mailto:{to}?subject=Quiz&body=http://localhost:8080/quiz/<%=        %>')">
+              Email</button>
+            <button class="social-media" type="button"
+              onclick="window.open('whatsapp://send?text=http://localhost:8080/quiz/<%=      %>%20{Check out this quiz on Quiz Light}')">
+              Whatsapp</button>
+            <button class="social-media" type="button"
+              onclick="window.open('https://twitter.com/share?url=http://localhost:8080/quiz/<%=       %>&text=Check out this quiz&hashtags=QuizLight')">
+              Twitter</button>
+          </div>
         </div>
       </div>
-      <form method="POST" action="/quiz">
-        <input type="text" name="quiz_info" style="display:none" id="quiz_info">
-        <button id="submit-btn" class="submit-btn" type="submit">Submit</button>
-      </form>
     </section>
-
   </main>
 </body>
 
