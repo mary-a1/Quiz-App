@@ -58,15 +58,24 @@
               <%= exam.description %>
             </div>
             <div id="answer-buttons" class="btn-grid">
-              <div><input type="radio" name="question_<%= exam.question_id %>" id="answer_1_<%= exam.question_id %>"
-                  value="1" /><label for="answer_1_<%= exam.question_id %>" class="btn">1. <%= exam.answer_one %>
-                </label></div>
-              <div><input type="radio" name="question_<%= exam.question_id %>" id="answer_2_<%= exam.question_id %>"
-                  value="2" /><label for="answer_2_<%= exam.question_id %>" class="btn">2. <%= exam.answer_two %>
-                </label></div>
-              <div><input type="radio" name="question_<%= exam.question_id %>" id="answer_3_<%= exam.question_id %>"
-                  value="3" /><label for="answer_3_<%= exam.question_id %>" class="btn">3. <%= exam.answer_three %>
-                </label></div>
+              <div>
+                <input type="radio" name="question_<%= exam.question_id %>" id="answer_1_<%= exam.question_id %>"
+                  value="1" />
+                <label for="answer_1_<%= exam.question_id %>" class="btn">1. <%= exam.answer_one %>
+                </label>
+              </div>
+              <div>
+                <input type="radio" name="question_<%= exam.question_id %>" id="answer_2_<%= exam.question_id %>"
+                  value="2" />
+                <label for="answer_2_<%= exam.question_id %>" class="btn">2. <%= exam.answer_two %>
+                </label>
+              </div>
+              <div>
+                <input type="radio" name="question_<%= exam.question_id %>" id="answer_3_<%= exam.question_id %>"
+                  value="3" />
+                <label for="answer_3_<%= exam.question_id %>" class="btn">3. <%= exam.answer_three %>
+                </label>
+              </div>
               <div><input type="radio" name="question_<%= exam.question_id %>" id="answer_4_<%= exam.question_id %>"
                   value="4" /><label for="answer_4_<%= exam.question_id %>" class="btn">4. <%= exam.answer_four %>
                 </label></div>

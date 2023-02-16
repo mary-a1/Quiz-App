@@ -29,8 +29,12 @@ router.get('/:id', (req, res) => {
 
 // Post request after submitting quiz
 router.post('/', (req, res) => {
+  const playerId = req.session.user;
   const results = JSON.parse(req.body.quiz_info);
-  addResult.addResult(results)
+  const review = results.review;
+  const answersSelected = (({ review, ...o }) => o)(results);
+
+  addResult.addResult(playerId, review, answersSelected)
     .then(() => {
       return res.redirect('myresults');
     });

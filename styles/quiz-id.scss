@@ -54,6 +54,14 @@ $questionCardBack: #D5E3F0;
   }
 }
 
+form {
+  display: none;
+}
+
+.show-button {
+  display: block;
+}
+
 .btn-grid {
   display: grid;
   gap: 3px;

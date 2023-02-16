@@ -2,7 +2,7 @@ const db = require('../connection');
 const { addReview } = require('./add-review');
 
 
-const addResult = (quizId, playerId, review, answersSelected) => {
+const addResult = (playerId, review, answersSelected) => {
   const queryParams = [playerId];
 
   // Start the query
@@ -13,17 +13,22 @@ const addResult = (quizId, playerId, review, answersSelected) => {
   // Add inserts
   for (const [key, value] of Object.entries(answersSelected)) {
     queryParams.push(key);
-    queryString.push(value);
+    queryParams.push(value);
     const queryParamsPosition = queryParams.length;
-    queryString += `($1, ${queryParamsPosition - 1}, ${queryParamsPosition}), `;
+    queryString += `($1, $${queryParamsPosition - 1}, $${queryParamsPosition}), `;
   }
 
   // End the query
-  queryString = `${queryString.slice(0, -3)} RETURNING quiz_id;`;
-
+  queryString = `${queryString.slice(0, -2)} RETURNING question_id;`;
 
   return db.query(queryString, queryParams)
-    .then((quizId) => {
+    .then((result) => {
+      const queryParams = [result.rows[0].question_id];
+      const queryString = `SELECT quiz_id FROM questions WHERE id = $1`;
+      return db.query(queryString, queryParams);
+    })
+    .then((result) => {
+      const quizId = result.rows[0].quiz_id;
       const queryParams = [quizId, playerId, review];
       addReview(queryParams);
     })

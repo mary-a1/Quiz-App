@@ -4,6 +4,7 @@ $(document).ready(() => {
 });
 
 const answersSelected = function() {
+  $('form').addClass('show-button');
 
   // Color in the stars
   $('.star').addClass('selected');
@@ -13,10 +14,7 @@ const answersSelected = function() {
   }
   // Add the data to the submit button to transport
   const review = 6 - count;
-  const data = {
-    review,
-    quizId: 
-  };
+  const data = { review };
 
   $('.questions').each(function() {
 

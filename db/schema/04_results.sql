@@ -4,5 +4,5 @@ CREATE TABLE results (
   id SERIAL PRIMARY KEY NOT NULL,
   player_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   question_id INTEGER REFERENCES questions(id) ON DELETE CASCADE,
-  chosen_answer SMALLINT NOT NULL,
+  chosen_answer SMALLINT NOT NULL
 );
