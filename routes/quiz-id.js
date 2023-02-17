@@ -17,7 +17,7 @@ router.get('/:id', (req, res) => {
 
   quizQueries.getQuizById(quizId)
     .then((quiz) => {
-      const templateVar = { quiz, user };
+      const templateVar = { quiz: quiz.rows, user };
       res.render('quiz-id', templateVar);
     })
     .catch(error => {

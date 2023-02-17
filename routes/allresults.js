@@ -23,8 +23,4 @@ router.get('/:id', (req, res) => {
     });
 });
 
-// Look at each result in detail
-router.post('/', (req, res) => {
-});
-
 module.exports = router;

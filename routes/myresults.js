@@ -16,11 +16,7 @@ router.get('/', (req, res) => {
   const user = req.session.user;
   myResults.getAllMyResults(user)
     .then((results) => {
-      console.log('----------------------------------------------------------------');
-      console.log(results);
-      console.log('----------------------------------------------------------------');
-
-      const templateVar = { results: results, user };
+      const templateVar = { results: results.rows, user };
       res.render('allresults', templateVar);
     });
 

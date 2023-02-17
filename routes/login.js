@@ -21,9 +21,9 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   getUser.userLogin(req.body)
-    .then((rows) => {
-      if ((rows[0] !== undefined) && bcrypt.compareSync(req.body.password, rows[0].password)) {
-        req.session.user = rows[0].id;
+    .then((result) => {
+      if ((result.rows[0] !== undefined) && bcrypt.compareSync(req.body.password, result.rows[0].password)) {
+        req.session.user = result.rows[0].id;
         return res.redirect('/');
       } else {
         return res.redirect('/login?error=loginfailed');

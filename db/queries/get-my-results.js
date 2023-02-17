@@ -2,6 +2,7 @@ const db = require('../connection');
 
 const getAllMyResults = function(userId) {
   const queryParams = [userId];
+
   let queryString = `
   SELECT (
     SELECT  COUNT(*)
@@ -23,13 +24,7 @@ const getAllMyResults = function(userId) {
       GROUP BY quizzes.id
       ORDER BY score;`;
 
-  return db.query(queryString, queryParams)
-    .then((data) => {
-      return data.rows;
-    })
-    .catch(err => {
-      console.error(err);
-    });
+  return db.query(queryString, queryParams);
 };
 
 module.exports = { getAllMyResults };

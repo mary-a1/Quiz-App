@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 
   allQuizzes.getAllQuizzes(searchParams)
     .then((quizzes) => {
-      const templateVar = { quizzes, user };
+      const templateVar = { quizzes: quizzes.rows, user };
       res.render('index', templateVar);
     });
 });

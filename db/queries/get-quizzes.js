@@ -20,6 +20,7 @@ const getAllQuizzes = function(options = {}, limit = 10) {
   // End off the query string by ordering it based on rating
   queryString += ` GROUP BY quizzes.id`;
 
+  // Optional parameters
   if (options.min_rating) {
     queryParams.push(options.min_rating);
     queryString += ` HAVING avg(quiz_reviews.rating) >= $${queryParams.length}`;
@@ -31,13 +32,7 @@ const getAllQuizzes = function(options = {}, limit = 10) {
   ORDER BY average_rating
   LIMIT $${queryParams.length};`;
 
-  return db.query(queryString, queryParams)
-    .then((data) => {
-      return data.rows;
-    })
-    .catch(err => {
-      console.error(err);
-    });
+  return db.query(queryString, queryParams);
 };
 
 module.exports = { getAllQuizzes };

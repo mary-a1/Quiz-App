@@ -8,8 +8,6 @@
 const express = require('express');
 const router = express.Router();
 
-// check if user is logged in (cookie stuff)
-
 router.get('/', (req, res) => {
   // Check if logged in for header
   const user = req.session.user;

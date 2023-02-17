@@ -8,10 +8,7 @@ const getQuiz = function(quizId) {
   WHERE quizzes.id = $1
   ORDER BY questions.id`;
 
-  return db.query(queryString, queryParams)
-    .then((result) => {
-      return result.rows;
-    });
+  return db.query(queryString, queryParams);
 };
 
 module.exports = { getQuiz };

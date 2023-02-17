@@ -7,10 +7,8 @@ const userLogin = function(user) {
   WHERE email = $1`;
 
   const params = [user.email];
-  return db.query(queryString, params)
-    .then((result) => {
-      return result.rows;
-    });
+  return db.query(queryString, params);
+
 };
 
 module.exports = { userLogin };
