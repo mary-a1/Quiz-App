@@ -38,5 +38,4 @@ Quiz Light is a full stack web application built with Node and Express that lets
 7. Visit `http://localhost:8080/`
 
 
-
-
+[Our Planning](https://docs.google.com/document/d/1ytfNu72n7IhTsfabH17MTKdcO3XPmumQ0NQZ3zYg75w/edit)
