@@ -53,7 +53,7 @@ section {
 .buttons {
   display: flex;
   gap: 10px;
-
+  justify-content: center;
 }
 
 .quizbox-1 {
@@ -63,7 +63,7 @@ section {
 }
 
 .thumbnail-image {
-  width: 478px;
+  width: 443px;
   height: 390px;
 }
 

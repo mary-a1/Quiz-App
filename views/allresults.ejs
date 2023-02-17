@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Login</title>
+  <title>Quiz Light | My Results</title>
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -53,19 +53,16 @@
                 <div class="share-link">
                   <i class="fa-solid fa-share-from-square"></i>
                   <button class="social-media"
-                    onclick="window.open('https://facebook.com/sharer/sharer.php?href={www.google.com}&p[Quiz Light App]={Check out my score <%= result.score %> on this quiz <%= result.title %>}')">
-                    Facebook</button>
-                  <button class="social-media"
-                    onclick="window.open('mailto:?subject=Quiz Light | <%= result.title %> &body=Check out my score <%= result.score %> on this quiz on Quiz Light App!%>')">
+                    onclick="window.open('mailto:?subject=Quiz Light | <%= result.title %> &body=Check out my score <%= result.score %>/<%=result.total_questions%> on this quiz on Quiz Light App!%>')">
                     Email</button>
                   <button class="social-media"
-                    onclick="window.open('whatsapp://send?text=Check out my score <%= result.score %> on this quiz <%= result.title %> on Quiz Light')">
+                    onclick="window.open('whatsapp://send?text=Check out my score of <%= result.score %>/<%=result.total_questions%> on this quiz <%= result.title %> on Quiz Light')">
                     Whatsapp</button>
                   <button class="social-media"
-                    onclick="window.open('https://twitter.com/share?url=&text=Check out my score <%= result.score %> on this quiz <%= result.title %> &hashtags=QuizLight')">
+                    onclick="window.open('https://twitter.com/share?url=&text=Check out my score of <%= result.score %>/<%=result.total_questions%> on this quiz <%= result.title %> &hashtags=QuizLight')">
                     Twitter</button>
                   <button class="social-media"
-                    onclick="window.open('sms:?&body=Check out my score <%= result.score %> on this quiz <%= result.title %> on Quiz Light%>')">Text</button>
+                    onclick="window.open('sms:?&body=Check out my score of <%= result.score %>/<%=result.total_questions%> on this quiz <%= result.title %> on Quiz Light%>')">Text</button>
                 </div>
                 <% } %>
                   <p class="result">Result: <%=result.score%>/<%=result.total_questions%>

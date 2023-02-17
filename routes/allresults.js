@@ -19,7 +19,8 @@ router.get('/:id', (req, res) => {
   allResults.getAllResults(quizId)
     .then((results) => {
       const templateVar = { results: results.rows, user };
-      (user === results.rows[0].creator_id) ? res.render('allresults', templateVar) : res.redirect('/login');
+      console.log(results.rows);
+      ((results.rows[0]!== undefined) && (user === results.rows[0].creator_id)) ? res.render('allresults', templateVar) : res.redirect('/login');
     });
 });
 
