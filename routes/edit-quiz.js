@@ -18,9 +18,9 @@ router.get('/:id', (req, res) => {
   const user = req.session.user;
   const quizId = req.params.id;
   getQuizQueries.getQuiz(quizId)
-    .then((myQuiz) => {
-      const templateVar = { myQuiz: myQuiz.rows, user };
-      ((results.rows[0]!== undefined) &&(user === myQuiz.rows[0].creator_id)) ? res.render('edit-quiz', templateVar) : res.redirect('/login');
+    .then((results) => {
+      const templateVar = { myQuiz: results.rows, user };
+      ((results.rows[0] !== undefined) && (user === results.rows[0].creator_id)) ? res.render('edit-quiz', templateVar) : res.redirect('/login');
     });
 });
 
