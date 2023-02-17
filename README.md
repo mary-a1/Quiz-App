@@ -27,7 +27,7 @@ Quiz Light is a full stack web application built with Node and Express that lets
 
 ## Getting Started
 
-1. [Create]() a new repository using this repository as a template.
+1. [Create](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) a new repository using this repository as a template.
 2. Clone your repository onto your local device.
 3. Install dependencies: `npm i`
 4. Fix to binaries for sass: `npm rebuild node-sass`
