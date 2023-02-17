@@ -1,42 +1,30 @@
 const db = require('../connection');
-const { addReview } = require('./add-review');
+const { editResult } = require('./edit-results');
+const { appendResult } = require('./append-results');
 
 
 const addResult = (playerId, review, answersSelected) => {
-  const queryParams = [playerId];
+  const questionIds = Object.keys(answersSelected);
 
-  // Start the query
-  let queryString = `
-  INSERT INTO results (player_id, question_id, chosen_answer)
-  VALUES `;
-
-  // Add inserts
-  for (const [key, value] of Object.entries(answersSelected)) {
-    queryParams.push(key);
-    queryParams.push(value);
-    const queryParamsPosition = queryParams.length;
-    queryString += `($1, $${queryParamsPosition - 1}, $${queryParamsPosition}), `;
-  }
-
-  // End the query
-  queryString = `
-  ON CONFLICT (player_id, question_id) DO UPDATE
-  SET chosen_answer = EXCLUDED.chosen_answer
-  ${queryString.slice(0, -2)} RETURNING question_id;`;
+  // Check if user attempted the quiz
+  const queryString = `SELECT * FROM results WHERE question_id = $1 AND player_id = $2`;
+  const queryParams = [questionIds[0], playerId];
+  console.log('----------------------------------------------------');
+  console.log(queryString);
+  console.log('----------------------------------------------------');
 
   return db.query(queryString, queryParams)
     .then((result) => {
-      const queryParams = [result.rows[0].question_id];
-      const queryString = `SELECT quiz_id FROM questions WHERE id = $1`;
-      return db.query(queryString, queryParams);
-    })
-    .then((result) => {
-      const quizId = result.rows[0].quiz_id;
-      const queryParams = [quizId, playerId, review];
-      return addReview(queryParams);
-    })
-    .catch(err => {
-      console.error(err);
+
+      console.log('----------------------------------------------------');
+      console.log(result.rows);
+      console.log('----------------------------------------------------');
+      if (result.rows.length === 0) {
+        return appendResult(playerId, review, answersSelected, questionIds);
+      } else {
+        return editResult(playerId, review, answersSelected, questionIds);
+      }
+
     });
 };
 
