@@ -36,6 +36,25 @@ const answersSelected = function() {
 
   // Add the data collected
   $('#score').text(`${score}/${totalQuestions}`);
+  $('.social-media').each(function() {
+    const $socialMediaType = $(this).attr('id');
+    switch ($socialMediaType) {
+      case 'facebook':
+        $($socialMediaType).attr("onclick","window.open('https://facebook.com/sharer/sharer.php?u={www.google.com}&p[Quiz Light App]={Check out my score <%= result.score %> on this quiz <%= result.title %>}')");
+        break;
+      case 'email':
+        $($socialMediaType).attr("onclick","window.open('mailto:?subject=Quiz Light | <%= result.title %> &body=Check out my score <%= result.score %> on this quiz on Quiz Light App!%>')");
+        break;
+      case 'whatsapp':
+        $($socialMediaType).attr("onclick","window.open('whatsapp://send?text=Check out my score <%= result.score %> on this quiz <%= result.title %> on Quiz Light')");
+        break;
+      case 'twitter':
+        const link = ``
+        $($socialMediaType).attr("onclick","window.open(https://twitter.com/share?url=&text=Check out my score <%= result.score %> on this quiz <%= result.title %> &hashtags=QuizLight`)");
+
+    }
+
+  });
   $('#quiz_info').attr('value', JSON.stringify(data));
   $('#popup').removeClass('hide');
   $('#popup').addClass('show');
