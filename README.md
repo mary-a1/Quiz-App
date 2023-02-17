@@ -4,13 +4,13 @@ Quiz Light is a full stack web application built with Node and Express that lets
 
 
 ## Final Product
-!["Homepage"]()
+!["Homepage"](docs/quiz-homepage.png)
 
-!["Search Page"]()
+!["Search Page"](docs/quiz-search.png)
 
-!["Create Quiz Page"]()
+!["Create Quiz Page"](docs/quiz-create.png)
 
-!["My Quizzes Page"]()
+!["My Quizzes Page"](docs/quiz-myquizzes.png)
 
 ## Dependencies
 
