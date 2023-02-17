@@ -19,7 +19,6 @@ const appendResult = function(playerId, review, answersSelected, questionIds) {
   // End the query
   queryString = `${queryString.slice(0, -2)}`;
 
-  db.query(queryString, queryParams);
   return db.query(queryString, queryParams)
     .then(() => {
       const queryParams = [questionIds[0]];

@@ -8,22 +8,22 @@ const editResult = function(playerId, review, answersSelected, questionIds) {
   let i = 0;
   while (i < numberOfQuestions - 1) {
     const key = questionIds[i];
-    const queryParams = [playerId, key, answersSelected.key];
+    const queryParams = [playerId, key, answersSelected[`${key}`]];
     let queryString = `
             UPDATE results SET
             player_id = $1,
             question_id = $2,
             chosen_answer = $3;`;
-    i++;
     db.query(queryString, queryParams);
+    i++;
   }
-  const key = questionIds[i];
-  const queryParams = [playerId, key, answersSelected.key];
+  const key = questionIds[numberOfQuestions - 1];
+  const queryParams = [playerId, key, answersSelected[`${key}`]];
   let queryString = `
           UPDATE results SET
-          player_id = $1,
-          question_id = $2,
-          chosen_answer = $3;`;
+          chosen_answer = $3
+          WHERE player_id = $1
+          AND question_id = $2;`;
   db.query(queryString, queryParams)
     .then(() => {
       const queryParams = [questionIds[0]];
