@@ -18,7 +18,7 @@ router.get('/:id', (req, res) => {
 
   allResults.getAllResults(quizId)
     .then((results) => {
-      const templateVar = { results, user };
+      const templateVar = { results: results.rows, user };
       res.render('allresults', templateVar);
     });
 });
