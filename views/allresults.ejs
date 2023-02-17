@@ -13,7 +13,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,800&family=Roboto:wght@500;900&display=swap"
     rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
     integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -37,20 +37,24 @@
     <%- include('./partials/header', {user}) %>
   </header>
   <section class="section">
-    <% if (results.length !== 0 ){ %>
-      <h1><%= (results[0].user) ? results[0].title : 'My Results '%></h1>
+    <% if (results.length !==0 ){ %>
+      <h1>
+        <%= (results[0].user) ? results[0].title : 'My Results ' %>
+      </h1>
       <div class="result-container">
         <% for (const result of results) { %>
           <div class="text-box1">
             <% if (result.user) { %>
               <i class="fa-solid fa-user fa-xl"> Player: <%=result.user%></i>
               <% } else { %>
-                <img class="thumbnail-image-result"src=<%= result.thumbnail_url %>>
-                <p> Title: <%=result.title %> </p>
+                <img class="thumbnail-image-result" src=<%=result.thumbnail_url %>>
+                <p> Title: <%=result.title %>
+                </p>
                 <div class="share-link">
                   <i class="fa-solid fa-share-from-square"></i>
                   <button class="social-media"
-                    onclick="window.open('https://facebook.com/sharer/sharer.php?href={www.google.com}&p[Quiz Light App]={Check out my score <%= result.score %> on this quiz <%= result.title %>}')"> Facebook</button>
+                    onclick="window.open('https://facebook.com/sharer/sharer.php?href={www.google.com}&p[Quiz Light App]={Check out my score <%= result.score %> on this quiz <%= result.title %>}')">
+                    Facebook</button>
                   <button class="social-media"
                     onclick="window.open('mailto:?subject=Quiz Light | <%= result.title %> &body=Check out my score <%= result.score %> on this quiz on Quiz Light App!%>')">
                     Email</button>
@@ -61,17 +65,18 @@
                     onclick="window.open('https://twitter.com/share?url=&text=Check out my score <%= result.score %> on this quiz <%= result.title %> &hashtags=QuizLight')">
                     Twitter</button>
                   <button class="social-media"
-                  onclick="window.open('sms:?&body=Check out my score <%= result.score %> on this quiz <%= result.title %> on Quiz Light%>')">Text</button>
+                    onclick="window.open('sms:?&body=Check out my score <%= result.score %> on this quiz <%= result.title %> on Quiz Light%>')">Text</button>
                 </div>
                 <% } %>
-                <p class="result">Result: <%=result.score%></p>
-              </div>
-              <% } %>
+                  <p class="result">Result: <%=result.score%>/<%=result.total_questions%>
+                  </p>
+          </div>
+          <% } %>
       </div>
       <% } else { %>
-      <h3> There are no attempted quizzes to display...</h3>
-      <% } %>
-</section>
+        <h3> There are no attempted quizzes to display...</h3>
+        <% } %>
+  </section>
 </body>
 
 </html>

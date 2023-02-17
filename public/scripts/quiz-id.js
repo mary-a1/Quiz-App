@@ -63,23 +63,23 @@ const submitQuiz = function(event) {
 
   const data = $('#quiz_info').val();
   $.post('/quiz', data, function(res) {
-    window.location.href = 'http://localhost:8080/quiz/myresults';
+    window.location.href = 'http://localhost:8080/myresults';
   });
 };
 
 const shareButton = function(buttonId) {
   switch (buttonId) {
     case 'facebook':
-      window.open('https://facebook.com/sharer/sharer.php?u=http://localhost:8080/quiz/<%=        %>');
+      window.open('www.facebook.com');
       break;
     case 'email':
-      window.open('mailto:{to}?subject=Quiz&body=http://localhost:8080/quiz/<%=        %>');
+      window.open('www.facebook.com');
       break;
     case 'whatsapp':
-      window.open('whatsapp://send?text=http://localhost:8080/quiz/<%=      %>%20{Check out this quiz on Quiz Light}');
+      window.open('www.facebook.com');
       break;
     case 'twitter':
-      window.open('https://twitter.com/share?url=http://localhost:8080/quiz/<%=       %>&text=Check out this quiz&hashtags=QuizLight');
+      window.open('www.facebook.com');
   }
 
 };
