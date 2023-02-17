@@ -19,7 +19,10 @@ const addResult = (playerId, review, answersSelected) => {
   }
 
   // End the query
-  queryString = `${queryString.slice(0, -2)} RETURNING question_id;`;
+  queryString = `
+  ON CONFLICT (player_id, question_id) DO UPDATE
+  SET excluded.chosen_answer;
+  ${queryString.slice(0, -2)} RETURNING question_id;`;
 
   return db.query(queryString, queryParams)
     .then((result) => {
