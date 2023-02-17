@@ -19,7 +19,7 @@ router.get('/:id', (req, res) => {
   allResults.getAllResults(quizId)
     .then((results) => {
       const templateVar = { results: results.rows, user };
-      res.render('allresults', templateVar);
+      (user === results.rows[0].creator_id) ? res.render('allresults', templateVar) : res.redirect('/login');
     });
 });
 

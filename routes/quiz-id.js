@@ -18,7 +18,7 @@ router.get('/:id', (req, res) => {
   quizQueries.getQuizById(quizId)
     .then((quiz) => {
       const templateVar = { quiz: quiz.rows, user };
-      res.render('quiz-id', templateVar);
+      (quiz.rows.length !== 0) ? res.render('quiz-id', templateVar) : res.redirect('/');
     })
     .catch(error => {
       console.error(error);

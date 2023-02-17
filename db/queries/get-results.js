@@ -2,8 +2,8 @@ const db = require('../connection');
 
 const getAllResults = function(quizId) {
   const queryParams = [quizId];
-  
-  let queryString = `SELECT COUNT(results.id) AS score, users.name AS user, quizzes.title AS quiz, (SELECT COUNT(*)
+
+  let queryString = `SELECT COUNT(results.id) AS score, users.name AS user, quizzes.title AS quiz, quizzes.creator_id, (SELECT COUNT(*)
   FROM questions
   WHERE quiz_id = $1) AS total_questions
   FROM results AS results
@@ -26,7 +26,7 @@ const getAllResults = function(quizId) {
     )
   )
   AND results.chosen_answer = questions.correct_answer
-  GROUP BY users.name, quizzes.title;`;
+  GROUP BY users.name, quizzes.title, quizzes.creator_id;`;
 
   return db.query(queryString, queryParams);
 
