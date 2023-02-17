@@ -22,7 +22,7 @@ const getAllQuizzes = function(options = {}, limit = 10) {
 
   // Optional parameters
   if (options.min_rating) {
-    queryParams.push(options.min_rating);
+    queryParams.push(Number(options.min_rating) - 0.5);
     queryString += ` HAVING avg(quiz_reviews.rating) >= $${queryParams.length}`;
   }
 
@@ -32,7 +32,7 @@ const getAllQuizzes = function(options = {}, limit = 10) {
   ORDER BY average_rating
   LIMIT $${queryParams.length};`;
 
-  return db.query(queryString, queryParams);
+  return db.query(queryString, queryParams)
 };
 
 module.exports = { getAllQuizzes };

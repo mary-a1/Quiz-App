@@ -35,10 +35,6 @@ app.use(cookieSession({
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const userApiRoutes = require('./routes/users-api');
-const widgetApiRoutes = require('./routes/widgets-api');
-const usersRoutes = require('./routes/users');
-const quizRoutes = require('./routes/quiz');
 const searchRoutes = require('./routes/search');
 const createRoutes = require('./routes/create-quiz');
 const loginRoutes = require('./routes/login');
@@ -56,10 +52,6 @@ const myResultsRoutes = require('./routes/myresults');
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
-app.use('/api/users', userApiRoutes);
-app.use('/api/widgets', widgetApiRoutes);
-app.use('/users', usersRoutes);
-app.use('/quiz', quizRoutes);
 app.use('/search', searchRoutes);
 app.use('/new', createRoutes);
 app.use('/login', loginRoutes);

@@ -17,9 +17,10 @@ router.get('/:id', (req, res) => {
   const user = req.session.user;
 
   allResults.getAllResults(quizId)
-    .then((results) => {
-      const templateVar = { results: results.rows, user };
-      ((results.rows[0] !== undefined) && (user === results.rows[0].creator_id)) ? res.render('allresults', templateVar) : res.redirect('/login');
+    .then((quizzes) => {
+      const results = ((Array.isArray(quizzes)) ? quizzes : quizzes.rows);
+      const templateVar = { results, user };
+      (user !== results[0].creator_id) ? res.redirect('/') : res.render('allresults', templateVar);
     });
 });
 

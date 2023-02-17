@@ -28,7 +28,15 @@ const getAllResults = function(quizId) {
   AND results.chosen_answer = questions.correct_answer
   GROUP BY users.name, quizzes.title, quizzes.creator_id;`;
 
-  return db.query(queryString, queryParams);
+  return db.query(queryString, queryParams)
+    .then((results) => {
+      if (results.rows.length === 0) {
+        const queryParams = [quizId];
+        const queryString = `SELECT title, creator_id FROM quizzes WHERE id = $1;`
+        return db.query(queryString, queryParams);
+      }
+      return results.rows
+    })
 
 };
 

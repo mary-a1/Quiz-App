@@ -22,7 +22,6 @@
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
-  <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/header.css" />
   <link rel="stylesheet" href="/styles/results.css" />
 
@@ -37,7 +36,10 @@
     <%- include('./partials/header', {user}) %>
   </header>
   <section class="section">
-    <% if (results.length !==0 ){ %>
+    <% if ((results.length === 0) || (results[0].score === undefined)) { %>
+      <h3> There are no attempted quizzes to display...</h3>
+      <% } %>
+    <% if ((results.length !==0 ) && (results[0].score !== undefined)){ %>
       <h1>
         <%= (results[0].user) ? results[0].title : 'My Results ' %>
       </h1>
@@ -70,9 +72,7 @@
           </div>
           <% } %>
       </div>
-      <% } else { %>
-        <h3> There are no attempted quizzes to display...</h3>
-        <% } %>
+      <% } %>
   </section>
 </body>
 
