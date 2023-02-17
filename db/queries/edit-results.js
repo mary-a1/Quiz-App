@@ -10,10 +10,10 @@ const editResult = function(playerId, review, answersSelected, questionIds) {
     const key = questionIds[i];
     const queryParams = [playerId, key, answersSelected[`${key}`]];
     let queryString = `
-            UPDATE results SET
-            player_id = $1,
-            question_id = $2,
-            chosen_answer = $3;`;
+        UPDATE results SET
+        chosen_answer = $3
+        WHERE player_id = $1
+        AND question_id = $2;`;
     db.query(queryString, queryParams);
     i++;
   }
