@@ -115,7 +115,7 @@ $questionCardBack: #D5E3F0;
 }
 
 span {
-  font-size: 120px;
+  font-size: 50px;;
   color: #f5f5f5;
   text-shadow: 0px 5px 5px #000;
 }
@@ -147,6 +147,8 @@ span {
   z-index: 99;
   border-radius: 10px;
   background-color: #ffffff;
+  border: solid black;
+  box-shadow: 10px 15px #121212
 }
 
 #close-btn {

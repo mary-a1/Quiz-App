@@ -40,14 +40,6 @@ header {
   padding: 1em;
 }
 
-@media only screen and (max-width: 420px) {
-  /* Write smartphone only styles here */
-}
-
-@media only screen and (max-width: 1024px) {
-  /* Write CSS rules that target Tablets screen sizes downwards - including smartphones */
-}
-
 @media screen and (max-width: 700px) {
   .navbar-nav {
     width: 100%;
